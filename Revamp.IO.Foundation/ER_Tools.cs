@@ -15,8 +15,8 @@ using Revamp.IO.DB.Bridge;
 using Revamp.IO.Structs.Enums;
 using System.Configuration;
 using Revamp.IO.Structs.Models;
-using System.Web.Script.Serialization;
 using Revamp.IO.Structs;
+using Newtonsoft.Json;
 
 namespace Revamp.IO.Foundation
 {
@@ -800,8 +800,7 @@ namespace Revamp.IO.Foundation
 
         public static string ConvertSerializabaleObjectToString(object ThisObject)
         {
-            var jsonSerialiser = new JavaScriptSerializer();
-            var json = jsonSerialiser.Serialize(ThisObject);
+            var json = JsonConvert.SerializeObject(ThisObject);
 
             return json;
         }

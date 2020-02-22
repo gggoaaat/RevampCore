@@ -71,8 +71,8 @@ namespace Revamp.IO.Helpers.Helpers
             List<ViewGripModel> grips = new List<ViewGripModel>();
             IOHelper io = new IOHelper();
             string jsonString = "";
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            StageBuilderModel stageBuilder = serializer.Deserialize<StageBuilderModel>("");
+
+            StageBuilderModel stageBuilder = new StageBuilderModel();
 
             if (thisApp != null)
             {
@@ -93,7 +93,7 @@ namespace Revamp.IO.Helpers.Helpers
                     }
 
                     jsonString = io.getStringFromBytesViaObjectProSetid(_Connect, obj_prop_sets_uuid);
-                    stageBuilder = serializer.Deserialize<StageBuilderModel>(HttpUtility.HtmlDecode(jsonString));
+                    stageBuilder = JsonConvert.DeserializeObject<StageBuilderModel>(HttpUtility.HtmlDecode(jsonString));
                 }
             }
 

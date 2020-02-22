@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Revamp.IO.Binds\Revamp.IO.Binds.csproj" />
     <ProjectReference Include="..\Revamp.IO.DB.Bridge\Revamp.IO.DB.Bridge.csproj" />
     <ProjectReference Include="..\Revamp.IO.Structs\Revamp.IO.Structs.csproj" />
     <ProjectReference Include="..\Revamp.IO.Tools\Revamp.IO.Tools.csproj" />
