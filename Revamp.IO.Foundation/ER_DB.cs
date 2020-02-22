@@ -15,6 +15,7 @@ using System.Configuration;
 using Revamp.IO.Foundation;
 using Revamp.IO.DB.Bridge;
 using Revamp.IO.Structs;
+using Microsoft.Data.SqlClient;
 
 namespace Revamp.IO.Foundation
 {

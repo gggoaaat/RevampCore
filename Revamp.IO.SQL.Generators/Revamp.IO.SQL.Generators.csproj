@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SqlServer.SqlManagementObjects" Version="150.18208.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revamp.IO.DB.Bridge\Revamp.IO.DB.Bridge.csproj" />
+    <ProjectReference Include="..\Revamp.IO.Structs\Revamp.IO.Structs.csproj" />
+    <ProjectReference Include="..\Revamp.IO.Tools\Revamp.IO.Tools.csproj" />
+  </ItemGroup>
+
 </Project>
