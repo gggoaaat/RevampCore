@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revamp.IO.Binds\Revamp.IO.Binds.csproj" />
+    <ProjectReference Include="..\Revamp.IO.DB.Bridge\Revamp.IO.DB.Bridge.csproj" />
+    <ProjectReference Include="..\Revamp.IO.Foundation\Revamp.IO.Foundation.csproj" />
+    <ProjectReference Include="..\Revamp.IO.SQL.Generators\Revamp.IO.SQL.Generators.csproj" />
+    <ProjectReference Include="..\Revamp.IO.Structs\Revamp.IO.Structs.csproj" />
+  </ItemGroup>
+
+</Project>
