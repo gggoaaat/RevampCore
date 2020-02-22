@@ -7,6 +7,7 @@ using Revamp.IO.Foundation;
 using Revamp.IO.Structs;
 using Revamp.IO.Structs.Models;
 using Revamp.IO.Structs.Models.DataEntry;
+using SixLabors.ImageSharp;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -806,6 +807,7 @@ namespace Revamp.IO.Helpers.Helpers
             return FileBytes;
         }
 
+        //TODO: Verify .Net Core Port
         public string getFileFromLocalPath(string localPath)
         {
             string base64String = "";
@@ -814,12 +816,19 @@ namespace Revamp.IO.Helpers.Helpers
             //            char[] base64 = new char[fileContent.Length];
             //            System.Buffer.BlockCopy(fileContent, 0, base64, 0, fileContent.Length);
 
-            base64String = System.Convert.ToBase64String(fileContent, 0, fileContent.Length);
+            //base64String = System.Convert.ToBase64String(fileContent, 0, fileContent.Length);
 
             MemoryStream ms = new MemoryStream(fileContent);
-            System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
+            //System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
+            int height =0;
+            int width = 0;
+            using (Image image = Image.Load(ms))
+            {
+                height = image.Height;
+                width = image.Width;
+            }
 
-            return base64String + "$$$$" + returnImage.Height + "$$$$" + returnImage.Width;
+            return base64String + "$$$$" + height + "$$$$" + width;
         }
 
 
