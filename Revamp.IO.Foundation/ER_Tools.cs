@@ -10,7 +10,6 @@ using System.Web;
 using System.Diagnostics;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-//using Microsoft.VisualBasic.FileIO;
 using Revamp.IO.DB.Bridge;
 using Revamp.IO.Structs.Enums;
 using System.Configuration;
@@ -19,6 +18,7 @@ using Revamp.IO.Structs;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using TextFieldParserCore;
 
 namespace Revamp.IO.Foundation
 {
@@ -530,6 +530,7 @@ namespace Revamp.IO.Foundation
             try
             {
                 //using (TextFieldParser parser = new TextFieldParser("C:\\Users\\jose\\Source\\Repos\\revamp\\ER\\Files\\Test.csv"))
+                //TODO: Verify .Net Core Port
                 using (TextFieldParser parser = new TextFieldParser(stream))
                 {
                     parser.TextFieldType = FieldType.Delimited;

@@ -10,6 +10,8 @@ using Revamp.IO.Structs.Models;
 using Revamp.IO.Structs.Models.DataEntry;
 using Revamp.IO.DB.Binds.IO.Dynamic;
 using Revamp.IO.Structs;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Revamp.IO.Helpers.Helpers
 {
@@ -213,13 +215,15 @@ namespace Revamp.IO.Helpers.Helpers
             add addHelp = new add();
 
             Values.AddContainer _result = new Values.AddContainer();
-            IValueProvider valueProvider = collection.ToValueProvider();
+
             if (collection.Keys.Count > 0)
             {
-
-                ValueProviderResult result = valueProvider.GetValue(collection.Keys[0].ToString());
-
-                _result = addHelp.ADD_ENTRY_Containers(_Connect, new Values.AddContainer { I_CONTAINER_NAME = result.AttemptedValue.ToString() });
+                //TODO: Verify .Net Core Port
+                foreach(var key in collection.Keys)
+                {
+                    _result = addHelp.ADD_ENTRY_Containers(_Connect, new Values.AddContainer { I_CONTAINER_NAME = collection[key].ToString() });
+                    break;
+                }                
 
                 if (_result.O_CONTAINERS_ID > 0)
                 {
