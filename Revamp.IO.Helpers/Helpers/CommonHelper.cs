@@ -134,9 +134,10 @@ namespace Revamp.IO.Helpers.Helpers
 
         public static string ReturnViewToString(CommonModels.MVCGetPartial thisModel)
         {
-            thisModel._ViewData = thisModel._ViewData == null ? new ViewDataDictionary() : thisModel._ViewData;
+            //TODO: Review .Net Core Port COnversion
+            /*thisModel._ViewData = thisModel._ViewData ?? null;
 
-            thisModel._TempData = thisModel._TempData == null ? new TempDataDictionary() : thisModel._TempData;
+            thisModel._TempData = thisModel._TempData ?? null;
 
             thisModel._ViewData.Model = thisModel.model;
 
@@ -153,7 +154,8 @@ namespace Revamp.IO.Helpers.Helpers
                 viewResult.ViewEngine.ReleaseView(thisModel._thisController, viewResult.View);
 
                 return sw.GetStringBuilder().ToString();
-            }
+            }*/
+            return "Review this .Net Core Port";
         }
 
         public static string ReturnString(string HtmlJsCssJson)

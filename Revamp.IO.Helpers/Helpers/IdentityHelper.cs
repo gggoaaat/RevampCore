@@ -280,7 +280,7 @@ namespace Revamp.IO.Helpers.Helpers
 
         public string AddIdentity(IConnectToDB _Connect, FormCollection _formCollection)
         {
-            IValueProvider valueProvider = _formCollection.ToValueProvider();
+           // IValueProvider valueProvider = _formCollection.ToValueProvider();
             ER_DML er_dml = new ER_DML();
             add addHelp = new add();
             DMLHelper DMLH = new DMLHelper();

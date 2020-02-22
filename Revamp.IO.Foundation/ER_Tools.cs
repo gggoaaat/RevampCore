@@ -10,13 +10,15 @@ using System.Web;
 using System.Diagnostics;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-using Microsoft.VisualBasic.FileIO;
+//using Microsoft.VisualBasic.FileIO;
 using Revamp.IO.DB.Bridge;
 using Revamp.IO.Structs.Enums;
 using System.Configuration;
 using Revamp.IO.Structs.Models;
 using Revamp.IO.Structs;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Revamp.IO.Foundation
 {
@@ -805,16 +807,15 @@ namespace Revamp.IO.Foundation
             return json;
         }
 
-
-
         public static string GetPathLocation(string SQLFilePath, string appSettingName = "sqlFileTarget")
         {
-
+           
             bool sqlFileTarget = ConfigurationManager.AppSettings.Get(appSettingName) != null ? Convert.ToBoolean(ConfigurationManager.AppSettings.Get(appSettingName)) : false;
 
             string RootPath = sqlFileTarget ? "" : string.Join("\\", System.AppDomain.CurrentDomain.BaseDirectory.Split(new[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).Reverse().Skip(1).Reverse().ToArray()) + "\\";
-
-            string ServerPath = sqlFileTarget ? HttpContext.Current.Server.MapPath("~") + SQLFilePath : RootPath + SQLFilePath;
+            
+            //TODO: Verify .Net Core Port
+            string ServerPath = sqlFileTarget ? System.IO.Directory.GetCurrentDirectory() + SQLFilePath : RootPath + SQLFilePath;
             return ServerPath;
         }
 
