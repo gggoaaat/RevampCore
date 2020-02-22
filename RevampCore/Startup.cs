@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,6 +33,19 @@ namespace RevampCore
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                googleOptions.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
+                googleOptions.ClaimActions.Clear();
+                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "id");
+                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
+                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "given_name");
+                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Surname, "family_name");
+                googleOptions.ClaimActions.MapJsonKey("urn:google:profile", "link");
+                googleOptions.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -51,6 +66,8 @@ namespace RevampCore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
