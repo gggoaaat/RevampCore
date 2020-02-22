@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <UserSecretsId>aspnet-RevampCore-F0939183-D4FF-4913-81C9-FDD8B06BA6D9</UserSecretsId>
+    <UserSecretsId>ddd38409-0700-4c86-9549-be8e3b2f3b7e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
