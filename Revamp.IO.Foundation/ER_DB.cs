@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Text;
-using System.Data.SqlClient;
-using System.IO;
-using System.Data;
-using System.Threading;
-using Microsoft.SqlServer;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
-using System.Configuration;
-using Revamp.IO.Foundation;
 using Revamp.IO.DB.Bridge;
 using Revamp.IO.Structs;
-using Microsoft.Data.SqlClient;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
 
 namespace Revamp.IO.Foundation
 {
@@ -35,10 +26,12 @@ namespace Revamp.IO.Foundation
         {
             List<string> Logger = new List<string>();
 
-            DROP_ALL((IConnectToDB)new ConnectToDB { 
-                Platform = ERStruct.DB_PLATFORM, 
-                DBConnString = ERStruct.connAuth, 
-                SourceDBOwner = ERStruct.SystemName });
+            DROP_ALL(new ConnectToDB
+            {
+                Platform = ERStruct.DB_PLATFORM,
+                DBConnString = ERStruct.connAuth,
+                SourceDBOwner = ERStruct.SystemName
+            });
 
             return Logger;
         }
@@ -49,7 +42,7 @@ namespace Revamp.IO.Foundation
 
 
             switch (_Connect.Platform.ToUpper())
-            { 
+            {
                 case "MICROSOFT":
                     Logger.Add(DROP_MSSQL_DB(_Connect, _Connect.SourceDBOwner));
                     Logger.Add(DROP_MSSQL_USER(_Connect, _Connect.SourceDBOwner));
@@ -70,7 +63,7 @@ namespace Revamp.IO.Foundation
                         _result._Response = er_query.RUN_NON_QUERY(_Connect, sqlIn, SuccessMessage);
                         _result._Successful = _result._Response.IndexOf(SuccessMessage) > -1 ? true : false;
                         _result._EndTime = DateTime.Now;
-                        Logger.Add(_result); 
+                        Logger.Add(_result);
                     }
 
                     break;
@@ -90,36 +83,36 @@ namespace Revamp.IO.Foundation
             try
             {
                 String connectionString = _Connect.DBConnString;
+                //TODO: Verify Core.net conversion
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {                    
+                    ServerConnection conn = new ServerConnection();
+                    Server srv = new Server();
 
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                ServerConnection conn = new ServerConnection(sqlConnection);
-                Server srv = new Server(conn);
+                    //Connect to the local, default instance of SQL Server. 
+                    // Server srv = new Server);
+                    //Define a Database object variable by supplying the server and the database name arguments in the constructor. 
+                    Database db;
+                    db = new Database(srv, Name);
+                    //Create the database on the instance of SQL Server. 
+                    db.Create();
+                    //db.SetOwner(Name);
+                    db.Alter();
+                    //Reference the database and display the date when it was created. 
+                    //db = srv.Databases["Test_SMO_Database"];
+                    //Console.WriteLine(db.CreateDate);
+                    //Remove the database. 
+                    //db.Drop();
 
-
-                //Connect to the local, default instance of SQL Server. 
-                // Server srv = new Server);
-                //Define a Database object variable by supplying the server and the database name arguments in the constructor. 
-                Database db;
-                db = new Database(srv, Name);
-                //Create the database on the instance of SQL Server. 
-                db.Create();
-                //db.SetOwner(Name);
-                db.Alter();
-                //Reference the database and display the date when it was created. 
-                //db = srv.Databases["Test_SMO_Database"];
-                //Console.WriteLine(db.CreateDate);
-                //Remove the database. 
-                //db.Drop();
-
-                _result._Response = "SQL Server Database Created";
-                _result._Successful = true;
-                
+                    _result._Response = "SQL Server Database Created";
+                    _result._Successful = true;
+                }
             }
             catch (Exception e)
             {
                 _result._Response = e.ToString();
                 _result._Successful = false;
-                
+
             }
 
             _result._EndTime = DateTime.Now;
@@ -134,23 +127,25 @@ namespace Revamp.IO.Foundation
             try
             {
                 String connectionString = _Connect.DBConnString;
+                //TODO: Verify .net Core conversion
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    ServerConnection conn = new ServerConnection();
+                    Server srv = new Server(conn);
 
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                ServerConnection conn = new ServerConnection(sqlConnection);
-                Server srv = new Server(conn);
+                    Login newLogin = new Login(srv, LoginName);
+                    newLogin.LoginType = Microsoft.SqlServer.Management.Smo.LoginType.SqlLogin;
 
-                Login newLogin = new Login(srv, LoginName);
-                newLogin.LoginType = Microsoft.SqlServer.Management.Smo.LoginType.SqlLogin;
+                    //newLogin.AddToRole("sysadmin");
 
-                //newLogin.AddToRole("sysadmin");
+                    newLogin.DefaultDatabase = DefaultDatabase;
 
-                newLogin.DefaultDatabase = DefaultDatabase;
+                    newLogin.Create(Password);
 
-                newLogin.Create(Password);
+                    _result._Response = "SQL Server Login " + LoginName + " Created. The defaultdb is " + newLogin.DefaultDatabase.ToString();
 
-                _result._Response = "SQL Server Login " + LoginName + " Created. The defaultdb is " + newLogin.DefaultDatabase.ToString();
-
-                _result._Successful = true;
+                    _result._Successful = true;
+                }
             }
             catch (Exception e)
             {
@@ -189,42 +184,45 @@ namespace Revamp.IO.Foundation
             {
                 String connectionString = _Connect.DBConnString;
 
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                ServerConnection conn = new ServerConnection(sqlConnection);
-                Server srv = new Server(conn);
-                Database db = srv.Databases[DatabaseName];
+                //TODO: Verify .net Core conversion
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    ServerConnection conn = new ServerConnection();
+                    Server srv = new Server(conn);
+                    Database db = srv.Databases[DatabaseName];
 
-                User newUser = new User(db, UserName);
+                    User newUser = new User(db, UserName);
 
-                newUser.DefaultSchema = DefaultSchema;
-                newUser.Login = LoginName;
+                    newUser.DefaultSchema = DefaultSchema;
+                    newUser.Login = LoginName;
 
-                Thread.Sleep(5000);
+                    Thread.Sleep(5000);
 
-                newUser.Create();
+                    newUser.Create();
 
-                DatabasePermissionSet perms = new DatabasePermissionSet();
+                    DatabasePermissionSet perms = new DatabasePermissionSet();
 
-                perms.Connect = true;
-                perms.CreateTable = true;
+                    perms.Connect = true;
+                    perms.CreateTable = true;
 
-                perms.Select = true;
-                perms.Insert = true;
-                perms.Delete = true;
-                perms.Execute = true;
-                perms.CreateSchema = true;
-                perms.CreateRole = true;
-                perms.CreateTable = true;
-                perms.CreateProcedure = true;
-                perms.CreateFunction = true;
-                perms.Control = true;
-                perms.TakeOwnership = true;
+                    perms.Select = true;
+                    perms.Insert = true;
+                    perms.Delete = true;
+                    perms.Execute = true;
+                    perms.CreateSchema = true;
+                    perms.CreateRole = true;
+                    perms.CreateTable = true;
+                    perms.CreateProcedure = true;
+                    perms.CreateFunction = true;
+                    perms.Control = true;
+                    perms.TakeOwnership = true;
 
 
-                db.Grant(perms, UserName);
-               
-                _result._Response = "SQL Server UserName " + UserName + " Created for Login " + LoginName + ". The defaultdb is " + DatabaseName;
-                _result._Successful = true;
+                    db.Grant(perms, UserName);
+
+                    _result._Response = "SQL Server UserName " + UserName + " Created for Login " + LoginName + ". The defaultdb is " + DatabaseName;
+                    _result._Successful = true;
+                }
             }
             catch (Exception e)
             {
@@ -284,7 +282,7 @@ namespace Revamp.IO.Foundation
         {
             ER_Query er_query = new ER_Query();
             CommandResult _result = new CommandResult();
-            string SuccessMessage = LoginName + " default db changed to " + DefaultDatabase + " successfully" ;
+            string SuccessMessage = LoginName + " default db changed to " + DefaultDatabase + " successfully";
             _result._Response = er_query.RUN_NON_QUERY(_Connect, "ALTER LOGIN " + LoginName + " with DEFAULT_DATABASE  =" + DefaultDatabase + "", SuccessMessage);
             _result._Successful = _result._Response.IndexOf(SuccessMessage) > -1 ? true : false;
             _result._EndTime = DateTime.Now;
@@ -310,29 +308,33 @@ namespace Revamp.IO.Foundation
             {
                 String connectionString = _Connect.DBConnString;
 
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                ServerConnection conn = new ServerConnection(sqlConnection);
-                Server svr = new Server(conn);
+                //TODO: Verify .net Core conversion
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    ServerConnection conn = new ServerConnection();
+                    Server svr = new Server(conn);
 
-                Database db = svr.Databases["TESTDB1"];
+                    Database db = svr.Databases["TESTDB1"];
 
-                //Login login = new Login(svr, Name);
-                //login.LoginType = LoginType.SqlLogin;
-                //login.Create("password@1");
+                    //Login login = new Login(svr, Name);
+                    //login.LoginType = LoginType.SqlLogin;
+                    //login.Create("password@1");
 
-                //User user1 = new User(db, "User1");
-                //user1.Login = "login1";
-                //user1.Create(); 
+                    //User user1 = new User(db, "User1");
+                    //user1.Login = "login1";
+                    //user1.Create(); 
 
-                //User user1 = db.IDENTITIES["User1"];
-                //user1.Drop();
+                    //User user1 = db.IDENTITIES["User1"];
+                    //user1.Drop();
 
-                Login Login1 = svr.Logins[Name];
-                Login1.Drop();
+                    Login Login1 = svr.Logins[Name];
+                    Login1.Drop();
 
 
-                _result._Response = "MSSQL User " + Name + " has been succesfully dropped";
-                _result._Successful = true;
+                    _result._Response = "MSSQL User " + Name + " has been succesfully dropped";
+                    _result._Successful = true;
+
+                }
             }
             catch (Exception e)
             {
@@ -351,34 +353,37 @@ namespace Revamp.IO.Foundation
             {
                 String connectionString = _Connect.DBConnString;
 
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                ServerConnection conn = new ServerConnection(sqlConnection);
-                Server srv = new Server(conn);
+                //TODO: Verify .net Core conversion
+                using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+                {
+                    ServerConnection conn = new ServerConnection();
+                    Server srv = new Server(conn);
 
-                //Connect to the local, default instance of SQL Server. 
-                // Server srv = new Server);
-                //Define a Database object variable by supplying the server and the database name arguments in the constructor. 
-                Database db;
-                //db = new Database(srv, Name);
-                srv.KillAllProcesses(Name);
+                    //Connect to the local, default instance of SQL Server. 
+                    // Server srv = new Server);
+                    //Define a Database object variable by supplying the server and the database name arguments in the constructor. 
+                    Database db;
+                    //db = new Database(srv, Name);
+                    srv.KillAllProcesses(Name);
 
-                db = srv.Databases[Name];
+                    db = srv.Databases[Name];
 
-                //Drop the database on the instance of SQL Server. 
-                db.Drop();
-                //Reference the database and display the date when it was created. 
-                //db = srv.Databases["Test_SMO_Database"];
-                //Console.WriteLine(db.CreateDate);
-                //Remove the database. 
-                //db.Drop();
+                    //Drop the database on the instance of SQL Server. 
+                    db.Drop();
+                    //Reference the database and display the date when it was created. 
+                    //db = srv.Databases["Test_SMO_Database"];
+                    //Console.WriteLine(db.CreateDate);
+                    //Remove the database. 
+                    //db.Drop();
 
-                _result._Response = "SQL Server Database Dropped";
-                _result._Successful = true;
+                    _result._Response = "SQL Server Database Dropped";
+                    _result._Successful = true;
+                }
             }
             catch (Exception e)
             {
                 _result._Response = e.ToString();
-                _result._Successful = _result._Response.IndexOf( "Object reference not set to an instance of an object") > -1 ? true : false;
+                _result._Successful = _result._Response.IndexOf("Object reference not set to an instance of an object") > -1 ? true : false;
             }
 
             return _result;
@@ -407,7 +412,7 @@ namespace Revamp.IO.Foundation
             {
                 er_dml.DROP_Dictionary_View(_Connect, SchemaName);
             }
-            
+
             return _result;
         }
 

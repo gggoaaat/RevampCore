@@ -96,45 +96,47 @@ namespace Revamp.IO.SQL.Generators
 
             String connectionString = _Connect.DBConnString;
 
-            SqlConnection sqlConnection = new SqlConnection(connectionString);
-            ServerConnection conn = new ServerConnection(sqlConnection);
-            Server srv = new Server(conn);
-            Database sourceDatabase = srv.Databases[_Connect.SourceDBOwner];
-
-            DataColumnCollection theseObjectsDCC = theseObjects.Columns;
-
-            string desiredSchema = "";
-            List<string> lines = new List<string>();
-            if (theseObjectsDCC.Contains("CORE_NAME") && theseObjects.Rows.Count > 0 && !string.IsNullOrWhiteSpace(thisModel.I_TABLENAME) && !string.IsNullOrWhiteSpace(thisModel.I_APPLICATIONS_UUID))
+            //TODO: Verify .net Core conversion
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-                IEnumerable<string> Stages = theseObjects.AsEnumerable().Select(r => r.Field<string>("STAGE_NAME").Replace(" ", "_").Replace("-", "_")).Distinct();
+                ServerConnection conn = new ServerConnection();
+                Server srv = new Server(conn);
+                Database sourceDatabase = srv.Databases[_Connect.SourceDBOwner];
 
-                desiredSchema = theseObjects.Rows[0].Field<string>("CORE_NAME").Replace(" ", "_").Replace("-", "_");
-                results.AddRange(CreateTablesCode(_Connect, new CreateTableDefinition
+                DataColumnCollection theseObjectsDCC = theseObjects.Columns;
+
+                string desiredSchema = "";
+                List<string> lines = new List<string>();
+                if (theseObjectsDCC.Contains("CORE_NAME") && theseObjects.Rows.Count > 0 && !string.IsNullOrWhiteSpace(thisModel.I_TABLENAME) && !string.IsNullOrWhiteSpace(thisModel.I_APPLICATIONS_UUID))
                 {
-                    objectLayer = "Generated", //Case Matters
-                    BindRootFamilyOnObject = "STAGE_NAME",
-                    BindRootColumnUUID = "BASE_STAGES_UUID",
-                    rootTablePrefix = "S",
-                    theseObjects = theseObjects,
-                    sourceDatabase = sourceDatabase,
-                    desiredSchema = desiredSchema,
-                    listOfObjects = Stages,
-                    ThisParent = new ParentTableDefinition
+                    IEnumerable<string> Stages = theseObjects.AsEnumerable().Select(r => r.Field<string>("STAGE_NAME").Replace(" ", "_").Replace("-", "_")).Distinct();
+
+                    desiredSchema = theseObjects.Rows[0].Field<string>("CORE_NAME").Replace(" ", "_").Replace("-", "_");
+                    results.AddRange(CreateTablesCode(_Connect, new CreateTableDefinition
                     {
-                        BuildParentScaffold = true,
-                        ParentObjectLayer = "Generated", //Case Matters
-                        ParentTablePrefix = "A",
-                        BindParentRootColumnFamilyName = "APPLICATIONS",
-                        BindParentRootColumnUUID = "BASE_APPLICATIONS_UUID",
-                        FkColumnAvailableInBothTable = "APPLICATIONS_UUID",
-                        FkRelatedColumnType = "guid"
-                    }
-                }, false));
+                        objectLayer = "Generated", //Case Matters
+                        BindRootFamilyOnObject = "STAGE_NAME",
+                        BindRootColumnUUID = "BASE_STAGES_UUID",
+                        rootTablePrefix = "S",
+                        theseObjects = theseObjects,
+                        sourceDatabase = sourceDatabase,
+                        desiredSchema = desiredSchema,
+                        listOfObjects = Stages,
+                        ThisParent = new ParentTableDefinition
+                        {
+                            BuildParentScaffold = true,
+                            ParentObjectLayer = "Generated", //Case Matters
+                            ParentTablePrefix = "A",
+                            BindParentRootColumnFamilyName = "APPLICATIONS",
+                            BindParentRootColumnUUID = "BASE_APPLICATIONS_UUID",
+                            FkColumnAvailableInBothTable = "APPLICATIONS_UUID",
+                            FkRelatedColumnType = "guid"
+                        }
+                    }, false));
 
 
+                }
             }
-
             return results;
         }
 
