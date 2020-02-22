@@ -8,9 +8,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RevampCore.Data;
+using RevampCore.Models;
 
 namespace RevampCore
 {
@@ -32,6 +35,12 @@ namespace RevampCore
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            services.AddTransient<IUserStore<ApplicationUser>, UserStore>();
+            services.AddTransient<IRoleStore<ApplicationRole>, RoleStore>();
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+            .AddDefaultTokenProviders();
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
