@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Revamp.IO.DB.Binds.IO.Dynamic;
 using Revamp.IO.DB.Bridge;
@@ -23,19 +24,28 @@ namespace Revamp.IO.Helpers.Helpers
         //C:\Users\Eminent\Documents\Projects\perception\CMS\CMS\CMS\Files\_originals\Koala.jpg
         //string strPath = HttpContext.Current.Server.MapPath("/Files/_originals/Koala.jpg");
 
-        public Values.AddFile SaveFile(IConnectToDB _Connect, HttpPostedFileBase File)
+        public Values.AddFile SaveFile(IConnectToDB _Connect, IFormFile File)
         {
             add addHelp = new add();
 
             string ContentType = File.ContentType;
 
-            long? ContentSize = File.ContentLength;
+            long? ContentSize = File.Length;
             string FileName = File.FileName;
 
-            byte[] longRaw = new byte[File.ContentLength];
+            byte[] longRaw = new byte[File.Length];
 
-            File.InputStream.Read(longRaw, 0, File.ContentLength);
-
+            //TODO: Review .Net Core Port
+            if (File.Length > 0)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    File.CopyTo(ms);
+                    longRaw = ms.ToArray();
+                    //string s = Convert.ToBase64String(fileBytes);
+                    // act on the Base64 data
+                }
+            }
 
             Values.AddFile thisFile = addHelp.ADD_ENTRY_FILE(_Connect, new Values.AddFile
             {
