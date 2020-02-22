@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RevampCore.Data;
 using RevampCore.Models;
+using RevampCore.Services;
 
 namespace RevampCore
 {
@@ -41,6 +42,8 @@ namespace RevampCore
 
             services.AddIdentity<ApplicationUser, ApplicationRole>()
             .AddDefaultTokenProviders();
+
+            services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
