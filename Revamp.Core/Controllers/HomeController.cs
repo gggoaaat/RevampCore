@@ -12,6 +12,7 @@ namespace Revamp.Core.Controllers
     {
         public IActionResult Index()
         {
+
             return View();
         }
 

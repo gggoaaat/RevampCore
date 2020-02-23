@@ -25,6 +25,7 @@
     <ProjectReference Include="..\Revamp.IO.SQL.Generators\Revamp.IO.SQL.Generators.csproj" />
     <ProjectReference Include="..\Revamp.IO.Structs\Revamp.IO.Structs.csproj" />
     <ProjectReference Include="..\Revamp.IO.Tools\Revamp.IO.Tools.csproj" />
+    <ProjectReference Include="..\Revamp.IO.Web.Filters\Revamp.IO.Web.Filters.csproj" />
   </ItemGroup>
 
 </Project>

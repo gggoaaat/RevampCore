@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revamp.Core", "Revamp.Core\Revamp.Core.csproj", "{9E40B246-BA2E-4E82-846D-4C4334D162A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ABD8EAD3-143A-4B56-B94D-696DD4A7D6F0} = {ABD8EAD3-143A-4B56-B94D-696DD4A7D6F0}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revamp", "Revamp\Revamp.csproj", "{B211BC55-6785-408F-9C47-9D852D0FA548}"
 EndProject

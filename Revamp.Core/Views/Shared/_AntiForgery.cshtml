@@ -1,0 +1,29 @@
+﻿@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@functions{
+    public string GetAntiXsrfRequestToken()
+    {
+        return Xsrf.GetAndStoreTokens(Context).RequestToken;
+    }
+}
+<script>
+
+        @functions{
+            //public string TokenHeaderValue()
+            //{
+            //    string cookieToken, formToken;
+            //    AntiForgery.GetTokens(null, out cookieToken, out formToken);
+            //    return cookieToken + ":" + formToken;
+            //}
+
+            public string FormUUID()
+            {
+                return Guid.NewGuid().ToString();
+            }
+        }
+
+        //var currentRequestVerificationToken = '@*@TokenHeaderValue()*@';
+        var currentRequestVerificationToken = '@GetAntiXsrfRequestToken()';
+        var currentAFK = '@Html.AntiForgeryToken()';
+        var uniquerIdentifier = '@FormUUID()';
+
+</script>

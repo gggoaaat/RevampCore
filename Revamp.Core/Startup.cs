@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Revamp.Core.Data;
 using Revamp.Core.Models;
 using Revamp.Core.Services;
+using Revamp.IO.Web.Filters;
 
 namespace Revamp.Core
 {
@@ -61,8 +62,16 @@ namespace Revamp.Core
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
+            //services.AddAntiforgery();
+
             // Add MVC services to the services container.
-            services.AddMvc();
+            services.AddMvc(opts =>
+            {
+                opts.Filters.AddService(typeof(AngularAntiforgeryCookieResultFilter));
+            });
+
+            services.AddTransient<AngularAntiforgeryCookieResultFilter>();
             services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
             services.AddSession();
         }
@@ -85,6 +94,8 @@ namespace Revamp.Core
             app.UseCookiePolicy();
             
             app.UseSession();
+
+
 
             app.UseAuthentication();
 
