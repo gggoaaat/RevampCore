@@ -18,15 +18,14 @@ namespace Revamp.Core.Controllers
         private RevampCoreSettings RevampCoreSettings { get; set; }
         private readonly IMvcApplication mvcApplication;
         private ConnectToDB dbConn2 = MvcApplication.Connect;
-        public HomeController(IOptions<RevampCoreSettings> settings, IMvcApplication viewRenderService)
+        public HomeController(IOptions<RevampCoreSettings> settings, IMvcApplication iMvcApplication)
         {
             RevampCoreSettings = settings.Value;
-            mvcApplication = viewRenderService;
+            mvcApplication = iMvcApplication;
         }
 
         public async Task<IActionResult> Index()
-        {
-            
+        {            
             CommonModels.MVCGetPartial thisModel = new CommonModels.MVCGetPartial
             {
                 ViewName = "_AntiForgery",

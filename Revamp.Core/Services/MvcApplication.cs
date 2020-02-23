@@ -9,11 +9,12 @@ namespace Revamp.Core.Services
     public class MvcApplication : IMvcApplication
     {        
         private RevampCoreSettings IRevampCoreSettings { get; set; }
-        private readonly IViewRenderService _viewRenderService;
+        private IViewRenderService _viewRenderService;
         public MvcApplication(IOptions<RevampCoreSettings> settings, IViewRenderService viewRenderService)
         {
             IRevampCoreSettings = settings.Value;
             _viewRenderService = viewRenderService;
+            _ConnectPrivate = _Connect();
         }
         
         #region ConnectObject
