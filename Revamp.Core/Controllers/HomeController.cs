@@ -4,15 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Revamp.Core.Models;
 
 namespace Revamp.Core.Controllers
 {
+
     public class HomeController : Controller
     {
+        private RevampCoreSettings RevampCoreSettings { get; set; }
+
+        public HomeController(IOptions<RevampCoreSettings> settings)
+        {
+            RevampCoreSettings = settings.Value;
+        }
+
         public IActionResult Index()
         {
-
+            string dbConn2 = RevampCoreSettings.DbConnect;
             return View();
         }
 

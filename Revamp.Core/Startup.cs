@@ -64,6 +64,7 @@ namespace Revamp.Core
 
             services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
             //services.AddAntiforgery();
+            services.Configure<RevampCoreSettings>(Configuration.GetSection("RevampCoreSettings"));
 
             // Add MVC services to the services container.
             services.AddMvc(opts =>
