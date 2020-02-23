@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revamp.IO.Foundation", "Rev
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revamp.IO.SQL.Generators", "Revamp.IO.SQL.Generators\Revamp.IO.SQL.Generators.csproj", "{52943804-2E89-4183-B1F7-672090F369E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Revamp.IO.OpenXML", "Revamp.IO.OpenXML\Revamp.IO.OpenXML.csproj", "{22D26966-F5D2-40D2-B636-C8EC448C715E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		AWS|Any CPU = AWS|Any CPU
@@ -157,6 +159,18 @@ Global
 		{52943804-2E89-4183-B1F7-672090F369E3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{52943804-2E89-4183-B1F7-672090F369E3}.Risi Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{52943804-2E89-4183-B1F7-672090F369E3}.Risi Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.AWS|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.AWS|Any CPU.Build.0 = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.Azure|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.Azure|Any CPU.Build.0 = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.NMPDC|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.NMPDC|Any CPU.Build.0 = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.Risi Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D26966-F5D2-40D2-B636-C8EC448C715E}.Risi Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
