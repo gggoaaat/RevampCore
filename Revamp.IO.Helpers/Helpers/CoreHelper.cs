@@ -1,5 +1,4 @@
-﻿using Microsoft.Security.Application;
-using Revamp.IO.DB.Binds.IO.Dynamic;
+﻿using Revamp.IO.DB.Binds.IO.Dynamic;
 using Revamp.IO.DB.Bridge;
 using Revamp.IO.Foundation;
 using Revamp.IO.Structs;
@@ -9,8 +8,6 @@ using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Http;
 
 namespace Revamp.IO.Helpers.Helpers
@@ -27,7 +24,11 @@ namespace Revamp.IO.Helpers.Helpers
             CodeDomProvider provider = CodeDomProvider.CreateProvider("C#"); //Used to Make Sure 
 
             bool canUseAttemptedCoreName = false;
-            Corename = Sanitizer.GetSafeHtmlFragment(Corename.Trim());
+
+            var sanitizer = new Ganss.XSS.HtmlSanitizer();           
+            var sanitized = sanitizer.Sanitize(Corename.Trim());
+
+            Corename = sanitized;
 
             var a = Array.IndexOf(NamesNotAllowed, Corename.ToLower());
             var b = !string.IsNullOrWhiteSpace(Corename);
@@ -660,8 +661,10 @@ namespace Revamp.IO.Helpers.Helpers
             //IValueProvider valueProvider = collection.ToValueProvider();
             if (collection.Keys.Count > 0)
             {
-                corename = Sanitizer.GetSafeHtmlFragment(collection["core-name"].ToString().Trim());
-                corepath = Sanitizer.GetSafeHtmlFragment(collection["core-path"].ToString().Trim());
+                var sanitizer = new Ganss.XSS.HtmlSanitizer();
+                
+                corename = sanitizer.Sanitize(collection["core-name"].ToString().Trim());
+                corepath = sanitizer.Sanitize(collection["core-path"].ToString().Trim());
 
                 //Create Core
                 if (CoreHelper.CanUseCoreName(_Connect, corename))

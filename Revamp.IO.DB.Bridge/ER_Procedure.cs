@@ -1,7 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
-using Microsoft.Security.Application;
-//using Microsoft.Security.Application;
-using Revamp.IO.Structs;
+﻿using Revamp.IO.Structs;
 using Revamp.IO.Structs.Models;
 using System;
 using System.Collections;
@@ -406,7 +403,9 @@ namespace Revamp.IO.DB.Bridge
                 {
                     if (item.AvoidAntiXss != true && Array.IndexOf(StringTypes, item.MSSqlParamDataType) > -1 && item.ParamValue != null && !string.IsNullOrWhiteSpace(item.ParamValue.ToString()))
                     {
-                        item.ParamValue = Sanitizer.GetSafeHtmlFragment(item.ParamValue.ToString());
+                        var sanitizer = new Ganss.XSS.HtmlSanitizer();
+                        var sanitized = sanitizer.Sanitize(item.ParamValue.ToString());
+                        item.ParamValue = sanitized;
                     }
                 }
                 #endregion
