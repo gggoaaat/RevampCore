@@ -22,7 +22,10 @@ namespace Revamp.IO.Helpers.Helpers
 {
     public class SessionsHelper : Controller
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private ISession _session => _httpContextAccessor.HttpContext.Session;
         public HttpContext Current => new HttpContextAccessor().HttpContext;
+
         public string isUserValid(IConnectToDB _Connect, string Username, string Password, out string uname)
         {
             //Logic comes later make everyone true for now.
@@ -191,9 +194,11 @@ namespace Revamp.IO.Helpers.Helpers
         {
             try
             {
-                Session["User"] = username;
-                FormsAuthentication.SetAuthCookie(username, false);
-                Session["UserName"] = username;
+
+                _session.SetString("User", username);
+                //TODO: Review .Net Core Port
+                //FormsAuthentication.SetAuthCookie(username, false);
+                _session.SetString("UserName", username);
 
 
                 return true;

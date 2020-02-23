@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Revamp.IO.DB.Binds.IO.Dynamic;
 using Revamp.IO.DB.Bridge;
@@ -15,6 +16,9 @@ namespace Revamp.IO.Helpers.Helpers
 {
     public class AppHelper
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private ISession _session => _httpContextAccessor.HttpContext.Session;
+
         public static ViewApplicationModel Get(IConnectToDB _Connect, SessionObjects SO, Guid? applications_uuid)
         {
             AppHelper app = new AppHelper();
@@ -294,9 +298,11 @@ namespace Revamp.IO.Helpers.Helpers
             return TempDataTable;
         }
 
+
+
         public bool SetAppName(string name)
         {
-            HttpContext.Current.Session["NewFormName"] = name;
+            _session.SetString("NewFormName", name);
             return true;
         }
 

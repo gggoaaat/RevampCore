@@ -19,7 +19,10 @@ namespace Revamp.IO.Helpers.Helpers
 {
     public class ProfileHelper
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private ISession _session => _httpContextAccessor.HttpContext.Session;
         public HttpContext Current => new HttpContextAccessor().HttpContext;
+
         public SessionObjects AddProfilePic(IConnectToDB _Connect, SessionObjects SO, FormCollection _formCollection)
         {
             try
@@ -85,7 +88,7 @@ namespace Revamp.IO.Helpers.Helpers
                     }
 
                     //Set Profile Image
-                    HttpContext.Current.Session["ProfileImage"] = GetProfileImage(_Connect, identitiesId);
+                    _session.SetString("ProfileImage", GetProfileImage(_Connect, identitiesId));
                 }
             }
             catch
