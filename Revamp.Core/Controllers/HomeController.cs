@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Revamp.Core.Models;
+using Revamp.Core.Services;
+using Revamp.IO.Structs.Models;
 
 namespace Revamp.Core.Controllers
 {
@@ -13,15 +15,25 @@ namespace Revamp.Core.Controllers
     public class HomeController : Controller
     {
         private RevampCoreSettings RevampCoreSettings { get; set; }
-
-        public HomeController(IOptions<RevampCoreSettings> settings)
+        private readonly IMvcApplication mvcApplication;
+        public HomeController(IOptions<RevampCoreSettings> settings, IMvcApplication viewRenderService)
         {
             RevampCoreSettings = settings.Value;
+            mvcApplication = viewRenderService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             string dbConn2 = RevampCoreSettings.DbConnect;
+            CommonModels.MVCGetPartial thisModel = new CommonModels.MVCGetPartial
+            {
+                ViewName = "_AntiForgery",
+                _TempData = null,
+                _thisController = ControllerContext
+            };
+
+            var result = await mvcApplication.ReturnViewToStringAsync(thisModel);
+
             return View();
         }
 
@@ -47,7 +59,7 @@ namespace Revamp.Core.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

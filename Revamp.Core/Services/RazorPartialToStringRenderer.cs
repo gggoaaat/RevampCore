@@ -11,73 +11,57 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
+using Revamp.IO.Structs.Models;
 
 namespace Revamp.Core.Services
 {
-    public class RazorPartialToStringRenderer : IRazorPartialToStringRenderer
+    public class ViewRenderService : IViewRenderService
     {
-        private IRazorViewEngine _viewEngine;
-        private ITempDataProvider _tempDataProvider;
-        private IServiceProvider _serviceProvider;
-        public RazorPartialToStringRenderer(
-            IRazorViewEngine viewEngine,
+        private readonly IRazorViewEngine _razorViewEngine;
+        private readonly ITempDataProvider _tempDataProvider;
+        private readonly IServiceProvider _serviceProvider;
+
+        public ViewRenderService(IRazorViewEngine razorViewEngine,
             ITempDataProvider tempDataProvider,
             IServiceProvider serviceProvider)
         {
-            _viewEngine = viewEngine;
+            _razorViewEngine = razorViewEngine;
             _tempDataProvider = tempDataProvider;
             _serviceProvider = serviceProvider;
         }
-        public async Task<string> RenderPartialToStringAsync<TModel>(string partialName, TModel model)
+
+        public async Task<string> ReturnViewToStringAsync(CommonModels.MVCGetPartial thisModel)
         {
-            var actionContext = GetActionContext();
-            var partial = FindView(actionContext, partialName);
-            using (var output = new StringWriter())
+            var httpContext = new DefaultHttpContext { RequestServices = _serviceProvider };
+            var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
+
+            using (var sw = new StringWriter())
             {
+                var viewResult = _razorViewEngine.FindView(actionContext, thisModel.ViewName, false);
+
+                if (viewResult.View == null)
+                {
+                    throw new ArgumentNullException($"{thisModel.ViewName} does not match any available view");
+                }
+
+                var viewDictionary = new ViewDataDictionary(new EmptyModelMetadataProvider(), new ModelStateDictionary())
+                {
+                    Model = thisModel._TempData
+                };
+
                 var viewContext = new ViewContext(
                     actionContext,
-                    partial,
-                    new ViewDataDictionary<TModel>(
-                        metadataProvider: new EmptyModelMetadataProvider(),
-                        modelState: new ModelStateDictionary())
-                    {
-                        Model = model
-                    },
-                    new TempDataDictionary(
-                        actionContext.HttpContext,
-                        _tempDataProvider),
-                    output,
+                    viewResult.View,
+                    viewDictionary,
+                    new TempDataDictionary(actionContext.HttpContext, _tempDataProvider),
+                    sw,
                     new HtmlHelperOptions()
                 );
-                await partial.RenderAsync(viewContext);
-                return output.ToString();
+
+                await viewResult.View.RenderAsync(viewContext);
+                return sw.ToString();
             }
         }
-        private IView FindView(ActionContext actionContext, string partialName)
-        {
-            var getPartialResult = _viewEngine.GetView(null, partialName, false);
-            if (getPartialResult.Success)
-            {
-                return getPartialResult.View;
-            }
-            var findPartialResult = _viewEngine.FindView(actionContext, partialName, false);
-            if (findPartialResult.Success)
-            {
-                return findPartialResult.View;
-            }
-            var searchedLocations = getPartialResult.SearchedLocations.Concat(findPartialResult.SearchedLocations);
-            var errorMessage = string.Join(
-                Environment.NewLine,
-                new[] { $"Unable to find partial '{partialName}'. The following locations were searched:" }.Concat(searchedLocations)); ;
-            throw new InvalidOperationException(errorMessage);
-        }
-        private ActionContext GetActionContext()
-        {
-            var httpContext = new DefaultHttpContext
-            {
-                RequestServices = _serviceProvider
-            };
-            return new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
-        }
+
     }
 }
