@@ -1,4 +1,5 @@
-﻿using Revamp.IO.DB.Bridge;
+﻿using Microsoft.AspNetCore.Http;
+using Revamp.IO.DB.Bridge;
 using Revamp.IO.Structs.Models;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,6 @@ namespace Revamp.IO.Helpers.DataCompositions
         /// </summary>
         /// <param name="logicModel"></param>
         /// <param name="Request"></param>
-        void CustomReportLogic(DynamicModels.ReportLogicModel logicModel, HttpRequestBase Request);
+        void CustomReportLogic(DynamicModels.ReportLogicModel logicModel, HttpRequest Request);
     }
 }

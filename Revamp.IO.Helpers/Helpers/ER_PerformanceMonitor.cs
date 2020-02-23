@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using NickStrupat;
 
 namespace Revamp.IO.Helpers.Helpers
 {
@@ -63,7 +64,8 @@ namespace Revamp.IO.Helpers.Helpers
 
         public ulong GetTotalMemoryInBytes()
         {
-            return new Microsoft.VisualBasic.Devices.ComputerInfo().TotalPhysicalMemory;
+            var ci = new ComputerInfo();
+            return ci.TotalPhysicalMemory;
         }
 
         public string[] getAvailableRAM(string[] MemoryList, int HowMany)

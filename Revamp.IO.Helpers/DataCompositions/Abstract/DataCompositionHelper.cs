@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web;
+using Microsoft.AspNetCore.Http;
 using Revamp.IO.DB.Bridge;
 using Revamp.IO.Structs.Models;
+
 
 namespace Revamp.IO.Helpers.DataCompositions
 {
@@ -11,13 +13,13 @@ namespace Revamp.IO.Helpers.DataCompositions
         public abstract DynamicModels.ReportDefinitions ReportMapper(IConnectToDB _Connection, DynamicModels.ReportDefinitions thisDefinition);
         public abstract List<DynamicModels.RootReport> Reports { get; }
 
-        public virtual void CustomReportLogic(DynamicModels.ReportLogicModel logicModel, HttpRequestBase Request)
+        public virtual void CustomReportLogic(DynamicModels.ReportLogicModel logicModel, HttpRequest Request)
         {
             foreach (DynamicModels.RootReportFilter _thisReport in logicModel.CurrentReportSelected.ReportFilters)
             {
                 #region Basic List Search
                 DynamicModels.RootReportFilter thisCurrentFilter = Tools.Box.Clone<DynamicModels.RootReportFilter>(_thisReport);
-                var P_THIS_FILTERNAME = logicModel.useQsCol ? logicModel.qscol.Get("P_" + thisCurrentFilter.FilterName) : Request.Params["P_" + thisCurrentFilter.FilterName];
+                var P_THIS_FILTERNAME = logicModel.useQsCol ? logicModel.qscol.Get("P_" + thisCurrentFilter.FilterName) : Request.Query["P_" + thisCurrentFilter.FilterName].ToString();
 
                 if (P_THIS_FILTERNAME != null && logicModel.UsedFilters.Exists(S => S.FilterName.ToUpper() == thisCurrentFilter.FilterName.ToUpper()) == false)
                 {
@@ -30,7 +32,7 @@ namespace Revamp.IO.Helpers.DataCompositions
 
                 #region Equals Search
                 DynamicModels.RootReportFilter thisCurrentFilter_ = Tools.Box.Clone<DynamicModels.RootReportFilter>(_thisReport);
-                var P_THIS_FILTERNAME_ = logicModel.useQsCol ? logicModel.qscol.Get("P_" + thisCurrentFilter_.FilterName + "_") : Request.Params["P_" + thisCurrentFilter_.FilterName + "_"];
+                var P_THIS_FILTERNAME_ = logicModel.useQsCol ? logicModel.qscol.Get("P_" + thisCurrentFilter_.FilterName + "_") : Request.Query["P_" + thisCurrentFilter_.FilterName + "_"].ToString();
 
                 if (P_THIS_FILTERNAME_ != null && logicModel.UsedFilters.Exists(S => S.FilterName.ToUpper() == thisCurrentFilter_.FilterName.ToUpper() + "_") == false)
                 {
@@ -44,7 +46,7 @@ namespace Revamp.IO.Helpers.DataCompositions
 
                 #region Basic Not in List Search
                 DynamicModels.RootReportFilter thisCurrentFilterExclude = Tools.Box.Clone<DynamicModels.RootReportFilter>(_thisReport);
-                var P_THIS_EXCLUDE_FILTERNAME = logicModel.useQsCol ? logicModel.qscol.Get("P_EXCLUDE_" + thisCurrentFilterExclude.FilterName) : Request.Params["P_EXCLUDE_" + thisCurrentFilterExclude.FilterName];
+                var P_THIS_EXCLUDE_FILTERNAME = logicModel.useQsCol ? logicModel.qscol.Get("P_EXCLUDE_" + thisCurrentFilterExclude.FilterName) : Request.Query["P_EXCLUDE_" + thisCurrentFilterExclude.FilterName].ToString();
 
                 if (P_THIS_EXCLUDE_FILTERNAME != null && logicModel.UsedFilters.Exists(S => S.FilterName.ToUpper() == "EXCLUDE_" + thisCurrentFilterExclude.FilterName.ToUpper()) == false)
                 {

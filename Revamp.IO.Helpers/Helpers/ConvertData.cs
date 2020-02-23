@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data;
+using Newtonsoft.Json;
 
 namespace Revamp.IO.Helpers.Helpers
 {
     public class ConvertData
     {
         public string ConvertDataTabletoString(DataTable dt)
-        {
-            System.Web.Script.Serialization.JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+        {            
             List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
             Dictionary<string, object> row;
             foreach (DataRow dr in dt.Rows)
@@ -23,7 +23,7 @@ namespace Revamp.IO.Helpers.Helpers
                 rows.Add(row);
             }
 
-            string tempstring = serializer.Serialize(rows);
+            string tempstring = JsonConvert.SerializeObject(rows);
 
             return tempstring;
         }
