@@ -8,10 +8,10 @@ using System.Text;
 
 namespace Revamp.IO.Web.Filters
 {
-    public class AngularAntiforgeryCookieResultFilter : ResultFilterAttribute
+    public class AntiforgeryCookieResultFilter : ResultFilterAttribute
     {
         private IAntiforgery antiforgery;
-        public AngularAntiforgeryCookieResultFilter(IAntiforgery antiforgery)
+        public AntiforgeryCookieResultFilter(IAntiforgery antiforgery)
         {
             this.antiforgery = antiforgery;
         }

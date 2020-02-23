@@ -71,10 +71,10 @@ namespace Revamp.Core
             // Add MVC services to the services container.
             services.AddMvc(opts =>
             {
-                opts.Filters.AddService(typeof(AngularAntiforgeryCookieResultFilter));
+                opts.Filters.AddService(typeof(AntiforgeryCookieResultFilter));
             });
 
-            services.AddTransient<AngularAntiforgeryCookieResultFilter>();
+            services.AddTransient<AntiforgeryCookieResultFilter>();
             services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
             services.AddSession();
         }

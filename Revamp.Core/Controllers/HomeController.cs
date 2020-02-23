@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Revamp.Core.Models;
 using Revamp.Core.Services;
+using Revamp.IO.DB.Bridge;
 using Revamp.IO.Structs.Models;
 
 namespace Revamp.Core.Controllers
@@ -16,6 +17,7 @@ namespace Revamp.Core.Controllers
     {
         private RevampCoreSettings RevampCoreSettings { get; set; }
         private readonly IMvcApplication mvcApplication;
+        private ConnectToDB dbConn2 = MvcApplication.Connect;
         public HomeController(IOptions<RevampCoreSettings> settings, IMvcApplication viewRenderService)
         {
             RevampCoreSettings = settings.Value;
@@ -24,14 +26,14 @@ namespace Revamp.Core.Controllers
 
         public async Task<IActionResult> Index()
         {
-            string dbConn2 = RevampCoreSettings.DbConnect;
+            
             CommonModels.MVCGetPartial thisModel = new CommonModels.MVCGetPartial
             {
                 ViewName = "_AntiForgery",
                 _TempData = null,
                 _thisController = ControllerContext
             };
-
+            
             var result = await mvcApplication.ReturnViewToStringAsync(thisModel);
 
             return View();
