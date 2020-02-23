@@ -1,0 +1,77 @@
+﻿@import url('/assets/global/plugins/font-awesome-4.4.0/css/font-awesome.min.css');
+@import url('/assets/global/plugins/simple-line-icons/simple-line-icons.min.css');
+@import url('/assets/global/plugins/bootstrap/css/bootstrap.min.css');
+@import url('/assets/global/plugins/uniform/css/uniform.default.css');
+@import url('/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css');
+
+@import url('/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css');
+@import url('/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.css');
+@import url('/assets/global/plugins/bootstrap-datepicker/css/datepicker.css');
+@import url('/assets/global/plugins/lou-multi-select/css/multi-select.css');
+@import url('/assets/global/plugins/jquery-idle-timeout/timeout-dialog.css');
+@import url('/assets/global/plugins/datatables-net/css/jquery.dataTables.css');
+@import url('/assets/global/plugins/multilinedropdown/themes/base/jquery.ui.core.css');
+@import url('/assets/global/plugins/multilinedropdown/themes/base/jquery.ui.theme.css');
+@import url('/assets/global/plugins/multilinedropdown/themes/base/jquery.ui.selectmenu.css');
+@import url('/assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css');
+@import url('/assets/global/plugins/jquery-context-menu/jquery.contextMenu.css');
+@import url('/assets/form-css/style.css');
+@import url('/assets/ducksboard-gridster.js-2603104/src/jquery.gridster.css');
+@import url('/assets/global/plugins/signature/jquery.signature.css');
+@import url('/assets/global/css/components.css');
+@import url('/assets/global/css/plugins.css');
+@import url('/assets/admin/layout/css/layout.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@import url('/assets/admin/layout/css/custom.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@import url('/assets/admin/layout/css/themes/default.css');
+@media print
+{
+#infodiv, .showprint
+	{
+		display: none;
+	}
+	
+}
+.form-horizontal .radio, .form-horizontal .checkbox
+{
+	min-height:auto;
+} 
+ body
+    {
+        padding:0;margin:0;background:#FFF;
+    }
+    iframe
+    {
+        border:0;
+    }
+.input-group-addon
+{
+	height:35px !important;
+}
+    #print
+    {
+        width:96%;margin:auto;
+    }
+    #infodiv
+    {width:96%;margin:auto;
+    }
+#RenderForm
+{
+	opacity:1 !important;
+}
+.btn-group .btn, .row .btn
+{
+	opacity:0;
+}
+.pageBreak
+{
+	page-break-after:always;
+}
+

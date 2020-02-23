@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>gridster.js Test Suite</title>
+  <link rel="stylesheet" type="text/css" href="../dist/jquery.gridster.css">
+  <link rel="stylesheet" type="text/css" href="../dist/demo.css">
+</head>
+<body>
+ <section class="demo">
+
+     <div class="controls">
+      <button class="js-add-widget">Add widget</button>
+    </div>
+
+     <div style="height:842px; width:582px; overflow:hidden; background: #fff; padding:45px 45px 25px 44px; 
+background-image:url(../../_EP-PageGrid/PageGridSafeZone.png); background-repeat:no-repeat;">
+      <div class="gridster">
+        <ul >
+              <!--li data-row="1" data-col="1" data-sizex="5" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></!--li>
+              <li data-row="1" data-col="6" data-sizex="5" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+              <li data-row="2" data-col="1" data-sizex="5" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+              <li data-row="1" data-col="11" data-sizex="5" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+              <li data-row="3" data-col="1" data-sizex="24" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+              <li data-row="1" data-col="16" data-sizex="9" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+              <li data-row="4" data-col="1" data-sizex="24" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>               
+              <li data-row="2" data-col="6" data-sizex="5" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+              <li data-row="5" data-col="1" data-sizex="24" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+              <li data-row="2" data-col="11" data-sizex="14" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>
+              <li data-row="6" data-col="1" data-sizex="5" data-sizey="1" class="gs-w"><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li-->               
+          </ul>
+      </div>
+     </div>
+  </section>
+    <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+     <script type="text/javascript" src="../src/jquery.coords.js" charster="utf-8"></script>
+    <script type="text/javascript" src="../src/jquery.gridster.js" charster="utf-8"></script>
+  
+    <script type="text/javascript">
+        var gridster;
+
+        $(function () {
+            gridster = $(".gridster > ul").gridster({
+                widget_margins: [0, 0],
+                widget_base_dimensions: [5, 20],
+                min_cols: 8,
+
+                resize: { enabled: true }
+            }).data('gridster');
+        });
+
+
+        $('.js-add-widget').on('click', function () {
+            gridster.add_widget('<li><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span><span class="gs-resize-handle gs-resize-handle-x"></span><span class="gs-resize-handle gs-resize-handle-y"></span><span class="gs-resize-handle gs-resize-handle-both"></span></li>', 20, 5)
+        });
+      </script> 
+
+
+
+   
+</body>
+</html>

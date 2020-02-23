@@ -1,0 +1,1908 @@
+﻿<!doctype html>
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>Revamp Guide - Tips for both those just starting off and experts.</title>
+
+    <meta name="description" content="Our easy-to-read guide will help your team do more, together, from day one.">
+    <meta name="author" content="Eminent IT">
+    <meta name="copyright" content="Eminent IT">
+    <meta name="generator" content="Revamp.io">
+    <meta name="date" content="2016-01-26T00:00:00+01:00">
+
+    <link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+
+
+
+    <script src="assets/js/jquery.js"></script>
+
+    <script src="assets/js/jquery.scrollTo.js"></script>
+    <script src="assets/js/jquery.easing.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('a[href^="#"]').click(function (e) {
+                var elem = $('#_' + window.location.hash.replace('#', ''));
+
+                if (elem) {
+                    $.scrollTo(elem.left, elem.top);  
+                }
+            });
+        });
+		document.createElement('section'); var duration = '500', easing = 'swing';</script>
+    <script src="assets/js/script.js"></script>
+
+    <style>
+        html {
+            background-color: #FFFFFF;
+            color: #383838;
+        }
+
+        ::-moz-selection {
+            background: #444444;
+            color: #DDDDDD;
+        }
+
+        ::selection {
+            background: #444444;
+            color: #DDDDDD;
+        }
+
+        #documenter_sidebar #documenter_logo {
+            background-image: url(/assets/admin/layout/img/logo.png);
+            background-size: 100%;
+            background-color: #1F1F1F;
+        }
+
+       
+
+        .btn {
+            border-radius: 3px;
+        }
+
+        .btn-primary {
+            background-image: -moz-linear-gradient(top, #0088CC, #0044CC);
+            background-image: -ms-linear-gradient(top, #0088CC, #0044CC);
+            background-image: -webkit-gradient(linear, 0 0, 0 0088CC%, from(#DDDDDD), to(#0044CC));
+            background-image: -webkit-linear-gradient(top, #0088CC, #0044CC);
+            background-image: -o-linear-gradient(top, #0088CC, #0044CC);
+            background-image: linear-gradient(top, #0088CC, #0044CC);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088CC', endColorstr='#0044CC', GradientType=0);
+            border-color: #0044CC #0044CC #bfbfbf;
+            color: #FFFFFF;
+        }
+
+            .btn-primary:hover,
+            .btn-primary:active,
+            .btn-primary.active,
+            .btn-primary.disabled,
+            .btn-primary[disabled] {
+                border-color: #0088CC #0088CC #bfbfbf;
+                background-color: #0044CC;
+            }
+
+        hr {
+            border-top: 1px solid #EBEBEB;
+            border-bottom: 1px solid #FFFFFF;
+        }
+
+        #documenter_sidebar, #documenter_sidebar ul a {
+            background-color: #3d3d3d;
+            color: #fff;
+        }
+
+            #documenter_sidebar ul a {
+                /*-webkit-text-shadow: 1px 1px 0px #EEEEEE;
+                -moz-text-shadow: 1px 1px 0px #EEEEEE;
+                text-shadow: 1px 1px 0px #EEEEEE;*/
+            }
+
+            #documenter_sidebar ul {
+                border-top: 1px solid #AAAAAA;
+            }
+
+                #documenter_sidebar ul a {
+                    border-top: 1px solid #3d3d3d;
+                    border-bottom: 1px solid #3d3d3d;
+                    color: #fff;
+                }
+
+                    #documenter_sidebar ul a:hover {
+                        background: #444444;
+                        color: #DDDDDD;
+                        border-top: 1px solid #444444;
+                    }
+
+                    #documenter_sidebar ul a.current {
+                        background: #009fda;
+                        color: #DDDDDD;
+                        border-top: 1px solid #009fda;
+                    }
+
+        #documenter_copyright {
+            display: block !important;
+            visibility: visible !important;
+        }
+    </style>
+
+</head>
+<body class="documenter-project-revamp-user-guide">
+    <div id="documenter_sidebar">
+        <a href="#documenter_cover" id="documenter_logo"></a>
+       
+        <ul id="documenter_nav">
+            <li><a class="current" href="#documenter_cover">Start</a></li>
+
+            <li><a href="#why_revamp" title="Why Revamp?">Why Revamp?</a></li>
+            <li><a href="#how_revamp_works" title="How Revamp Works">How Revamp works</a></li>
+            <li><a href="#registering" title="Registering">Creating a Revamp Account</a></li>
+            <li><a href="#logging_in_to_revamp" title="Logging in to Revamp">Logging in to Revamp</a></li>
+            <li><a href="#creating_a_core" title="Creating Cores">Creating Cores</a></li>
+            <li><a href="#manage_profiles" title="Manage your Revamp profile">Manage your Profile</a></li>
+            <li><a href="#linking_a_smart_card" title="Linking your SmartCard">Linking your SmartCard </a></li>
+            <!--<li><a href="#view_your_inbox_and_send_view_messages" title="View your inbox and send/view messages">View your inbox and send/view messages</a></li>-->
+            <li><a href="#viewing_the_security_dashboard" title="Viewing the security dashboard">Viewing the security dashboard</a></li>
+            <li><a href="#roles_and_privileges" title="Roles and Privileges">Roles and Privileges</a></li>
+            <li><a href="#manage_identities" title="Managing Identities">Managing Identities</a></li>
+            <li><a href="#changing_an_identities_password" title="Changing Passwords">Changing Passwords</a></li>
+            <li><a href="#creating_editing_and_disabling_roles" title="Managing Roles">Managing Roles</a></li>
+            <li><a href="#assigning_and_removing_an_identities_roles" title="Assigning and removing roles">Assigning and removing roles</a></li>
+            <li><a href="#viewing_all_applications" title="Viewing Applications">Viewing Applications</a></li>
+            <li><a href="#creating_applications" title="Creating Applications ">Creating Applications </a></li>
+            <li><a href="#modifying_an_application_s_settings" title="Modifying an application's settings ">Modifying an application's settings </a></li>
+            <li><a href="#designing_an_application_s_layout" title="Designing an application’s layout">Designing an application’s layout</a></li>
+            <li><a href="#adding_objects_to_sections" title="Adding objects to sections ">Adding objects to sections </a></li>
+            <li><a href="#edit_sections_settings" title="Edit sections settings">Edit sections settings</a></li>
+            <li><a href="#preview_an_application" title="Preview an application">Preview an application</a></li>
+            <li><a href="#viewing_an_application_s_details" title="Viewing an application's details">Viewing an application's details</a></li>
+            <li><a href="#adding_submissions_entries" title="Adding submissions/entries">Adding submissions/entries</a></li>
+            <li><a href="#exporting_submission_data" title="Exporting submission data">Exporting submission data</a></li>
+            <li><a href="#change_the_date_range_for_application_activity_graph" title="Change the date range for application activity graph">Change the date range for application activity graph</a></li>
+            <li><a href="#searching_for_specific_submissions" title="Searching for specific submissions">Searching for specific submissions</a></li>
+            <li><a href="#managing_submissions" title="Managing Submissions ">Managing Submissions </a></li>
+            <li><a href="#release_notes" title="Release Notes">Release Notes</a></li>
+        </ul>
+      
+        <div id="documenter_copyright">
+            Copyright Eminent IT 2016<br>
+            made with the <a href="http://revamp.io">Revamp.io</a>
+        </div>
+    </div>
+    <div id="documenter_content">
+        <section id="documenter_cover">
+            <h1>Revamp Guide</h1>
+            <h2>Tips for both those just starting off and experts.</h2>
+            <div id="documenter_buttons">
+
+            </div>
+            <hr>
+            <p style="width: 100%;">
+                <img src="http://digitalistmag.wpengine.netdna-cdn.com/files/2015/09/277355_l_srgb_s_gl.jpg" alt="Group of coworkers working together" />
+            </p>
+            <p>&nbsp;</p>
+        </section>
+
+        <section id="why_revamp">
+            <div class="page-header"><h3>Why Revamp?</h3><hr class="notop"></div>
+            <p>
+                <span style="">Welcome! If you want to learn more about using Revamp, you’ve come to the right place. Revamp is the easiest way for you and your team to collect, analyze and share data, and this Guide can help you get started. Our easy-to-read guide will help your team do more, together, from day one.</span>
+            </p>
+            <p><img src="https://s3.amazonaws.com/revampon.net/assets/frontend/img/security.png" height="300" width="400"></p>
+            <p>
+                <h2>
+                    Before you become a Revamp master, here are 3 key concepts to help you on your journey:
+                </h2>
+            </p>
+            <ol>
+                <li>
+                    <h5>MAKE IT EASY FOR YOUR USERS</h5>
+
+                    Imagine if collecting data from your customers was fun, simple, and easy. This is what Revamp is all about! Once your team has <a href="#creating_a_core" title="Creating Cores">Created a Core</a>, you can design multi-stage web forms for your team to work with customers.
+                </li>
+                <li>
+                    <h5>GUIDE USERS THROUGH YOUR PROCESSES STEP BY STEP</h5>
+                    Revamp helps you break down your processes. By using simple designs and helpful context you will help your users learn quickly. This will help them provide you with accurate data when you need it most.
+                </li>
+                <li>
+                    <h5>IT’S EASY, SECURE AND GETS MORE POWERFUL AS YOU USE IT</h5>
+                    It’s simple to get started and design in Revamp. If you know PowerPoint, you can start creating in Revamp. As you add more users and processes, it will keep your data safe and scale with your needs.
+                </li>
+            </ol>
+            <p><h3>Now let's get you educated!</h3> 
+             </p>   
+            <p style="white-space: pre-wrap;">Check out the sections below to learn how to use Revamp with your team. If you just want help using a particular feature, you can jump to that section by clicking on it in the sidebar on the right.
+
+Here in the Basics section, you’ll learn how to create new Cores for your team, and get suggestions for managing your Cores and your team.
+
+We suggest starting with the following sections first, but if you’re ready to skip ahead go for it.</p>
+            <h3>Basics</h3>
+<ul>
+                
+                <li><a href="#how_revamp_works" title="How Revamp Works">How Revamp works</a></li>
+    <li><a href="#creating_a_core" title="Creating Cores">Creating Cores</a></li>
+    <li><a href="#manage_profiles" title="Manage your Revamp profile">Manage your Revamp profile</a></li>
+</ul>
+
+            </p>
+           
+        </section>
+        <section id="how_revamp_works">
+            <div class="page-header"><h3>How Revamp Works</h3><hr class="notop"></div>
+            <p>
+                <span style="white-space: pre-wrap; line-height: 1.38;"></span>
+            </p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                 After you sign up for Revamp, you’ll be able to create a Core. A Core is a collection of applications and data. Before you dive in, let’s go through the basics.
+                &nbsp;
+                <img src="assets/images/hierarchy.png" />
+            </p>
+            
+            <p>
+                <strong>In Revamp, we call users Identities.</strong> Identities are people on your team or they can be users that you need to work with.
+            </p>
+            <p>
+                <strong>Cores are at the top of the stack;</strong> they can relate to your team's name, departments or other areas.
+            </p>
+            <p>
+                <strong>Applications are one or more Stages that work together.</strong> Creating an Application is easy once you learn how to do it. Be creative, keep it simple and put your users needs first.
+            </p>
+            <p>
+               <strong>Stages are the pages of your application.</strong>  Stages are made of different types of objects (i.e. form fields, images, rich text, and HTML.)
+
+            </p>
+            <div>
+                &nbsp;
+            </div>
+        </section>
+
+
+
+        <section id="registering">
+            <div class="page-header"><h3>Creating a Revamp Account</h3><hr class="notop"></div>
+            <p>
+                <span id="docs-internal-guid-a8bfac5d-7f01-bc68-97cb-f4c8cd07b2d0"><span style=" vertical-align: baseline; white-space: pre-wrap;">Revamp is a role-based system. This allows you to control what your users can and can't access. To create an account in Revamp you must either register to be a Core Owner or be invited to join a core by another Core Owner.</span></span>
+            </p>
+            <p>
+                &nbsp;
+            </p>
+            <h4>
+                As a the Core Owner (SAAS)
+            </h4>
+           
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f01-ffd1-3dd5-8b3628a63695"><span style=" vertical-align: baseline; white-space: pre-wrap;">Pick a plan on the sign-up page. Make sure that you read the details of each plan carefully, but don't worry if you need to upgrade you will still have the opportunity to do that later.</span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f01-ffd1-3dd5-8b3628a63695"><span style=" vertical-align: baseline; white-space: pre-wrap;">Complete the registration form and check your email. You should receive an email with your verification link.</span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f01-ffd1-3dd5-8b3628a63695"><span style=" vertical-align: baseline; white-space: pre-wrap;">Click on the <strong>Verification Link</strong> in your email. The link will launch the Revamp login page in your browser. <strong>Enter your username/password</strong> and let the fun begin.</span>
+                    </p>
+                </li>
+            </ol>
+
+
+
+            <h4>
+                As a the Core Owner (Private Cloud)
+            </h4>
+       
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f01-ffd1-3dd5-8b3628a63695"><span style=" vertical-align: baseline; white-space: pre-wrap;">On the Revamp login page, on the bottom left under the Login form, click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Register</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f01-ffd1-3dd5-8b3628a63695"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once the Register page loads, enter a </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">username</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">email</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">password</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">confirm password.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f01-ffd1-3dd5-8b3628a63695"><span style=" vertical-align: baseline; white-space: pre-wrap;">Press the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Submit</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button. Your account will be created and you can now access Revamp.</span></span>
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section id="logging_in_to_revamp">
+            <div class="page-header"><h3>Logging in to Revamp</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f02-93b2-4921-ab40e2299edb"><span style=" vertical-align: baseline; white-space: pre-wrap;">To log in to Revamp, you must register first. After you register and your account is activated and verified, only then will you be able to access Revamp. </span></span>
+            </p>
+            <p>
+                &nbsp;
+            </p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f02-93b2-4921-ab40e2299edb"><span style=" vertical-align: baseline; white-space: pre-wrap;">On the Revamp </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Login</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page enter your username and password.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f02-93b2-4921-ab40e2299edb"><span style=" vertical-align: baseline; white-space: pre-wrap;">If you want Revamp to remember your username click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Remember Me?</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> check box.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f02-93b2-4921-ab40e2299edb"><span style=" vertical-align: baseline; white-space: pre-wrap;">Press the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Submit</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button. You will now be able to access Revamp. </span></span>
+                        <br /><br />
+                        <img src="assets/images/login.png" width="700" height="400" alt="login.png">
+                        <br /><br />
+                    </p>
+                </li>
+
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f02-93b2-4921-ab40e2299edb">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To log out of Revamp, hover over your username on the right of the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Top Navigation Bar</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, when the drop down is shown click </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Log Out</span><span style=" vertical-align: baseline; white-space: pre-wrap;">.</span><br class="kix-line-break">
+                            <br class="kix-line-break">
+                            <br />
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img height="171" alt="logout.png" src="assets/images/logout.png" style=" border none; transform rotate(0.00rad); -webkit-transform rotate(0.00rad);" width="164"><br /><br /></span>
+                        </span>
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section id="creating_a_core">
+            <div class="page-header"><h3>Cores: are where the magic happen</h3><hr class="notop"></div>
+            <p>
+                <span style=" line-height: 1.38;">Most actions in Revamp happen in Cores. You can keep your Core private, but the true power of Revamp comes from granting others access to your Core. This allows you to collect data and work with your team.</span>
+            </p>
+            <h4>Creating Cores</h4>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                &nbsp;
+            </p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f01-1198-c335-4de1e8326249"><span style=" vertical-align: baseline; white-space: pre-wrap;"></span></span>
+            </p>
+            <div>
+                &nbsp;
+            </div>
+        </section>
+        <section id="manage_profiles">
+            <div class="page-header"><h3>Manage your Revamp profile</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e"><span style=" vertical-align: baseline; white-space: pre-wrap;">When you register to Revamp they are automatically given a profile. Each profile contains a person&rsquo;s personal information and their photo (if one has been uploaded). </span></span>
+            </p>
+            <p>
+                &nbsp;
+            </p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To view your profile, hover over your username on the right of the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Top Navigation Bar</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, when the drop down is shown, click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">My Profile </span><span style=" vertical-align: baseline; white-space: pre-wrap;">link.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><br /><img height="171" alt="logout.png" src="assets/images/logout.png" style=" border none; transform rotate(0.00rad); -webkit-transform rotate(0.00rad);" width="164"><br /></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">Once your profile page loads, you will see </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">your profile</span><span style=" vertical-align: baseline; white-space: pre-wrap;">. </span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="profile.png" height="400" src="assets/images/profile.png" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="637"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e"><span style=" vertical-align: baseline; white-space: pre-wrap;">On the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">profile page</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, you will be able to see the Revamp applications that you have access to on the</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> Applications (Available Apps) </span><span style=" vertical-align: baseline; white-space: pre-wrap;">tab. You will also see all of your submissions to those applications as well as the status of those submissions (if those application has a status field as a part of it's design) on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Submissions</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> tab. On the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Feed</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> tab you will see all of your activity inside of Revamp.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">On your profile you will see two tabs. The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Profile</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> tab and the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Account Settings</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> tab. The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Account Settings</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> tab allows you to edit your </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Personal Info</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change your profile photo</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, and </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change your password</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">.</span><br class="kix-line-break">
+                            <span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"><img alt="account.png" height="398" src="assets/images/account.png" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="655"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e"><span style=" vertical-align: baseline; white-space: pre-wrap;">To edit your </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Personal Info</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, type the proper information in each field and click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Submit Button.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To change your photo, click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change Photo </span><span style=" vertical-align: baseline; white-space: pre-wrap;">section on the left. The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change Photo</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page will be shown.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="profile image" height="244" src="assets/images/photo.png" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="653"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e"><span style=" vertical-align: baseline; white-space: pre-wrap;">Click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Select image</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button and select an image from your hard drive that is close to 200 x 150 px. (If you are using a browser less than IE 10 you will not see a thumbnail until after you submit.) Your profile image will be changed.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To change your password click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change Password </span><span style=" vertical-align: baseline; white-space: pre-wrap;">section. The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page will be shown.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Change Password" height="214" src="assets/images/changepassword.png" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="650"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e"><span style=" vertical-align: baseline; white-space: pre-wrap;">Type in your </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Current Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">New Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> and </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Retype Your New Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> for confirmation.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f03-3fc0-5cd1-c8fceb5dd06e"><span style=" vertical-align: baseline; white-space: pre-wrap;">Click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button to save your changes.</span></span>
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section id="linking_a_smart_card">
+            <div class="page-header"><h3>Linking your SmartCard for Single Sign On</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f03-adbe-619d-ec8f39da4c2f"><span style=" vertical-align: baseline; white-space: pre-wrap;">Each profile can be linked to your smart card </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style=" vertical-align: baseline; white-space: pre-wrap;">: In order for a smart card to be linked to an identity, Revamp must be accessed through SSL (HTTPS). </span></span><br class="kix-line-break">
+                &nbsp;
+            </p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <span id="docs-internal-guid-a8bfac5d-7f03-adbe-619d-ec8f39da4c2f"><span style=" vertical-align: baseline; white-space: pre-wrap;">To link your smart card to your profile navigate to your profile and click on the Account Tab and click on the Link smart card section. Your smart card will now be linked to your account and you will no longer be required to login using username and password.</span></span>
+                </li>
+            </ol>
+        </section>
+
+
+
+        <!--<section id="view_your_inbox_and_send_view_messages">
+            <div class="page-header"><h3>View your inbox and send/view messages</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f04-2e93-ceb9-8e90b9dabfae"><span style=" vertical-align: baseline; white-space: pre-wrap;">Each Revamp identity has the ability to send and receive messages. These messages can only be viewed inside of Revamp but notification emails will be sent to your email address that you have set in your profile. If no email address is provided, you will still be able to receive messages inside of Revamp.</span></span>
+            </p>
+            <p>
+                &nbsp;
+            </p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-2e93-ceb9-8e90b9dabfae">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To view your inbox, hover over your username on the right of the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Top Navigation Bar</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, when the drop down is shown, click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">My Inbox </span><span style=" vertical-align: baseline; white-space: pre-wrap;">link.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 9.36.35 AM.png" height="171" src="https://lh4.googleusercontent.com/TmiHJQrvCSFTJBnaz3RIDEF7XBH2Ja2l09lRaRE3S94xZEWG_2WI7iAWKZgMuE1j3UvXl5ofFCSZjPxpPTJ3D6QTYp8w1b6gpvDhvK8wRaEeWLbXYeJQyesv3t81PR6gaZjYGeY" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="193"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-2e93-ceb9-8e90b9dabfae">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">Once your inbox page loads, you will see </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">your inbox</span><span style=" vertical-align: baseline; white-space: pre-wrap;">. Any messages that you will receive will be listed in the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Inbox </span><span style=" vertical-align: baseline; white-space: pre-wrap;">section. Messages that you send will be listed in the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Sent.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 10.56.00 AM.png" height="144" src="https://lh6.googleusercontent.com/HvrFFLh5am-sh32n4Rz0iFdQ6LD0EeS5F5g0IKGCMEToeqSIcGjdajPS6PWkhbr3CpYzwLxZ8AE-nD82DUZeMNIQWMSEo7mGBhjzSQ80LZuGSjk57kRcvLUB4xqCbwrLUMBPAJA" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="615"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-2e93-ceb9-8e90b9dabfae">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To compose a new message click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Compose Button </span><span style=" vertical-align: baseline; white-space: pre-wrap;">on the left</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">, </span><span style=" vertical-align: baseline; white-space: pre-wrap;">once the compose page is shown, start typing a username (does not work with email addresses) in the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">To</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">field</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> and a dropdown of potential identities that you can send a message to will be displayed.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 10.58.31 AM.png" height="341" src="https://lh3.googleusercontent.com/8YJGqIeRm5H7UQutCh-nNQgQuiTBfuXZh7oH2N2dF1JQNGgi682y2dwAFzVDMi6Zh399vvzLBbtnPSahERAadZHKfnJ0zHtG5pgVkZUqWjox7ZWPNzQ2Rkov4K4BlcHGFdDgbwk" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="624"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-2e93-ceb9-8e90b9dabfae"><span style=" vertical-align: baseline; white-space: pre-wrap;">Add a subject in the subject field and a message in the body. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-2e93-ceb9-8e90b9dabfae"><span style=" vertical-align: baseline; white-space: pre-wrap;">Click </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Send</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> to send your message.</span></span>
+                    </p>
+                </li>
+            </ol>
+        </section>-->
+      <!--  <section id="creating_cores">
+            <div class="page-header"><h3>Viewing the security dashboard - (Private Cloud Only)</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f04-9134-8732-c36285e54d38"><span style=" vertical-align: baseline; white-space: pre-wrap;">The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Security Dashboard</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> displays all of the Identities, Roles, Groups and Revamp Login Activity and System Activity. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-9134-8732-c36285e54d38"><span style=" vertical-align: baseline; white-space: pre-wrap;">To access the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Security Dashboard</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> click on the Security tab in the Sidebar, then click on the Security Dashboard link, the Security Dashboard page will be shown.</span></span>
+                    </p>
+                </li>
+            </ol>
+        </section>-->
+        <section id="viewing_the_security_dashboard">
+            <div class="page-header"><h3>Viewing the security dashboard - (Private Cloud Only)</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f04-9134-8732-c36285e54d38"><span style=" vertical-align: baseline; white-space: pre-wrap;">The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Security Dashboard</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> displays all of the Identities, Roles, Groups and Revamp Login Activity and System Activity. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-9134-8732-c36285e54d38"><span style=" vertical-align: baseline; white-space: pre-wrap;">To access the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Security Dashboard</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> click on the Security tab in the Sidebar, then click on the Security Dashboard link, the Security Dashboard page will be shown.</span></span>
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section id="roles_and_privileges">
+            <div class="page-header"><h3>Roles and Privileges</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">Roles are used to </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">give privileges to identities</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> in Revamp. </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Privileges</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> determine what an identity can access and what actions they can perform. All roles and privileges can be viewed by navigating to the Security tab in the Sidebar.</span></span>
+            </p>
+            <p>
+                <br>
+                &nbsp;
+            </p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">By default, Revamp comes with the following </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Roles</span><span style=" vertical-align: baseline; white-space: pre-wrap;">:</span></span><br class="kix-line-break">
+                &nbsp;
+            </p>
+            <ul style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: disc;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">AUDITOR</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: disc;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">CREATOR</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: disc;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">OBJECT OWNER </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: disc;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">OWNERS (Administrator Level Role)</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: disc;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">PUBLIC ACCESS</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: disc;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">SYSTEM ADMIN (Administrator Level Role)</span></span><br class="kix-line-break">
+                        &nbsp;
+                    </p>
+                </li>
+            </ul>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To view the privileges for a </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Role, </span><span style=" vertical-align: baseline; white-space: pre-wrap;">go the</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> Security </span><span style=" vertical-align: baseline; white-space: pre-wrap;">tab in the</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> Sidebar </span><span style=" vertical-align: baseline; white-space: pre-wrap;">and click on</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> Roles </span><span style=" vertical-align: baseline; white-space: pre-wrap;">then click on</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> All Roles. </span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 3.23.45 PM.png" height="247" src="https://lh3.googleusercontent.com/kBeFqtY4J10qVzMn2uO99D3Iak_a6s47X_qhVRZMDIRJF1319fYfQ5ZvvIomqvcvm4Sjx3OhpwMAxlfDoDG8HLhExZZBzyRAc7RstNPAqJ4yvVi5L4EFTz4KbrTsThhtj9Fq0Fs" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="621"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f04-eb85-c624-e44466e3ba8c"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Roles</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page is shown, you can view the privileges of that role by clicking on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">View Privileges</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link next to a role. The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Privileges</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> for that Role will be displayed on the Role Privileges page. &nbsp;</span><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 3.38.17 PM.png" height="245" src="https://lh5.googleusercontent.com/gFRV47cX33riOG2LKk_FDdB5je9z_tugpVujH1Fx2OV7fHVT_p4UyBU2JXhmuwp899e4hVWpCVp7S3HimaB3WNzhsup6vwi118w3gUIHI9uOP4La0BiLwq7fDOm2-PNlR2uJD0Y" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="644"></span></span>
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section id="manage_identities">
+            <div class="page-header"><h3>Managing Identities</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f05-5861-f000-2792eb2ec33d"><span style=" vertical-align: baseline; white-space: pre-wrap;">Each user account in Revamp is called an </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Identity</span><span style=" vertical-align: baseline; white-space: pre-wrap;">. An Identity can be added through registration or on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Identities or Core Identities</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page by clicking the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Add Identity</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button. When an Identity is disabled that person will no longer be able to use their username and password to access the system.</span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f05-5861-f000-2792eb2ec33d">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To view all identities in Revamp, click on the</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> Security </span><span style=" vertical-align: baseline; white-space: pre-wrap;">tab in the</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> Sidebar </span><span style=" vertical-align: baseline; white-space: pre-wrap;">then click on the Identities Section to expand it, once it expands then click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Identities</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link. </span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 9.23.36 AM.png" height="306" src="https://lh5.googleusercontent.com/wJdQBrzhRtMgsGt2vaIgSZ36EZIkdypzhL2f_eyvGm5wSi80mY1YGnjIRr9rtr_pDiR1dPYq7HMC-XmFuN6MVLPozVBifFWi8EY2WxWI6ADg-xvkrKqLwcvHMICXu-jKoXCNvws" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="652"></span>
+                        </span><br class="kix-line-break">
+                        &nbsp;
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f05-5861-f000-2792eb2ec33d">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">To add an identity, click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Add Identity</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button, the identity popup will be shown.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-25 at 9.20.48 PM.png" height="343" src="https://lh3.googleusercontent.com/AB4OJmuZPCnFqycYQj6BuEuZanR9wzJW7efPwGk1WmG9XmycT8VPlrxTG0SE9Osuso0cFwhV5aJxmJcIByGcVxMPz1cZq61fIqjYfHsiccBPTWBM72sF9QhdJhlQT5NO8ZxitWY" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="434"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f05-5861-f000-2792eb2ec33d"><span style=" vertical-align: baseline; white-space: pre-wrap;">Enter the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Username, Password and Confirm the Password for the new identity</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, then press the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Save</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button to add the new Identity.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f05-5861-f000-2792eb2ec33d"><span style=" vertical-align: baseline; white-space: pre-wrap;">To disable an Identity click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Disable</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link next to the Identity that you want to disable.</span></span>
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section id="changing_an_identities_password">
+            <div class="page-header"><h3>Changing Passwords</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f05-bd80-59bb-ed6e3f31f3b4"><span style=" vertical-align: baseline; white-space: pre-wrap;">After a person has registered, their account will be enabled once they click the verify link in the email that they received in their inbox. Although people can register themselves they will not be able to reset their own passwords. This is currently an administrative function only in Revamp. </span></span>
+            </p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f05-bd80-59bb-ed6e3f31f3b4"><span style=" vertical-align: baseline; white-space: pre-wrap;">To reset an identities&rsquo; password navigate to the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Identities</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f05-bd80-59bb-ed6e3f31f3b4"><span style=" vertical-align: baseline; white-space: pre-wrap;">On this page you will be able to click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link next to the identity that you would like to change the password for. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f05-bd80-59bb-ed6e3f31f3b4">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Change Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> popup will be displayed, enter the new </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> and then fill in the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Confirm Password</span><span style=" vertical-align: baseline; white-space: pre-wrap;">.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 9.37.17 AM.png" height="288" src="https://lh6.googleusercontent.com/jeCx23TZT0WTNXuyTDX4qx9O7xQKZ05ccbWyZa7UsyoZdAA2cn8JilbYdm2LEaCU2kJW1TuooaD80xnEMNJtWkNjRK9f_Wr0gvTHEc4gcriOVZHBKk3WBcLdyNuRyjfjXPm3tEc" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="436"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f05-bd80-59bb-ed6e3f31f3b4"><span style=" vertical-align: baseline; white-space: pre-wrap;">Next notify the person of their new password.</span></span>
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section id="creating_editing_and_disabling_roles">
+            <div class="page-header"><h3>Managing Roles</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f06-2169-ea19-aaa84b84977a"><span style=" vertical-align: baseline; white-space: pre-wrap;">As an administrator, Revamp allows administration.</span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f06-2169-ea19-aaa84b84977a"><span style=" vertical-align: baseline; white-space: pre-wrap;">To create a role in Revamp you must first navigate to the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Roles</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page in the Sidebar under the Security tab. </span><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 3.23.45 PM.png" height="247" src="https://lh3.googleusercontent.com/kBeFqtY4J10qVzMn2uO99D3Iak_a6s47X_qhVRZMDIRJF1319fYfQ5ZvvIomqvcvm4Sjx3OhpwMAxlfDoDG8HLhExZZBzyRAc7RstNPAqJ4yvVi5L4EFTz4KbrTsThhtj9Fq0Fs" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="621"></span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f06-2169-ea19-aaa84b84977a">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">Once the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Roles</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page is displayed, click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Create Role </span><span style=" vertical-align: baseline; white-space: pre-wrap;">button, the Create Role popup will be shown.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 6.08.20 PM.png" height="210" src="https://lh6.googleusercontent.com/mLdJqrPBaLrTUhaWIZ0zkyL0Ciq3aSHBMwh_yi3SoVLg0eNz7BaIqfElfEqjmk_mcoJMkMhEjweEHGNe6KdNw_D6PRlsVbRfT96BCkw9kLWHQukvVl9W2DW70upCN2rtPobbGNc" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="498"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f06-2169-ea19-aaa84b84977a"><span style=" vertical-align: baseline; white-space: pre-wrap;">Add a name for your new role, press the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Save</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button to save the new role.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f06-2169-ea19-aaa84b84977a"><span style=" vertical-align: baseline; white-space: pre-wrap;">To edit a Role click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Edit</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link next to the role that you want to edit, the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Edit Role</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> popup will be shown, change the role name and press the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Save</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button.</span></span>
+                    </p>
+                </li>
+            </ol>
+            <p>	<span id="docs-internal-guid-a8bfac5d-7f06-2169-ea19-aaa84b84977a"><span style=" vertical-align: baseline; white-space: pre-wrap;">To disable a Role click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Disable</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link next to the role that you want to disable. </span></span></p>
+        </section>
+        <section id="assigning_and_removing_an_identities_roles">
+            <div class="page-header"><h3>Assigning and removing roles</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f06-b317-dfb6-1b0969516ae8"><span style=" vertical-align: baseline; white-space: pre-wrap;">In order for an Identity to have privileges to do more than login to Revamp they must be assigned a Role that has privileges. Once an identity is assigned to role, that identity will be able to perform the actions that are allowed by that role&rsquo;s privileges.</span></span>
+            </p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f06-b317-dfb6-1b0969516ae8"><span style=" vertical-align: baseline; white-space: pre-wrap;">To assign a role to an identity navigate to the All Identities page. </span><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 5.45.03 PM.png" height="157" src="https://lh3.googleusercontent.com/LicS8smGsrN2iLBq4lzhYm2oY9s8JebwyuU_TFDptOUcZv5oRc5bo65kBXovDBMAaDiTrOats4TFjyIFOY-JKy5QSb8a8By99gOO8bYFxj2KbI4YnzW5oF2p4ONmYDS7diwkYDk" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="655"></span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f06-b317-dfb6-1b0969516ae8"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once the page is shown, click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Roles</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link next to the identity that you want to edit. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f06-b317-dfb6-1b0969516ae8">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">The Identity Roles page will be shown, click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Add Role</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button, the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Add Role to Identity</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> popup will be shown.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 6.27.46 PM.png" height="145" src="https://lh3.googleusercontent.com/GjpYBsSfvFJ5TIBBqUeouX6GSVTsoaMU0HxKmWt0krZE55podHKB6tZGfObHMNAIhjhS4Fd3vTgyrajuOS3u5IVNcBa4q0OPpg0yLF6wJBsz6FvCCv9DlNA-njVpP5qGceElJVA" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="650"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f06-b317-dfb6-1b0969516ae8">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">Select the Roles that you want to add this identity to and press the Save button.</span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 6.27.15 PM.png" height="268" src="https://lh3.googleusercontent.com/_HwYrHt4TLtVr1msPTlW_etlRazMcVLWnEEqVjaZxsbQMci2I1ZVR_D6RzhEofv1SYZc5Ee_Ywrxp-vlPF2FZIkcuBY-7oYOvr6oDX0-bhu9Z29rUjNpjdD26l1AX8Emm-cl6XA" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="492"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <span id="docs-internal-guid-a8bfac5d-7f06-b317-dfb6-1b0969516ae8"><span style=" vertical-align: baseline; white-space: pre-wrap;">To remove roles from an identity, click the Remove link next to role in the list on the Identity Roles page.</span></span>
+                </li>
+            </ol>
+        </section>
+        <section id="viewing_all_applications">
+            <div class="page-header"><h3>Viewing Applications</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f07-1d05-6088-e8bf6a56a036"><span style=" vertical-align: baseline; white-space: pre-wrap;">All applications in Revamp are created in the browser using Revamp&rsquo;s drag and drop application builder. Administrators can view individual applications or on the All Applications page. From the All Applications page you can </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">view, edit and duplicate an application</span><span style=" vertical-align: baseline; white-space: pre-wrap;">. You can also </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">set the roles</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> that can access an application and view the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Application Dashboard &amp; submissions</span><span style=" vertical-align: baseline; white-space: pre-wrap;">. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-1d05-6088-e8bf6a56a036"><span style=" vertical-align: baseline; white-space: pre-wrap;">To view all applications in your Revamp install click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Applications</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link in the Sidebar in the Applications section.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-1d05-6088-e8bf6a56a036">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Applications</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page will be shown listing all of the current applications in your Revamp install.</span><br class="kix-line-break">
+                            <br class="kix-line-break">
+                            <br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 9.31.01 PM.png" height="266" src="https://lh5.googleusercontent.com/PcNHG3UEQTQwMR41rzJoTXtOdafjuyZU0f1UrgN6x6QiwjU2Hvx-1svOVkGfTynlsWTc33t3LqHMPWUKnuDYv2bUIQZ1Bzqov3A1N857FyCQLf8iPRklQBX-ur6PGBK1Lf6bldQ" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="538"></span>
+                        </span>
+                    </p>
+                </li>
+            </ol>
+        </section>
+        <section id="creating_applications">
+            <div class="page-header"><h3>Creating Applications </h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">As an admin in Revamp you can easily design and deploy applications for use by internal or external users. The drag and drop application builder makes creating applications for collecting data or sharing information easy without requiring you to do programming. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3">
+                    <span style=" vertical-align: baseline; white-space: pre-wrap;">In Revamp applications there are no pages or files that are used to build your application like in HTML or programming languages. &nbsp;Revamp applications consist of one or more Stages. A </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Stage</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> is a virtual representation of a page.</span><br class="kix-line-break">
+                    <br class="kix-line-break">
+                    <span style=" vertical-align: baseline; white-space: pre-wrap;">Once an application is created, it will be given a unique URL (&lt;your revamp URL&gt;/app/&lt;your app name&gt;). The applications that you create are only accessible in Revamp by registered users that have the roles that you assign to your application. </span>
+                </span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">To create an application there are multiple ways to access the application builder. You can access the application builder on the Sidebar in the Applications section by clicking the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Build Application</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> link. You can also access the application builder from the home page by clicking the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Build Application </span><span style=" vertical-align: baseline; white-space: pre-wrap;">button in the all applications dashboard widget. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once the application builder page loads, you can create applications in six steps:</span></span>
+                    </p>
+                    <ol style="margin-top:0pt;margin-bottom:0pt;">
+                        <li dir="ltr" style="list-style-type: lower-alpha;  vertical-align: baseline;">
+                            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                                <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">Change application settings </span></span>
+                            </p>
+                        </li>
+                        <li dir="ltr" style="list-style-type: lower-alpha;  vertical-align: baseline;">
+                            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                                <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">Design layout with sections and stages</span></span>
+                            </p>
+                        </li>
+                        <li dir="ltr" style="list-style-type: lower-alpha;  vertical-align: baseline;">
+                            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                                <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">Add objects to sections</span></span>
+                            </p>
+                        </li>
+                        <li dir="ltr" style="list-style-type: lower-alpha;  vertical-align: baseline;">
+                            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                                <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">Edit section settings</span></span>
+                            </p>
+                        </li>
+                        <li dir="ltr" style="list-style-type: lower-alpha;  vertical-align: baseline;">
+                            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                                <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">Save application</span></span>
+                            </p>
+                        </li>
+                        <li dir="ltr" style="list-style-type: lower-alpha;  vertical-align: baseline;">
+                            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                                <span id="docs-internal-guid-a8bfac5d-7f07-7e0e-583d-c21a569b72b3"><span style=" vertical-align: baseline; white-space: pre-wrap;">Preview application</span></span>
+                            </p>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </section>
+        <section id="modifying_an_application_s_settings">
+            <div class="page-header"><h3>Modifying an application's settings </h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f07-f618-8126-a3babc597358"><span style=" vertical-align: baseline; white-space: pre-wrap;">When creating an application the first thing that you should do is change the settings of the application. All of the settings don&#39;t need to be changed but you should at least give your application a unique name. The name of the application is what will be used to generate the unique URL for your application. </span></span><br class="kix-line-break">
+                &nbsp;
+            </p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-f618-8126-a3babc597358">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">There are two ways to get to an application&rsquo;s settings. The first method is to </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">click on the name</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> of the application while in the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Application Builder. </span><span style=" vertical-align: baseline; white-space: pre-wrap;">The second method is to click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Settings</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button. </span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 10.30.06 PM.png" height="423" src="https://lh6.googleusercontent.com/fWxf1xXHcfz23D3wd3lDLoxcEuJuKDV3izyh5k_UCcemFYcaeXbF3nLfummrFwlM04Sxfc09JHeU9wzgfRDRR5h7LkCbxU6R_i1L4dgoInn66IMYlThNgE3YIlLQLoPLue84Zx0" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="667"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-f618-8126-a3babc597358">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;">After you click either the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Settings</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button or </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Application Name</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Settings</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> popup will be shown. </span><br class="kix-line-break">
+                            <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 10.34.15 PM.png" height="420" src="https://lh3.googleusercontent.com/NU7rCbaUOB8EEHB37laGVip2qekWW5Pbm51JKHanRPCsHvUxpB8a3K-d9F2V44dp90FkGZ6BT67CXYBoYUSrU-z7quGSnHTolz12u6jrt4NKsAFJeR10cOQ0cJRI7O3IcIjIuok" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="460"></span>
+                        </span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-f618-8126-a3babc597358"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style=" vertical-align: baseline; white-space: pre-wrap;">: Each application setting has tooltips that you can hover over for an explanation of what each setting does.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-f618-8126-a3babc597358"><span style=" vertical-align: baseline; white-space: pre-wrap;">Add a new name in the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Application Name</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> field in the General Settings section. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-f618-8126-a3babc597358"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style=" vertical-align: baseline; white-space: pre-wrap;">: If you change the application name after initial save Revamp will treat your application as a new application. When you go to the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Applications</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page you will see both applications listed under both the old and new application name.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f07-f618-8126-a3babc597358"><span style=" vertical-align: baseline; white-space: pre-wrap;">To add a logo for your application, click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Select Image</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button, select an image from your hard drive. The logo will be displayed in the type right of the Top Navigation Bar when your application is accessed via it&rsquo;s URL. </span></span>
+                    </p>
+                </li>
+            </ol>
+            <p>
+                <span id="docs-internal-guid-a8bfac5d-7f07-f618-8126-a3babc597358">
+                    <span style=" vertical-align: baseline; white-space: pre-wrap;">To choose which roles can access your application, click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Application Access </span><span style=" vertical-align: baseline; white-space: pre-wrap;">section, the Application Access section should expand and allow you to select a role/s. Once you select a role/s that role/s will be able to access your application. Click the done button.</span><br class="kix-line-break">
+                    <span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 11.00.59 PM.png" height="399" src="https://lh4.googleusercontent.com/NcAAjNsfAsQSzjZZduw0_nK1ZeexzxCKc8rhtPppfzxcL85v9oMT-qvH5i1v6Oe5JjQM0DJa0iF0NYCnikdHfg30JTxfE4YJEncQFr7sCWIXubArg5XTCIsh5PTK78_aEvGMGyA" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="438"></span>
+                </span>
+            </p>
+        </section>
+        <section id="designing_an_application_s_layout">
+            <div class="page-header"><h3>Designing an application’s layout</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" vertical-align: baseline; white-space: pre-wrap;">When creating an application you can add sections to help you define the structure and layout of your application. When you click on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Add Section</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button inside the builder, a section will be added to an area inside of the stage. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" vertical-align: baseline; white-space: pre-wrap;">You can add as many sections as you need to a Stage. Sections can also be resized by dragging the bottom right corner of a section. We highly recommended that you design your application </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">one Stage at a time</span><span style=" vertical-align: baseline; white-space: pre-wrap;">. This makes it easier to think through the flow of your application. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-08 at 10.30.06 PM.png" height="423" src="https://lh6.googleusercontent.com/fWxf1xXHcfz23D3wd3lDLoxcEuJuKDV3izyh5k_UCcemFYcaeXbF3nLfummrFwlM04Sxfc09JHeU9wzgfRDRR5h7LkCbxU6R_i1L4dgoInn66IMYlThNgE3YIlLQLoPLue84Zx0" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="667"></span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Adding a stage, stage settings and stage right-click menu</span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" font-family: Arial; color: rgb(37, 37, 37); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Stages</span><span style=" font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline; white-space: pre-wrap;"> are virtual representations of pages in traditional web development and serve as a container for </span><span style=" font-family: Arial; color: rgb(37, 37, 37); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Grips</span><span style=" font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline; white-space: pre-wrap;"> and </span><span style=" font-family: Arial; color: rgb(37, 37, 37); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Object Sets</span><span style=" font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline; white-space: pre-wrap;">. They are dynamically generated by the Revamp framework on request, which adds an additional level of security and flexibility to applications. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline; white-space: pre-wrap;">By default, all applications in Revamp come with one stage titled </span><span style=" font-family: Arial; color: rgb(37, 37, 37); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Stage 1</span><span style=" font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline; white-space: pre-wrap;">. To make an application more useful in more situations, an application can have multiple stages. Like applications, each Stage in Revamp has it&#39;s own settings. Also, </span><span style=" font-family: Arial; color: rgb(37, 37, 37); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">each Stage has a right-click menu</span><span style=" font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline; white-space: pre-wrap;"> that allows you to manage the stage and the sections that are placed on. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" vertical-align: baseline; white-space: pre-wrap;">To add a Stage, you must click the plus sign next to the Stage 1 tab. This will add a new stage. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" vertical-align: baseline; white-space: pre-wrap;">To modify a stage&#39;s settings, click on the settings icon (looks like a cog or gear) next to the title of the stage. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" color: rgb(50, 54, 58); font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style=" color: rgb(50, 54, 58); vertical-align: baseline; white-space: pre-wrap;">: Each stage setting has tooltips that you can hover over for an explanation of what each setting does.</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  font-family: Arial; color: rgb(37, 37, 37); vertical-align: baseline;">
+                    <span id="docs-internal-guid-a8bfac5d-7f08-6a09-609b-d9e5f958f9d1"><span style=" vertical-align: baseline; white-space: pre-wrap;">To access the right click menu of a stage, right click in a stage, the right menu will be shown. </span></span>
+                </li>
+            </ol>
+        </section>
+        <section id="adding_objects_to_sections">
+            <div class="page-header"><h3>Adding objects to sections </h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once you have sections added to your application you can add objects to those sections. In Revamp, there are form, data and other types of objects that you can add to the sections of your application. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">To add objects to sections, select the section that you want to add the object to, hover over the Object drop down and click on the object that you want to add. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Object Properties</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> popup will be shown. The </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Object Properties </span><span style=" vertical-align: baseline; white-space: pre-wrap;">popup contains all of the settings for an object allowing you to customize an object to fit your needs. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style=" vertical-align: baseline; white-space: pre-wrap;">: Each object setting has tooltips that you can hover over for an explanation of what each setting does.</span></span>
+                    </p>
+                </li>
+            </ol>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 8.58.33 AM.png" height="591" src="https://lh4.googleusercontent.com/ueAdn7XIvhQwrWvk6ojapkdmu4_QADnwoCw3qc_8XKiukNK6usGyQg3-1N4WOC4YN_clzkkFFki9bdn6Npk3OcVhObarcgNHAh06YmW7fjVcqpSUwW76qRfjJvrErEGGthfhGLE" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="720"></span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Available Object Types</span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <div dir="ltr" style="margin-left:0pt;">
+                <table style="border: none; border-collapse: collapse;">
+                    <colgroup>
+                        <col width="120">
+                        <col width="542">
+                        <col width="82">
+                    </colgroup>
+                    <tbody>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Name</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Description</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Type</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Text Field</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textbox element to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Text Area</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textarea element to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Drop Down</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML dropdown element to a section. Drop down objects can be set to status objects. This allows you to notify the user that submitted the form when the values of this object are changed. The default value of a status object will be the first item that is in the drop downs&#39; options. This default value will be displayed in the submission data when non-admin users submit a form. </span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Check Box</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML checkbox element to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Radio Buttons</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML radio button element to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Button</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML button element to a section. This button can be of type submit, go-to-stage or cancel. Go-to-stage buttons allow users to be routed to a new stage after the form is submitted. Submit takes the user back to their profile but submits the data first. Cancel takes the user back to their profile but does not submit the data.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Label</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML label element to a section. This allows you to add rich text to a section. &nbsp;</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Number</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textbox element that only takes numbers to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Email</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textbox element that only takes email addresses to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">URL</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textbox element that only takes URLs to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Currency</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textbox element that only takes currency to a section. This object also allows you to choose the currency type from a select box. </span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Date</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textbox element to a section that only takes dates. This object allows you to select the date from a date picker.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Time</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textbox element to a section that only takes time as input. </span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Phone</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a HTML textbox element to a section that only takes time as input. </span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:32px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">File Upload</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Add a HTML file upload element to a section that only takes the file types that you specify in the object&rsquo;s properties.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Form</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Rich Text</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a rich text editor element to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Other</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Image</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds an image from your computer or an existing image from the Revamp image library to a section.</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Other</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr style="height:0px">
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Total</span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Adds a textbox element that allows you to select the existing number objects and perform an addition calculation on them in real time</span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">. </span></span>
+                                </p>
+                            </td>
+                            <td style="border-style: solid; border-color: rgb(0, 0, 0); vertical-align: top; padding: 7px;">
+                                <p dir="ltr" style="line-height:1.2;margin-top:0pt;margin-bottom:0pt;">
+                                    <span id="docs-internal-guid-a8bfac5d-7f08-f152-3bb0-811b0dec0561"><span style=" vertical-align: baseline; white-space: pre-wrap;">Data</span></span>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>	&nbsp;</p>
+        </section>
+        <section id="edit_sections_settings">
+            <div class="page-header"><h3>Edit sections settings</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style=" vertical-align: baseline; white-space: pre-wrap;">Like applications and stages, sections have settings that allow you to customize each individual section. This is a crucial step to designing great looking applications in Revamp. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style=" vertical-align: baseline; white-space: pre-wrap;">There are two methods to get to Section Settings, the first method is to double click the section. The second method is to left-click on the section to selected it and then right-click anywhere in the stage and click </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Section Settings. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style=" vertical-align: baseline; white-space: pre-wrap;">The Section Settings popup will be shown and you can customize the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">borders</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">background color</span><span style=" vertical-align: baseline; white-space: pre-wrap;">, </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">font color </span><span style=" vertical-align: baseline; white-space: pre-wrap;">and choose which roles this section will be visible to. </span></span>
+                    </p>
+                </li>
+            </ol>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 8.59.35 AM.png" height="411" src="https://lh3.googleusercontent.com/Yb6Kry0Mj2NdhuDFKy57Vc8aKKlq7e2n34S7iGjTy9Y1Ein0ccP509KmYvsl8TD9B0CllkjiGWJWK_H7Pw_coyBZ3PQE8bt_W-FfU0UeSVr8BzR7de2wz6T5Pg_ga4EFaCQadc0" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="474"></span></span>
+            </p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style="font-size: 24px; vertical-align: baseline; white-space: pre-wrap;">Saving an application</span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style=" vertical-align: baseline; white-space: pre-wrap;">In Revamp, you can save an application using two methods. The first method is to press the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Save</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button in the application builder and the second method is by activating </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Autosave </span><span style=" vertical-align: baseline; white-space: pre-wrap;">in the application builder. To activate auto-save you must press the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Autosave On button</span><span style=" vertical-align: baseline; white-space: pre-wrap;">. To deactivate the autosave, click the button again. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style=" vertical-align: baseline; white-space: pre-wrap;">: In order to save an application you must add at least one section on a stage and change the name of your application. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style=" vertical-align: baseline; white-space: pre-wrap;">: At this point any identity with the role/s, that you gave access to, will be able to access your application. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-5113-545a-051c32f13dc1"><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 9.00.10 AM.png" height="139" src="https://lh6.googleusercontent.com/RA2N08B5VwriMXf3VyEjuX6KTcECyobezIZAOKUTSqr4PXpYMLDhPwp-Bn_4h4pUx5dGU2iPZGWS86gHjfruEfF3p521OIfgaVfIqBiD0l-aT8jw6RXg-GQ9woRvm4jRFjd9Kws" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="324"></span></span>
+            </p>
+            <div>
+                &nbsp;
+            </div>
+        </section>
+        <section id="preview_an_application">
+            <div class="page-header"><h3>Preview an application</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-d33e-8a50-4a4d4c212361"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once your application has been saved, you can then preview the full application by clicking the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Preview</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button. The application will be launched in a new tab in your current browser window. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f09-d33e-8a50-4a4d4c212361"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style=" vertical-align: baseline; white-space: pre-wrap;">: If you don&#39;t save your application you will only be able to preview the first stage. </span></span>
+            </p>
+            <div>
+                &nbsp;
+            </div>
+        </section>
+        <section id="viewing_an_application_s_dashboards">
+            <div class="page-header"><h3>Viewing an application's details</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0a-2bb8-d5ca-e8928c158c8d"><span style="font-size: 16px; vertical-align: baseline; white-space: pre-wrap;">Each Application in Revamp comes with a dashboard that displays an activity graph (submissions and application activity) for an application and a table containing all of the application&#39;s entries. This page is called the </span><span style="font-size: 16px; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Dashboard </span><span style="font-size: 16px; vertical-align: baseline; white-space: pre-wrap;">page. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal; font-size: 16px; vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0a-2bb8-d5ca-e8928c158c8d"><span style="vertical-align: baseline; white-space: pre-wrap;">To view the details of an application you must go to the </span><span style="font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Applications </span><span style="vertical-align: baseline; white-space: pre-wrap;">page. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal; font-size: 16px; vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0a-2bb8-d5ca-e8928c158c8d"><span style="vertical-align: baseline; white-space: pre-wrap;">Click on the </span><span style="font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">details</span><span style="vertical-align: baseline; white-space: pre-wrap;"> icon (looks like a dashboard) in the Application that you want to view the details page for. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal; font-size: 16px; vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0a-2bb8-d5ca-e8928c158c8d"><span style="vertical-align: baseline; white-space: pre-wrap;">The details page will load. </span></span>
+                    </p>
+                </li>
+            </ol>
+            <p>	<span id="docs-internal-guid-a8bfac5d-7f0a-2bb8-d5ca-e8928c158c8d"><span style="font-size: 24px; vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 9.01.47 AM.png" height="360" src="https://lh3.googleusercontent.com/YsPWrnKoNlH3D77jLkLzdE6hZGmhTMP2ocbQgOLt28t_eqoaWAyWV5WsEnsjfwt4HpvEgzQS6FGVJHuMDoISl9C_DcmNBR79VcrAfad_HbnmMHLJ42EFhiOZt6dnNi3KPuwajwY" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="642"></span></span></p>
+        </section>
+        <section id="adding_submissions_entries">
+            <div class="page-header"><h3>Adding submissions/entries</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0a-8888-51de-bde755d9c7c1"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once an application has been created and saved, a user with the proper role and privileges can access the application from their profile via their </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Applications</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> tab. Users can also access the application via the application&#39;s URL.</span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0a-8888-51de-bde755d9c7c1"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once the stage has been completed and all fields have been validated the submission will be added once the button is pressed. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0a-8888-51de-bde755d9c7c1"><span style=" vertical-align: baseline; white-space: pre-wrap;">Admin users can add a submission/entry via the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">All Applications</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page by clicking on the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">eye icon</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> or via the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Application Details</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page by clicking the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Add Entry</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0a-8888-51de-bde755d9c7c1"><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 9.05.21 AM.png" height="224" src="https://lh6.googleusercontent.com/-t0VVLXw22B5YCDOmvpLRbIYPuhnA5uGle7RcV4GsrqZy0ML5lql3VPyE4tetaZUqG_KUDoSBG_XN4C0VNT2FZKq1limwRUv04c_ZcHpp1zZ3BcGQ88-K3rJS9o6YKLdj1bb7Bc" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="720"></span></span>
+            </p>
+            <div>
+                &nbsp;
+            </div>
+        </section>
+        <section id="exporting_submission_data">
+            <div class="page-header"><h3>Exporting submission data</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0a-d789-9b99-c3231595d884"><span style=" vertical-align: baseline; white-space: pre-wrap;">Submission data in Revamp can be exported to Microsoft Excel for further analysis and manipulation. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0a-d789-9b99-c3231595d884"><span style=" vertical-align: baseline; white-space: pre-wrap;">To export submission data you will have to click on the applications </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Dashboard</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> page and this click the export data button. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0a-d789-9b99-c3231595d884"><span style=" vertical-align: baseline; white-space: pre-wrap;">Once the button is click you will be prompted to save the data as an excel spreadsheet on your local hard drive. </span></span>
+                    </p>
+                </li>
+            </ol>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                &nbsp;
+            </p>
+            <div>
+                &nbsp;
+            </div>
+        </section>
+        <section id="change_the_date_range_for_application_activity_graph">
+            <div class="page-header"><h3>Change the date range for application activity graph</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0b-3ada-7854-819c657a2245"><span style=" vertical-align: baseline; white-space: pre-wrap;">Each application in Revamp has an application activity graph that displays the date a submission was viewed and when submission were added. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0b-3ada-7854-819c657a2245"><span style=" vertical-align: baseline; white-space: pre-wrap;">Navigate to the details page of an application</span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0b-3ada-7854-819c657a2245"><span style=" vertical-align: baseline; white-space: pre-wrap;">Click on the right corner of the date picker. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0b-3ada-7854-819c657a2245"><span style=" vertical-align: baseline; white-space: pre-wrap;">Select a date range and click the </span><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Apply</span><span style=" vertical-align: baseline; white-space: pre-wrap;"> button, the date range for the displayed data should change. </span></span>
+                    </p>
+                </li>
+            </ol>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0b-3ada-7854-819c657a2245"><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 9.07.01 AM.png" height="365" src="https://lh5.googleusercontent.com/lIyR7WA3sV_ElgiwfF1QIEwhSrVX5oiVL5MaRwbbwgyFPIm3dJRYbeHVONJJNNoCm3cG7RUjbV6DOom--Oqr6YO7J_XI7msm6DLWzI3tXV3P2qSX8vohfC37trZF0LHGHRlHWoQ" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="720"></span></span>
+            </p>
+            <div>
+                &nbsp;
+            </div>
+        </section>
+        <section id="searching_for_specific_submissions">
+            <div class="page-header"><h3>Searching for specific submissions</h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0b-a09e-851d-5d0e28f4a359"><span style=" vertical-align: baseline; white-space: pre-wrap;">Each application details page allows you to search for specific data items that have been submitted. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0b-a09e-851d-5d0e28f4a359"><span style=" vertical-align: baseline; white-space: pre-wrap;">Navigate to the details page of an application. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0b-a09e-851d-5d0e28f4a359"><span style=" vertical-align: baseline; white-space: pre-wrap;">If the application has data, start typing your specific search term in the search text box on the right side of the page under the Submissions section. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0b-a09e-851d-5d0e28f4a359"><span style=" vertical-align: baseline; white-space: pre-wrap;">The data you are looking for will be displayed (if it exist) once the page is done processing the request. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0b-a09e-851d-5d0e28f4a359"><span style="font-size: 16px; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">NOTE</span><span style="font-size: 16px; vertical-align: baseline; white-space: pre-wrap;">: If you want to display data for a specific column, you can enter [column name] &lt;search term&gt; to find specific rows. For example, if I was searching for all submission where the lastname equals Risi I would enter [lastname] Risi.</span></span>
+                    </p>
+                </li>
+            </ol>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0b-a09e-851d-5d0e28f4a359"><span style=" vertical-align: baseline; white-space: pre-wrap;"><img alt="Screen Shot 2015-01-28 at 9.06.13 AM.png" height="177" src="https://lh3.googleusercontent.com/tYuQM_VtOdw5NCR-1GcBFdjp68PaWU7fJw6vRnEbKY-UWLM7x_sDGNTrYZP7bOn3Zi8xzVPcjLRBcKHdjLiDy-9UTk7fiF-XpJ4K65iL3Ou2T4b5Ck2BBvjQR1X9TDvuvt2EM_A" style="border: none; transform: rotate(0.00rad); -webkit-transform: rotate(0.00rad);" width="720"></span></span>
+            </p>
+            <div>
+                &nbsp;
+            </div>
+        </section>
+        <section id="managing_submissions">
+            <div class="page-header"><h3>Managing Submissions </h3><hr class="notop"></div>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" vertical-align: baseline; white-space: pre-wrap;">Each submission can be edited or disabled. Disable is the equivalent of delete but instead of permanently removing the data it will be archived for historical reference. &nbsp;When an application is disabled the data will still remain in the system for historical purposes but it will not be displayed in the submissions. </span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Editing Submissions</span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" vertical-align: baseline; white-space: pre-wrap;">To edit a submission click on the edit link next to the submission that you will like to edit. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" vertical-align: baseline; white-space: pre-wrap;">The application will be displayed with the data that was added to the submission displayed. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" vertical-align: baseline; white-space: pre-wrap;">Make your change to the submission and click the button to submit the changes. </span></span>
+                    </p>
+                </li>
+            </ol>
+            <p>	&nbsp;</p>
+            <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Disabling Submissions</span></span>
+            </p>
+            <p>	&nbsp;</p>
+            <ol style="margin-top:0pt;margin-bottom:0pt;">
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" vertical-align: baseline; white-space: pre-wrap;">To disable a submission, click on the disable link next to the submission that you will like to disable. </span></span>
+                    </p>
+                </li>
+                <li dir="ltr" style="list-style-type: decimal;  vertical-align: baseline;">
+                    <p dir="ltr" style="line-height:26px;margin-top:0pt;margin-bottom:0pt;">
+                        <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" vertical-align: baseline; white-space: pre-wrap;">The submission will be hidden from the list. </span></span>
+                    </p>
+                </li>
+            </ol>
+            <p>
+                <br>
+                <br>
+                <span id="docs-internal-guid-a8bfac5d-7f0c-0ba0-d97d-656b0311cf17"><span style=" vertical-align: baseline; white-space: pre-wrap;">For questions and further assistance please contact us at 866.336.3646 or email us at &#105;&#110;&#102;&#111;&#64;&#101;&#109;&#105;&#110;&#101;&#110;&#116;&#45;&#105;&#116;&#46;&#99;&#111;&#109;.</span></span>
+            </p>
+        </section>
+        <section id="release_notes">
+            <div class="page-header"><h3>Release Notes</h3><hr class="notop"></div>
+            <p>
+                <h4>05-30-2016</h4>
+                <u>Middle-ware</u>
+                <ul>
+                    <li>Added ER_Mail.cs  </li>
+                    <li>Update to IdentityHelper prepping for new email.</li>
+
+                </ul>
+                <h4>05-30-2016</h4>
+                <u>Front-end</u>
+                <ul>
+                    <li>Bug fixes for saving application issues and text for profiles.</li>
+                </ul>
+                <h4>05-27-2016</h4>
+                <u>Middle-ware</u>
+                <ul>
+                    <li>Fix for issue preventing install patches from loading.</li>
+                </ul>
+                <h4>05-26-2016</h4>
+                <u>Middle-ware</u>
+                <ul>
+                    <li>Added new loader forData Tables.</li>
+                </ul>
+                <h4>05-25-2016</h4>
+                <u>Middle-ware</u>
+                <ul>
+                    <li>Fixed issue with missing schemas on certain methods.</li>
+                    <li>Added to pivot patch.</li>
+                    <li>Fixed Query for Stage Search Performance.</li>
+                    <li>Removed indexes that aren't needed.</li>
+                </ul>
+                <h4>05-24-2016</h4>
+                <u>Middle-ware</u>
+                <ul>
+                    <li>
+                        Added fix for dates in pivot table.
+                    </li>
+                </ul>
+                <u>Front-end</u>
+                <ul>
+                    <li>Fixed Application name should not start with number.</li>
+                    <li>Changed call to "check application name exists" only if there are no errors in typed text</li>
+                    <li>Restricted logo image file to accept only image files (not .txt, .doc etc) </li>
+                    <h4>05-23-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Fixed spelling mistake on disable application.
+                        </li>
+                        <li>Added auto-complete functionality for member textbox on cores page.</li>
+                        <li>Actions -->New Core-->CANCEL then again Actions -->New Core,the old values are present Fixed in applications, cores page</li>
+                    </ul>
+                    <h4>05-19-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Fixed issues with Marquee and removed dashboard call to Stage Views.
+                        </li>
+                    </ul>
+                    <h4>05-18-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Added New Overload for Event Writer.
+                        </li>
+                        <li>Fixed on issue with adding and saving Roles for Stages and Sections. </li>
+                        <li>Resolved bug preventing stages from displaying for users with public access.</li>
+                        <li>Fixed issue with XlSX generator code.</li>
+                    </ul>
+                    <u>Middle-ware</u>
+                    <ul><li>Loading roles for each stage, section, objects on right panel.</li></ul>
+
+                    <h4>05-17-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Applications page updated to display application name in marquee.
+                        </li>
+                    </ul>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Fixes to Excel export, Excel Working on Dashboard. Add DashboardExportType for in web.config (Excel / HTML)
+                        </li>
+                    </ul>
+                    <h4>05-16-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Added New ExtendSessionIfActive Method, Update to IsSessionActive, Update to layout to incorporate new timeout method.
+                        </li>
+                    </ul>
+                    <h4>05-15-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Updates to dashboard data Export to excel functionality.
+
+                        </li>
+                    </ul>
+                    <h4>05-13-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Display SAAS registration page pricing info  dynamically from DB, use this dynamic data to save registration in db.
+                        </li>
+                    </ul>
+                    <h4>05-09-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Patch for saving all pricing plan info to DB.
+
+                        </li>
+                    </ul>
+                    <h4>05-06-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Added Identity Controller error handling.
+
+                        </li>
+                    </ul>
+
+                    <h4>05-05-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Added numeric validation for phone number & letters only validation for first name ,last name.
+
+                        </li>
+                    </ul>
+
+                    <h4>05-04-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Hide "Upgrade the core for privacy options and more" option in builder.
+
+                        </li>
+                    </ul>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Export dashboard data (excel) added.
+                        </li>
+                        <li>Save all registration plan details like stage limit, application limit, form submission limit in DB</li>
+
+                    </ul>
+
+                    <h4>05-01-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Login page removed validation ticks from textboxes.
+                        </li>
+                    </ul>
+
+                    <h4>04-29-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            A article explaining why password security is important is included on registration page.
+                        </li>
+                    </ul>
+
+                    <h4>04-28-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Fixed Profile>> Account Settings >>All tabs Cancel Button.
+                        </li>
+                    </ul>
+
+                    <h4>04-27-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Allow user login with email or username. Updated this for both direct login + verification login.
+                        </li>
+                    </ul>
+
+                    <h4>04-26-2016</h4>
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Include link active until 1 hour after the user receives their verification email.
+                        </li>
+                    </ul>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            In Create ROLE Reset text boxes on Cancel action
+                        </li>
+                        <li>
+                            In Create Group, text boxes should be reset when the user clicks on the Cancel button.
+                        </li>
+                    </ul>
+                    <h4>04-23-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            When users change their password, prevent them from entering in the same password for their new password.
+                        </li>
+                    </ul>
+
+                    <h4>04-22-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>Documentation mistake for sent emails</li>
+                        <li>Add * on required fields on the register page.</li>
+                    </ul>
+
+                    <h4>04-14-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Updated privilege spelling on front-end.
+                        </li>
+                    </ul>
+                    <h4>04-13-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Issue with profiles not showing everything fixed.
+                        </li>
+                    </ul>
+
+                    <h4>04-11-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>identity/identityroles >> Username & Role Name Values Interchanged Fixed</li>
+                        <li>Application Builder “Add Subcategory.” Fixed Mouse over pointer </li>
+                        <li> Make it so staging.revampon.net is not indexable by search engines</li>
+                    </ul>
+
+                    <h4>04-07-2016</h4>
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Hide the new help button from the home/index.cshtml in er_layout
+                        </li>
+                    </ul>
+
+                    <h4>04-01-2016</h4>
+
+                    <u>Front-end</u>
+                    <ul>
+                        <li>
+                            Added logo on documentation
+                        </li>
+                        <li>
+                            Add a link to the documentation page.
+                        </li>
+                    </ul>
+
+
+                    <h4>03-29-2016</h4>
+
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Fixed issue with editing submissions.
+                        </li>
+                    </ul>
+                    <h4>03-25-2016</h4>
+
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>
+                            Fixed disabled and edit submissions.
+                        </li>
+                    </ul>
+                    <h4>03-14-2016</h4>
+
+                    <u>Front-end</u>
+                    <ul>
+                        <li>Improved design and performance on applications page</li>
+                        <li>Improved performance on print submissions page</li>
+                        <li>Improved performance on application dashboard pages</li>
+                        <li>Improved search on application dashboards</li>
+                        <li>Added disabled users tab to Identities page</li>
+                        <li>Improved the design of the Login screen</li>
+                        <li>Improved the design and performance of the App Builder</li>
+                        <li>Added the ability to add view tables to apps</li>
+                        <li>Fixed grammar and spelling errors throughout the app</li>
+                        <li>Added the ability to add Categories for apps</li>
+                        <li>Added ability to add background images to sections</li>
+                        <li>Added advanced settings area to objects for individual cases styling</li>
+                        <li>Added ability to add apps as templates to be used across cores</li>
+                        <li>Add ability to add cores and core identities to apps</li>
+                        <li>Truncated signatures in submissions on dashboard so that it doesn't effect the table format</li>
+                        <li>Added ability to upload cover images for apps</li>
+                        <li>Added ability to add roles and identities to Cores</li>
+                        <li>Added ability to create stage containers</li>
+                        <li>Added ability to create parent and child stage relationships in App Builder</li>
+                        <li>Fixed app save error messaging to accurate reflect the errors coming from system</li>
+                        <li>Upgraded Datatables.net plug-in for latest features and fixes</li>
+                        <li>Added the ability to bind data from one stage to another on drop down objects</li>
+                        <li>Datatable on dashboard now highlights the selected rows</li>
+                        <li>Added code for import CSV files into an application.</li>
+                    </ul>
+
+                    <u>Middle-ware</u>
+                    <ul>
+                        <li>Added functionality to prevent users from creating accounts with the same email address.</li>
+                        <li>​​Ability to Read CSV File and covert to JSON.</li>
+                        <li>Converted Models to Serializable.</li>
+                        <li>Prevent special characters on login screen.</li>
+                        <li>Added SignalR to framework.</li>
+                        <li>Session expired redirect now working as it should.</li>
+                        <li>Removed foreach statements from all methods.</li>
+                        <li>Created procedure for getting search dataset from stages.</li>
+                        <li>Fix for login error that caused anti-forgery token errors.</li>
+                        <li>Created GET_DATA DML method.</li>
+                        <li>Converted stage CASGOS data to bytes for faster processing.</li>
+                        <li>Created a new DelimitedStringToList method to split delimited string to a list array.</li>
+                        <li>​Created a new WriteEventLog method to write events to windows event log.</li>
+
+                    </ul>
+
+                    <u>Framework</u>
+                    <ul>
+                        <li>Search Scaffold generator</li>
+                        <li>​Created ER Tools method GetObjectListFromDataTable to create object array from DataTable</li>
+                        <li>Added</li>
+                        <li>ER_DB has been moved to ER_Foundation.</li>
+                    </ul>
+
+
+                    <u>SAAS Version</u>
+
+                    <ul>
+                        <li>Add pricing page</li>
+                        <li>Created custom registration page</li>
+                        <li>Added ability to accept credit cards</li>
+                        <li>Updated the home page</li>
+                    </ul>
+
+
+                    <h4>6-15-15</h4>
+                    <ul>
+                        <li>List of changes made in this release.</li>
+                        <li>Forgot username functionality added.</li>
+                        <li>Fix issue with content showing while loader is still displaying.</li>
+                        <li>Allow only letter & numbers in application name textbox.</li>
+                        <li>Resend expired verification tokens to users.</li>
+                        <li>Fixed duplicate application name issue in Available Apps tab on user profile.</li>
+                        <li>Fixed browser not compatible popup from display more than once.</li>
+                        <li>Resolved issue with email address not showing in user profiles.</li>
+                        <li>Fixed issue with conditional logic functionality on form objects.</li>
+                        <li>Fixed issue with changing passwords in all identities page.</li>
+                        <li>Added the ability to add videos and links to stages in applications.</li>
+                        <li>Fixed issue with cancel buttons not functioning properly.</li>
+                        <li>Fixed issue with radio buttons when editing applications.</li>
+                        <li>Trimmed application name on all applications page to prevent issues with styling.</li>
+                        <li>Changed the layout of applications to be boxed instead of full-screen for better adaptability on mobile devices.</li>
+                        <li>Resolved other minor design and scripting issue.</li>
+                    </ul>
+
+            </p>
+            <!--<p>
+                <ul>
+
+                    <li>latest update: 07/30/2016</li>
+                    <li>by: Eminent IT</li>
+                    <li><a href=""></a></li>
+                    <li>email: <a href="mailto:info@eminent-it.com">info@eminent-it.com</a></li>
+                </ul>
+            </p>-->
+        </section>
+    </div>
+</body>
+</html>

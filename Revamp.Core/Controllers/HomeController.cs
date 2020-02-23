@@ -14,7 +14,6 @@ using Revamp.IO.Structs.Models;
 
 namespace Revamp.Core.Controllers
 {
-
     public class HomeController : Controller
     {
         private _DynamicOutputProcedures dop = new _DynamicOutputProcedures();
