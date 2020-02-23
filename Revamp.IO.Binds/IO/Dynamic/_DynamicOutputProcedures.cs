@@ -105,6 +105,136 @@ namespace Revamp.IO.DB.Binds.IO.Dynamic
             return DOP.DynoProcSearch(_Connect, QueryType, ProcedureName, Meta, _Filters);
         }
 
+        public static async Task<DataTable> _DynoProcSearchAsync(IConnectToDB _Connect, string QueryType, string ProcedureName, DataTableDotNetModelMetaData Meta, List<DynamicModels.RootReportFilter> _Filters)
+        {
+            _DynamicOutputProcedures DOP = new _DynamicOutputProcedures();
+
+            return await DOP.DynoProcSearchAsync(_Connect, QueryType, ProcedureName, Meta, _Filters);
+        }
+
+        public async Task<DataTable> DynoProcSearchAsync(IConnectToDB _Connect, string QueryType, string ProcedureName, DataTableDotNetModelMetaData Meta, List<DynamicModels.RootReportFilter> _Filters)
+        {
+            string ProcedureReturnType = "table";
+
+            List<DBParameters> EntryProcedureParameters = new List<DBParameters>();
+
+            EntryProcedureParameters.Add(new DBParameters
+            {
+                ParamName = "P_TableorCount",
+                ParamDirection = ParameterDirection.Input,
+                MSSqlParamDataType = SqlDbType.VarChar,
+                ParamSize = -1,
+                ParamValue = QueryType
+            });
+
+            if (Meta != null && !string.IsNullOrWhiteSpace(Meta.columns))
+            {
+                EntryProcedureParameters.Add(new DBParameters
+                {
+                    ParamName = "P_DYNO_COL",
+                    ParamDirection = ParameterDirection.Input,
+                    MSSqlParamDataType = SqlDbType.VarChar,
+                    ParamSize = -1,
+                    ParamValue = Meta.columns
+                });
+            }
+
+            if (Meta != null && !string.IsNullOrWhiteSpace(Meta.search))
+            {
+                EntryProcedureParameters.Add(new DBParameters
+                {
+                    ParamName = "P_SEARCH",
+                    ParamDirection = ParameterDirection.Input,
+                    MSSqlParamDataType = SqlDbType.VarChar,
+                    ParamSize = -1,
+                    ParamValue = Meta.search
+                });
+            }
+
+            if (Meta != null && Meta.start != null)
+            {
+                EntryProcedureParameters.Add(new DBParameters
+                {
+                    ParamName = "P_STARTING_ROW",
+                    ParamDirection = ParameterDirection.Input,
+                    MSSqlParamDataType = SqlDbType.BigInt,
+                    ParamValue = Meta.start
+                });
+            }
+
+            if (Meta != null && Meta.length != null)
+            {
+                EntryProcedureParameters.Add(new DBParameters
+                {
+                    ParamName = "P_LENGTH_OF_SET",
+                    ParamDirection = ParameterDirection.Input,
+                    MSSqlParamDataType = SqlDbType.BigInt,
+                    ParamValue = Meta != null && Meta.length != null ? Meta.length : 10
+                });
+            }
+
+            EntryProcedureParameters.Add(new DBParameters
+            {
+                ParamName = "P_ORDER_BY",
+                ParamDirection = ParameterDirection.Input,
+                MSSqlParamDataType = SqlDbType.VarChar,
+                ParamSize = -1,
+                ParamValue = Meta != null && !string.IsNullOrEmpty(Meta.order) ? Meta.order : "1 asc"
+            });
+
+            //if (Meta != null && !string.IsNullOrEmpty(Meta.columns))
+            //{
+            //    EntryProcedureParameters.Add(new DBParameters
+            //    {
+            //        ParamName = "P_DYNO_COL",
+            //        ParamDirection = ParameterDirection.Input,
+            //        MSSqlParamDataType = SqlDbType.VarChar,
+            //        ParamSize = -1,
+            //        ParamValue = Meta.columns
+            //    });
+            //}
+
+            foreach (DynamicModels.RootReportFilter _thisFilter in _Filters)
+            {
+                if ((_thisFilter.ParamValue != null) &&
+                    (_thisFilter.FilterName != null || _thisFilter.FilterName != string.Empty)
+                    )
+                {
+                    DBParameters thisParam = new DBParameters
+                    {
+                        ParamName = "P_" + _thisFilter.FilterName,
+                        ParamDirection = ParameterDirection.Input,
+                        MSSqlParamDataType = _thisFilter.DBType,
+                        ParamSize = _thisFilter.ParamSize,
+                        ParamValue = _thisFilter.DBType == SqlDbType.VarChar ? _thisFilter.ParamValue.ToString() : _thisFilter.ParamValue
+                    };
+
+                    EntryProcedureParameters.Add(thisParam);
+                }
+            }
+
+            EntryProcedureParameters.Add(new DBParameters
+            {
+                ParamName = "P_VERIFY",
+                ParamDirection = ParameterDirection.Input,
+                MSSqlParamDataType = SqlDbType.Char,
+                ParamSize = 1,
+                ParamValue = Meta != null && Meta.verify != null && Meta.verify != String.Empty ? Meta.verify : "T"
+            });
+
+            BIG_CALL RUN = new BIG_CALL();
+
+            RUN.COMMANDS = new List<SQL_PROCEDURE_CALL>();
+
+            RUN.COMMANDS.Add(new SQL_PROCEDURE_CALL { ProcedureType = ProcedureReturnType, ProcedureName = ProcedureName, _dbParameters = EntryProcedureParameters });
+            ER_Procedure eR_Procedure = new ER_Procedure();
+
+            RUN = await eR_Procedure.SQL_PROCEDURE_PARAMS_Async(_Connect, RUN);
+
+            DataTable returnSet = RUN.COMMANDS.FirstOrDefault().result._DataTable;
+
+            return returnSet;
+        }
 
         public DataTable DynoProcSearch(IConnectToDB _Connect, string QueryType, string ProcedureName, DataTableDotNetModelMetaData Meta, List<DynamicModels.RootReportFilter> _Filters)
         {

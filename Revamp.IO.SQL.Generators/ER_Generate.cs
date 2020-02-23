@@ -3415,7 +3415,9 @@ namespace Revamp.IO.SQL.Generators
 
             if (!_result._Successful)
             {
-                Tools.Box._WriteEventLog(TableName, Revamp.IO.Structs.Enums.EventLogType.error);
+                Tools.Box._WriteEventLog(TableName, Revamp.IO.Structs.Enums.EventLogType.error, new Structs.Models.RevampCoreSettings {
+                    EnableEventLogging = true
+                });
 
                 Tools.Box.CreateDir(@"C:\TEMP\INSERT");
                 System.IO.File.WriteAllText(@"C:\TEMP\INSERT\" + TableName + ".sql", SqlCommand);

@@ -12,12 +12,6 @@ namespace Revamp.IO.Tools
 {
     public class Box
     {
-        private IRevampCoreSettings RevampCoreSettings { get; set; }
-        public Box(IOptions<IRevampCoreSettings> settings)
-        {
-            RevampCoreSettings = settings.Value;
-        }
-
         public static FolderStatus CreateDir(string Path)
         {
             FolderStatus tempStatus = FolderStatus.Failed;
@@ -37,11 +31,11 @@ namespace Revamp.IO.Tools
             return tempStatus;
         }
 
-        public Boolean WriteEventLog(string message, EventLogType eventlogtype)
+        public Boolean WriteEventLog(string message, EventLogType eventlogtype, RevampCoreSettings appSettings = null)
         {
             Boolean _Result = false;
-            bool enableEventLogging = RevampCoreSettings.EnableEventLogging;
-
+            bool enableEventLogging = appSettings != null ? appSettings.EnableEventLogging : true;
+            string systemName = appSettings != null && !string.IsNullOrWhiteSpace(appSettings.SystemDBName) ? appSettings.SystemDBName : "Revamp";
             try
             {
                 if (!enableEventLogging)
@@ -49,9 +43,9 @@ namespace Revamp.IO.Tools
                     return false;
                 }
 
-                if (!EventLog.SourceExists("IRIS"))
+                if (!EventLog.SourceExists(systemName))
                 {
-                    EventLog.CreateEventSource("IRIS", "Application");
+                    EventLog.CreateEventSource(systemName, "Application");
                 }
 
                 EventLogEntryType eventType = new EventLogEntryType();
@@ -82,7 +76,7 @@ namespace Revamp.IO.Tools
                         break;
                 }
 
-                EventLog.WriteEntry("IRIS", message, eventType, 12839);
+                EventLog.WriteEntry(systemName, message, eventType, 12839);
 
                 _Result = true;
             }
@@ -96,11 +90,11 @@ namespace Revamp.IO.Tools
             return _Result;
         }
 
-        public static Boolean _WriteEventLog(string message, EventLogType eventlogtype)
+        public static Boolean _WriteEventLog(string message, EventLogType eventlogtype, RevampCoreSettings appSettings = null)
         {
             Box _tools = new Box();
 
-            return _tools.WriteEventLog(message, eventlogtype);
+            return _tools.WriteEventLog(message, eventlogtype, appSettings);
         }
 
         public static System.Text.StringBuilder convertStringArray(string[] thisArray, System.Text.StringBuilder thisStringBuilder)

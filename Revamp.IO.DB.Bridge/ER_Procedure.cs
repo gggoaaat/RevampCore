@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using static Revamp.IO.Structs.Models.SQLProcedureModels;
 
 namespace Revamp.IO.DB.Bridge
@@ -20,7 +21,240 @@ namespace Revamp.IO.DB.Bridge
 
             return er_proc._SQL_PROCEDURE(_Connect, RUN);
         }
+        public async Task<BIG_CALL> SQL_PROCEDURE_Async(IConnectToDB _Connect, BIG_CALL RUN)
+        {
+            ER_Procedure er_proc = new ER_Procedure();
 
+            return await er_proc._SQL_PROCEDURE_Async(_Connect, RUN);
+        }
+
+        public async Task<BIG_CALL> _SQL_PROCEDURE_Async(IConnectToDB _Connect, BIG_CALL RUN)
+        {
+            await Task.Delay(1);
+            ER_Env er_env = new ER_Env();
+
+            //string _return = "";
+            //DataSet ProcReturn = new DataSet();
+
+
+            switch (_Connect.Platform)
+            {
+
+                case "Microsoft":
+                case "MICROSOFT":
+                    using (SqlConnection connection = new SqlConnection(_Connect.DBConnString))
+                    {
+                        SqlCommand DBProcedure = new SqlCommand();
+
+                        //Pass DB Connection Settings
+                        DBProcedure.Connection = connection;
+                        //Pass Procedure Name
+
+                        connection.Open();
+
+                        if (RUN.COMMANDS != null)
+                        {
+                            for (int c = 0; c < RUN.COMMANDS.Count; c++)
+                            {
+                                DataTable _table = er_env.ProcDataTable();
+                                DataRow _row;
+
+                                DBProcedure.CommandText = DBTools.GetSchema(_Connect) + "." + RUN.COMMANDS[c].ProcedureName; ;
+
+                                //Set Commandtype to Storeprocedure
+                                DBProcedure.CommandType = CommandType.StoredProcedure;
+
+                                SqlParameter[] param = new SqlParameter[RUN.COMMANDS[c]._dbParameters.Count];
+                                int paramcount = 0;
+
+                                //Iterate through all passed parameters.
+                                int count = RUN.COMMANDS[c]._dbParameters.Count;
+
+                                for (int i = 0; i < count; i++)
+                                {
+                                    //Add Parameters to DBProcedure
+                                    //DBProcedure.Parameters.Add(i.ParamName, i.MSSqlParamDataType, i.ParamSize, i.ParamValue, i.ParamDirection);
+                                    //DBProcedure.Parameters.Add(i.ParamName, i.MSSqlParamDataType).Value = i.ParamValue;
+
+                                    param[paramcount] = new SqlParameter();
+
+                                    param[paramcount].Direction = RUN.COMMANDS[c]._dbParameters[i].ParamDirection;
+                                    param[paramcount].ParameterName = RUN.COMMANDS[c]._dbParameters[i].ParamName;
+                                    param[paramcount].SqlDbType = RUN.COMMANDS[c]._dbParameters[i].MSSqlParamDataType;
+
+                                    param[paramcount].Size = RUN.COMMANDS[c]._dbParameters[i].ParamSize;
+
+
+
+
+                                    if (param[paramcount].SqlDbType == SqlDbType.Int || param[paramcount].SqlDbType == SqlDbType.BigInt)
+                                    {
+                                        if (RUN.COMMANDS[c]._dbParameters[i].ParamValue == null || String.IsNullOrEmpty(RUN.COMMANDS[c]._dbParameters[i].ParamValue.ToString()))
+                                        {
+                                            param[paramcount].Value = DBNull.Value;
+                                        }
+                                        else
+                                        {
+                                            string thisValue = RUN.COMMANDS[c]._dbParameters[i].ParamValue == null
+                                            && String.IsNullOrEmpty(RUN.COMMANDS[c]._dbParameters[i].ParamValue.ToString()) ? "0" : RUN.COMMANDS[c]._dbParameters[i].ParamValue.ToString();
+                                            if (param[paramcount].SqlDbType == SqlDbType.Int)
+                                            {
+                                                param[paramcount].Value = Tools.Box.ConvertToInt32(thisValue);
+                                            }
+                                            else
+                                            {
+                                                param[paramcount].Value = Tools.Box.ConvertToInt64(thisValue);
+                                            }
+                                        }
+                                    }
+                                    else if (param[paramcount].SqlDbType == SqlDbType.Decimal)
+                                    {
+                                        if (RUN.COMMANDS[c]._dbParameters[i].ParamValue == null)
+                                        {
+                                            param[paramcount].Value = DBNull.Value;
+                                        }
+                                        else
+                                        {
+                                            decimal number;
+                                            Decimal.TryParse(RUN.COMMANDS[c]._dbParameters[i].ParamValue.ToString(), out number);
+                                            param[paramcount].Value = number;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        param[paramcount].Value = RUN.COMMANDS[c]._dbParameters[i].ParamValue != null ? RUN.COMMANDS[c]._dbParameters[i].ParamValue : DBNull.Value;
+                                    }
+
+                                    if (RUN.COMMANDS[c]._dbParameters[i].DynamicallyAssign)
+                                    {
+
+                                        List<PARAMATER_VALUE> thisValue = RUN.PARAMETER_CONTAINER.Where(e => e.PARAMETER == RUN.COMMANDS[c]._dbParameters[i].DynamicPartner).ToList();
+
+                                        param[paramcount].Value = thisValue.First().VALUE;
+                                    }
+
+
+                                    DBProcedure.Parameters.Add(param[paramcount]);
+
+                                    paramcount++;
+                                }
+
+                                string preppedSQL = "";
+                                switch (RUN.COMMANDS[c].ProcedureType.ToLower())
+                                {
+                                    case "value":
+                                    case "object":
+                                        try
+                                        {
+                                            //Open Connection
+
+                                            DBProcedure.CommandTimeout = 60;
+
+                                            preppedSQL = DBProcedure.CommandAsSql();
+                                            DBProcedure.ExecuteNonQuery();
+
+                                            int iNumber = 0;
+
+
+                                            for (int ii = 0; ii < RUN.COMMANDS[c]._dbParameters.Count; ii++)
+                                            {
+                                                //Resulting Data will be added to returning table.
+                                                _row = _table.NewRow();
+                                                _row["ChildType"] = RUN.COMMANDS[c]._dbParameters[ii].ParamDirection.ToString();
+                                                _row["ChildItem"] = DBProcedure.Parameters[iNumber].ParameterName.ToString();
+                                                _row["ChildSQL"] = ii == 0 ? preppedSQL : "";
+
+                                                if (RUN.COMMANDS[c]._dbParameters[ii].MSSqlParamDataType == SqlDbType.VarBinary && RUN.COMMANDS[c]._dbParameters[ii].ParamValue != null)
+                                                {
+                                                    //byte[] _bytes = (byte[])DBProcedure.Parameters[iNumber].Value;
+                                                    //_row["ChildValue"] = _bytes.ToString();
+                                                    //byte[] ok = er_tools.GetBytes(_bytes);
+                                                    //_row["ChildValue"] = er_tools.GetString((byte[])DBProcedure.Parameters[iNumber].Value);
+                                                    //_row["ChildValue"] = Convert.ToBase64String((byte[])DBProcedure.Parameters[iNumber].Value);
+                                                    //string ok = Convert.ToBase64String(_bytes);
+                                                    _row["ChildValue"] = Convert.ToBase64String((byte[])DBProcedure.Parameters[iNumber].Value);
+                                                }
+                                                else
+                                                {
+                                                    _row["ChildValue"] = DBProcedure.Parameters[iNumber].Value.ToString();
+                                                }
+                                                _table.Rows.Add(_row);
+
+                                                iNumber++;
+                                            }
+
+                                        }
+                                        catch (SqlException ex)
+                                        {
+                                            //Return Oracle Error.
+                                            _row = _table.NewRow();
+                                            _row["ChildType"] = "Error";
+                                            _row["ChildItem"] = "Exception";
+                                            ER_Query er_query = new ER_Query();
+                                            _row["ChildValue"] = er_query.DB_ERROR_FORMATTER(_Connect, ex);
+                                            _row["ChildSQL"] = preppedSQL;
+                                            _table.Rows.Add(_row);
+                                        }
+                                        finally
+                                        {
+                                            ////Close connection.
+                                            //connection.Close();
+                                            //connection.Dispose();
+                                        }
+
+                                        break;
+                                    case "query":
+                                    case "table":
+                                        try
+                                        {
+                                            //Open Connection
+                                            //connection.Open();
+                                            DBProcedure.CommandTimeout = 60;
+                                            SqlDataReader _ResultQuery = DBProcedure.ExecuteReader();
+
+                                            DataTable _ResultDataTable = new DataTable();
+                                            _ResultDataTable.Load(_ResultQuery);
+
+                                            //overwrite previous _table structure.
+                                            _table = _ResultDataTable;
+
+                                        }
+                                        catch (SqlException ex)
+                                        {
+                                            //Return Oracle Error.
+                                            _row = _table.NewRow();
+                                            _row["ChildType"] = "Error";
+                                            _row["ChildItem"] = "Exception";
+                                            ER_Query er_query = new ER_Query();
+                                            _row["ChildValue"] = er_query.DB_ERROR_FORMATTER(_Connect, ex);
+                                            _table.Rows.Add(_row);
+
+                                        }
+                                        finally
+                                        {
+                                            ////Close connection.
+                                            //connection.Close();
+                                            //connection.Dispose();
+                                        }
+
+                                        break;
+                                }
+
+                                RUN.COMMANDS[c].result = new Results();
+                                RUN.COMMANDS[c].result.resulttype = ResultsType.DataTable;
+                                RUN.COMMANDS[c].result._DataTable = _table;
+                            }
+                        }
+
+                        //Close connection.
+                        connection.Close();
+                        connection.Dispose();
+                    }
+                    break;
+            }
+
+            return RUN;
+        }
 
         public BIG_CALL _SQL_PROCEDURE(IConnectToDB _Connect, BIG_CALL RUN)
         {
@@ -257,54 +491,21 @@ namespace Revamp.IO.DB.Bridge
 
         }
 
+        public async Task<BIG_CALL> SQL_PROCEDURE_PARAMS_Async(IConnectToDB _Connect, BIG_CALL RUN)
+        {
+            ER_Procedure er_proc = new ER_Procedure();
 
+            return await er_proc._SQL_PROCEDURE_PARAMS_Async(_Connect, RUN);
+
+        }
+
+        public async Task<BIG_CALL> _SQL_PROCEDURE_PARAMS_Async(IConnectToDB _Connect, BIG_CALL RUN /*, string ProcedureType, string ProcedureName, List<DBParameters> _dbParameters*/)
+        {
+            return await SQL_PROCEDURE_Async(_Connect, RUN);
+        }
 
         public BIG_CALL _SQL_PROCEDURE_PARAMS(IConnectToDB _Connect, BIG_CALL RUN /*, string ProcedureType, string ProcedureName, List<DBParameters> _dbParameters*/)
-        {
-            //List<SQL_PROCEDURE_CALL> infoCOMMANDS = new List<SQL_PROCEDURE_CALL>();
-
-            //for (int c = 0; c < RUN.COMMANDS.Count; c++)
-            //{
-
-            //    DBParameters[] dbParameters = new DBParameters[RUN.COMMANDS[c]._dbParameters.Count];
-
-            //    List<DBParameters> infoList = new List<DBParameters>();
-
-            //    int iNumber = 0;
-            //    switch (_Connect.Platform)
-            //    {
-
-            //        case "Microsoft":
-            //        case "MICROSOFT":
-            //            foreach (DBParameters i in RUN.COMMANDS[c]._dbParameters)
-            //            {
-            //                dbParameters[iNumber] = new DBParameters();
-            //                dbParameters[iNumber].ParamName = i.ParamName;
-            //                dbParameters[iNumber].MSSqlParamDataType = i.MSSqlParamDataType;
-            //                dbParameters[iNumber].ParamDirection = i.ParamDirection; //Not used by MSSQL
-            //                dbParameters[iNumber].ParamValue = i.ParamValue; //Not used by MSSQL
-            //                dbParameters[iNumber].ParamSize = i.ParamSize;
-            //                dbParameters[iNumber].ParamReturn = i.ParamReturn;
-
-            //                infoList.Add(dbParameters[iNumber]);
-
-            //                iNumber++; //++ Increments by 1.
-            //            }
-            //            break;
-            //    }
-
-            //    SQL_PROCEDURE_CALL thisCommand = new SQL_PROCEDURE_CALL
-            //    {
-            //        ProcedureName = RUN.COMMANDS[c].ProcedureName,
-            //        ProcedureType = RUN.COMMANDS[c].ProcedureType,
-            //        _dbParameters = infoList                      
-            //    };
-
-            //    infoCOMMANDS.Add(thisCommand);
-
-            //    RUN.COMMANDS[c] = thisCommand;
-            //}
-
+        {            
             return SQL_PROCEDURE(_Connect, RUN);
         }
 

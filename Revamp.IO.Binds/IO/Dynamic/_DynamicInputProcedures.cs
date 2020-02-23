@@ -919,7 +919,7 @@ namespace Revamp.IO.DB.Binds.IO.Dynamic
 
             return CIP.SetPortletPrivileges(_Connect, thisModel);
         }
-        public bool SetPortletPrivileges(IConnectToDB _Connect, DynamicModels.Output.PortletPrivileges thisModel)
+        public bool SetPortletPrivileges(IConnectToDB _Connect, DynamicModels.Output.PortletPrivileges thisModel, RevampCoreSettings appSettings = null)
         {
             try
             { 
@@ -947,7 +947,7 @@ namespace Revamp.IO.DB.Binds.IO.Dynamic
             }
             catch (Exception ex)
             {
-                ER_Tools._WriteEventLog(string.Format("Caught exception: {0} \r\n Stack Trace: {1}", ex.Message, ex.StackTrace), EventLogType.exception);
+                ER_Tools._WriteEventLog(string.Format("Caught exception: {0} \r\n Stack Trace: {1}", ex.Message, ex.StackTrace), EventLogType.exception, appSettings);
                 return false;
             }
         }

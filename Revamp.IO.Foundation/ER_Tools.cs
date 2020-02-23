@@ -26,14 +26,7 @@ namespace Revamp.IO.Foundation
     public class ER_Tools
     {
 
-        // START TOOL FORMATTING
-        //        
-        private RevampCoreSettings RevampCoreSettings { get; set; }
-        public ER_Tools(IOptions<RevampCoreSettings> settings)
-        {
-            RevampCoreSettings = settings.Value;
-        }
-
+        // START TOOL FORMATTING        
 
         public string MaxNameLength(string name, int maxLength)
         {
@@ -392,22 +385,21 @@ namespace Revamp.IO.Foundation
         
 
         #region Event Writing
-        public Boolean WriteEventLog(string message, EventLogType eventlogtype)
+        public Boolean WriteEventLog(string message, EventLogType eventlogtype, RevampCoreSettings appSettings = null)
         {
             Boolean _Result = false;
-            bool enableEventLogging = RevampCoreSettings.EnableEventLogging;
-
+            bool enableEventLogging = appSettings != null ? appSettings.EnableEventLogging : true;
+            string systemName = appSettings != null && !string.IsNullOrWhiteSpace(appSettings.SystemDBName) ? appSettings.SystemDBName : "Revamp";
             try
             {
-
                 if (!enableEventLogging)
                 {
                     return false;
                 }
 
-                if (!EventLog.SourceExists("IRIS"))
+                if (!EventLog.SourceExists(systemName))
                 {
-                    EventLog.CreateEventSource("IRIS", "Application");
+                    EventLog.CreateEventSource(systemName, "Application");
                 }
 
                 EventLogEntryType eventType = new EventLogEntryType();
@@ -438,7 +430,7 @@ namespace Revamp.IO.Foundation
                         break;
                 }
 
-                EventLog.WriteEntry("IRIS", message, eventType, 12839);
+                EventLog.WriteEntry(systemName, message, eventType, 12839);
 
                 _Result = true;
             }
@@ -452,11 +444,11 @@ namespace Revamp.IO.Foundation
             return _Result;
         }
 
-        public static Boolean _WriteEventLog(string message, EventLogType eventlogtype)
+        public static Boolean _WriteEventLog(string message, EventLogType eventlogtype, RevampCoreSettings appSettings = null)
         {
             ER_Tools _tools = new ER_Tools();
 
-            return _tools.WriteEventLog(message, eventlogtype);
+            return _tools.WriteEventLog(message, eventlogtype, appSettings);
         }
 
         #endregion

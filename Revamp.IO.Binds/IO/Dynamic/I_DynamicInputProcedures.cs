@@ -20,7 +20,7 @@ namespace Revamp.IO.DB.Binds.IO.Dynamic
 
        // List<DynamicModels.Input.Custom_Reports> LoadCustomReports(IConnectToDB _Connect, _IRISSessionModels _SessionModel, List<DynamicModels.Input.Custom_Reports> Reports, AuditDB AuditCommand = null);
       //  DynamicModels.Input.Custom_Reports LoadCustomReport(IConnectToDB _Connect, _IRISSessionModels _SessionModel, DynamicModels.Input.Custom_Reports Report, AuditDB AuditCommand = null);
-        bool SetPortletPrivileges(IConnectToDB _Connect, DynamicModels.Output.PortletPrivileges thisModel);
+        bool SetPortletPrivileges(IConnectToDB _Connect, DynamicModels.Output.PortletPrivileges thisModel, RevampCoreSettings appSettings = null);
 
     }
 }
