@@ -186,9 +186,10 @@ namespace Revamp.IO.Helpers.Helpers
                     string subject = "NO REPLY: Password reset link for " + _Connect.SourceDBOwner.ToUpper() + " ACCOUNT";
                     ioHelper.SendEmail(tempemail, subject, EmailBody);
                 }
-                catch (Exception err)
+                catch (Exception e)
                 {
                     //Couldn't send email.
+                    throw e;
                 }
                 return true;
             }

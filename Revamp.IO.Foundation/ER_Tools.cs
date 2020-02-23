@@ -585,7 +585,23 @@ namespace Revamp.IO.Foundation
                 }
             }
             catch (Exception e)
-            { }
+            {
+                table = new DataTable("Error");
+                // Create fourth column and add to the DataTable.
+                column = new DataColumn();
+                column.DataType = System.Type.GetType("System.String");
+                column.ColumnName = "Exception";
+                column.AutoIncrement = false;
+                column.Caption = "Exception";
+                column.ReadOnly = false;
+                column.Unique = false;
+                table.Columns.Add(column);
+
+
+                DataRow row = table.NewRow();
+                row["Exception"] = e;
+                table.Rows.Add(row);
+            }
             //stream = File.OpenRead("C:\\Users\\jose\\Source\\Repos\\revamp\\ER\\Files\\Test.csv");
 
             //using (StreamReader sr = new StreamReader("C:\\Users\\jose\\Source\\Repos\\revamp\\ER\\Files\\Test.csv"))

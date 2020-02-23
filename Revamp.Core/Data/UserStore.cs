@@ -41,7 +41,7 @@ namespace Revamp.Core.Data
         public async Task<IdentityResult> DeleteAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
-
+            await Task.Delay(2000);
             //using (var connection = new SqlConnection(_connectionString))
             //{
             //    await connection.OpenAsync(cancellationToken);
@@ -107,7 +107,7 @@ namespace Revamp.Core.Data
         public async Task<IdentityResult> UpdateAsync(ApplicationUser user, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
-
+            await Task.Delay(2000);
             //using (var connection = new SqlConnection(_connectionString))
             //{
             //    await connection.OpenAsync(cancellationToken);
@@ -225,7 +225,7 @@ namespace Revamp.Core.Data
         public async Task AddToRoleAsync(ApplicationUser user, string roleName, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
-
+            await Task.Delay(2000);
             //using (var connection = new SqlConnection(_connectionString))
             //{
             //    await connection.OpenAsync(cancellationToken);
@@ -244,7 +244,7 @@ namespace Revamp.Core.Data
         public async Task RemoveFromRoleAsync(ApplicationUser user, string roleName, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
-
+            await Task.Delay(2000);
             //using (var connection = new SqlConnection(_connectionString))
             //{
             //    await connection.OpenAsync(cancellationToken);

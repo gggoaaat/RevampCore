@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace Revamp.IO.Structs.Models
 {
@@ -35,6 +32,22 @@ namespace Revamp.IO.Structs.Models
 
             }
 
+        }
+
+
+        public interface IMVCGetPartial
+        {
+            ControllerContext _thisController { get; set; }
+
+            ViewDataDictionary _ViewData { get; set; }
+
+            TempDataDictionary _TempData { get; set; }
+
+            string ViewName { get; set; }
+
+            object model { get; set; }
+
+            object model2 { get; set; }
         }
 
         [Serializable]

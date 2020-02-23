@@ -53,7 +53,7 @@ namespace Revamp.Core.Data
         public async Task<IdentityResult> DeleteAsync(ApplicationRole role, CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
-
+            await Task.Delay(2000);
             //using (var connection = new SqlConnection(_connectionString))
             //{
             //    await connection.OpenAsync(cancellationToken);

@@ -553,7 +553,7 @@ namespace Revamp.IO.SQL.Generators
                 TempDataColumns = er_dml.GET_COLUMNS_VIA_TABLENAME(_Connect, ii["TABLE_NAME"].ToString());
 
                 TableNames += ii["TABLE_NAME"].ToString() + " ";
-                string tempstring = "";
+
                 var fkCondition = GENERATE_JOIN_ON_FK(_Connect, ii["KEY_NAME"].ToString(), ii["TABLE_NAME"].ToString(), "c" + Looper, ii["PARENT_TABLE_NAME"].ToString(), "a0");
 
                 foreach (DataRow iv in TempDataColumns.Rows)

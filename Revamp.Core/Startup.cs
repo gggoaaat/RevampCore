@@ -45,6 +45,8 @@ namespace Revamp.Core
             .AddDefaultTokenProviders();
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IRazorPartialToStringRenderer, RazorPartialToStringRenderer>();
+            services.AddTransient<IRazorPartialToStringRenderer, RazorPartialToStringRenderer>();
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {

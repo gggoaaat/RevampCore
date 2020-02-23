@@ -290,22 +290,6 @@ namespace Revamp.IO.DB.Bridge
 
                             SqlDataReader dr = sqlplus.ExecuteReader();
 
-                            bool Exit = true;
-                            //while (Exit)
-                            //{
-                            //    try
-                            //    {
-                            //        DataTable dt = new DataTable();
-                            //        dt.Load(dr);
-                            //        DTs.Add(dt);
-                            //        // Exit = dr.NextResult();
-                            //    }
-                            //    catch (Exception)
-                            //    {
-                            //        Exit = false;
-                            //    }
-                            //}
-
                             do
                             {
                                 DataTable dt = new DataTable();

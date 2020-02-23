@@ -118,10 +118,10 @@ namespace Revamp.IO.Tools
                 System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
                 return bytes;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
                 // ER_Tools._WriteEventLog(string.Format("Caught exception: {0} \r\n Stack Trace: {1}", ex.Message, ex.StackTrace), EventLogType.exception);
-                throw;
+                throw e;
             }
         }
 
@@ -129,8 +129,7 @@ namespace Revamp.IO.Tools
         {
             try
             {
-                long temp;
-                if (long.TryParse(AttemptedValue.ToString(), out temp))
+                if (long.TryParse(AttemptedValue.ToString(), out long temp))
                 {
                     return temp;
                 }
@@ -149,8 +148,7 @@ namespace Revamp.IO.Tools
 
         public static Int32 ConvertToInt32(string AttemptedValue)
         {
-            Int32 temp;
-            if (Int32.TryParse(AttemptedValue, out temp))
+            if (Int32.TryParse(AttemptedValue, out int temp))
             {
                 return temp;
             }
@@ -161,8 +159,7 @@ namespace Revamp.IO.Tools
         }
         public static Guid? ConvertToGuid(string AttemptedValue)
         {
-            Guid temp;
-            if (Guid.TryParse(AttemptedValue, out temp))
+            if (Guid.TryParse(AttemptedValue, out Guid temp))
             {
                 return temp;
             }

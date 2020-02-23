@@ -8,5 +8,6 @@ namespace Revamp.Core.Models
     public class RevampCoreSettings
     {   
         public string DbConnect { get; set; }
+        public string SystemDBName { get; set; }
     }
 }
