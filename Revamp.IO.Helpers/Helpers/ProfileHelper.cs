@@ -517,21 +517,23 @@ namespace Revamp.IO.Helpers.Helpers
             }
         }
 
+        //TODO: Review .Net Core Port
         public string GetProfileImage(IConnectToDB _Connect, long? id)
         {
             IdentityHelper identityHelper = new IdentityHelper();
             SecurityHelper securityHelper = new SecurityHelper();
-            FilePathResult imageURL;
+            //VirtualFileResult
+            PhysicalFileResult imageURL;
 
             byte[] profileimage = GetProfileImageBytes(_Connect, id);
 
             if (profileimage.Length > 0)
             {
-                imageURL = new FilePathResult(Encoding.UTF8.GetString(profileimage), "image/jpeg");
+                imageURL = new PhysicalFileResult(Encoding.UTF8.GetString(profileimage), "image/jpeg");
             }
             else
             {
-                imageURL = new FilePathResult("/assets/img/profile/profile-img.png", "image/jpeg");
+                imageURL = new PhysicalFileResult("/assets/img/profile/profile-img.png", "image/jpeg");
             }
 
             return imageURL.FileName.ToString().Replace(" ","+");

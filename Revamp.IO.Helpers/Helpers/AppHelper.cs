@@ -1097,12 +1097,9 @@ namespace Revamp.IO.Helpers.Helpers
             {
                 stagesdt = stages.FindbyColumnID(_Connect, "applications_id", applications_id, stage_type);
             }
-
-            DataView stagesView = stagesdt.AsDataView();
-
-            stagesView.Sort = "stages_id asc";
-
-            stagesdt = stagesView.ToTable();
+            //TODO: Verify .Net Core Code
+            stagesdt.DefaultView.Sort = "stages_id asc";
+            stagesdt = stagesdt.DefaultView.ToTable();
 
             List<ViewStageModel> StageList = new List<ViewStageModel>();
 
@@ -1154,12 +1151,9 @@ namespace Revamp.IO.Helpers.Helpers
             {
                 stagesdt = stages.FindbyColumnID(_Connect, "application_name", appName, stage_type);
             }
-
-            DataView stagesView = stagesdt.AsDataView();
-
-            stagesView.Sort = "stages_id asc";
-
-            stagesdt = stagesView.ToTable();
+            //TODO: Verify .Net Core Code
+            stagesdt.DefaultView.Sort = "stages_id asc";
+            stagesdt = stagesdt.DefaultView.ToTable();
 
             List<ViewStageModel> StageList = new List<ViewStageModel>();
 
