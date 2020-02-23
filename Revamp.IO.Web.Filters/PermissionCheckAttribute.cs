@@ -4,6 +4,8 @@ using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Revamp.IO.DB.Bridge;
 using Revamp.IO.Foundation;
 using Revamp.IO.Helpers.Helpers;
@@ -21,14 +23,19 @@ namespace Revamp.IO.Web.Filters
         public string RoleUUID { get; set; }
         public string GroupUUID { get; set; }
         public bool isActionResult { get; set; } = false;
+        private RevampCoreSettings RevampCoreSettings { get; set; }
+        public PermissionCheckAttribute(IOptions<RevampCoreSettings> settings)
+        {
+            RevampCoreSettings = settings.Value;
+        }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            string platform = "Microsoft";
-            string constrSQLServer2 = System.Configuration.ConfigurationManager.ConnectionStrings["ER_MSSQLUserConn"].ToString();
-            string owner = System.Configuration.ConfigurationManager.AppSettings["SystemDBName"];
-
-            ConnectToDB _Connect = new ConnectToDB { Platform = platform, DBConnString = constrSQLServer2, SourceDBOwner = owner };
+            ConnectToDB _Connect = new ConnectToDB {
+                Platform = RevampCoreSettings.Platform,
+                DBConnString = RevampCoreSettings.DbConnect,
+                SourceDBOwner = RevampCoreSettings.SystemDBName
+            };
             IConnectToDB IConnect = _Connect;
             SecurityHelper securityHelper = new SecurityHelper();
             AppHelper appHelper = new AppHelper();

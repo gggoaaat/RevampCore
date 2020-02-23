@@ -13,9 +13,6 @@ namespace Revamp.IO.Structs.Models
     public class InstallerModels
     {
         public bool IntegratedSecurity { get; set; }
-        //string constrSQLServer = System.Configuration.ConfigurationManager.ConnectionStrings["ER_MSSQLRootConn"].ToString();
-        //string constrSQLServer1 = System.Configuration.ConfigurationManager.ConnectionStrings["ER_MSSQLRootConntoDB"].ToString();
-        //string constrSQLServer2 = System.Configuration.ConfigurationManager.ConnectionStrings["ER_MSSQLUserConn"].ToString();
 
         //[Display(Name = "My property title")]
         [Required]

@@ -14,9 +14,6 @@ namespace Revamp.IO.Helpers.Helpers
 {
     public class GoHelper
     {
-        //System.Configuration.ConfigurationManager.AppSettings["MemoryTracking"].ToUpper()
-        //System.Configuration.ConfigurationManager.AppSettings.Get("JsonTimeoutInterval")
-        //System.Configuration.ConfigurationManager.AppSettings["InstallType"].ToLower()
         public SessionObjects handleSession(IConnectToDB _Connect, SessionObjects SO, string _desiredstate, string username, bool ValidSession, string _JsonTimeoutInterval, string _MemoryTracking, string _InstallType)
         {
 

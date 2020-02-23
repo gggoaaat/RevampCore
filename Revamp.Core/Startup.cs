@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Revamp.Core.Data;
 using Revamp.Core.Models;
 using Revamp.Core.Services;
+using Revamp.IO.Structs.Models;
 using Revamp.IO.Web.Filters;
 
 namespace Revamp.Core
@@ -66,7 +67,7 @@ namespace Revamp.Core
 
             services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
             //services.AddAntiforgery();
-            services.Configure<RevampCoreSettings>(Configuration.GetSection("RevampCoreSettings"));
+            services.Configure<IRevampCoreSettings>(Configuration.GetSection("RevampCoreSettings"));
 
             // Add MVC services to the services container.
             services.AddMvc(opts =>

@@ -6,6 +6,7 @@ using System.Data;
 
 namespace Revamp.IO.Structs.Models
 {
+
     /// <summary>
     /// This Model can hold all session Information
     /// </summary>

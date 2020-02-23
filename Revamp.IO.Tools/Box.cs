@@ -1,4 +1,6 @@
-﻿using Revamp.IO.Structs.Enums;
+﻿using Microsoft.Extensions.Options;
+using Revamp.IO.Structs.Enums;
+using Revamp.IO.Structs.Models;
 using System;
 using System.Configuration;
 using System.Diagnostics;
@@ -10,6 +12,12 @@ namespace Revamp.IO.Tools
 {
     public class Box
     {
+        private IRevampCoreSettings RevampCoreSettings { get; set; }
+        public Box(IOptions<IRevampCoreSettings> settings)
+        {
+            RevampCoreSettings = settings.Value;
+        }
+
         public static FolderStatus CreateDir(string Path)
         {
             FolderStatus tempStatus = FolderStatus.Failed;
@@ -32,15 +40,10 @@ namespace Revamp.IO.Tools
         public Boolean WriteEventLog(string message, EventLogType eventlogtype)
         {
             Boolean _Result = false;
-            bool enableEventLogging = true;
+            bool enableEventLogging = RevampCoreSettings.EnableEventLogging;
 
             try
             {
-                if (ConfigurationManager.AppSettings["EnableEventLogging"] != null)
-                {
-                    bool.TryParse(ConfigurationManager.AppSettings["EnableEventLogging"].ToString(), out enableEventLogging);
-                }
-
                 if (!enableEventLogging)
                 {
                     return false;

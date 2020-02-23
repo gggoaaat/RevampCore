@@ -18,7 +18,6 @@ namespace Revamp.IO.Helpers.Helpers
     public class IdentityHelper
     {
         public HttpContext Current => new HttpContextAccessor().HttpContext;
-        //System.Configuration.ConfigurationManager.AppSettings["InstallType"].ToLower() 
         public String Create(IConnectToDB _Connect, FormCollection _formCollection, string InstallType)
         {
 

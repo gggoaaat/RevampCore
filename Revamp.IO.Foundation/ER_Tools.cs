@@ -19,6 +19,7 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using TextFieldParserCore;
+using Microsoft.Extensions.Options;
 
 namespace Revamp.IO.Foundation
 {
@@ -27,7 +28,11 @@ namespace Revamp.IO.Foundation
 
         // START TOOL FORMATTING
         //        
-
+        private RevampCoreSettings RevampCoreSettings { get; set; }
+        public ER_Tools(IOptions<RevampCoreSettings> settings)
+        {
+            RevampCoreSettings = settings.Value;
+        }
 
 
         public string MaxNameLength(string name, int maxLength)
@@ -390,14 +395,10 @@ namespace Revamp.IO.Foundation
         public Boolean WriteEventLog(string message, EventLogType eventlogtype)
         {
             Boolean _Result = false;
-            bool enableEventLogging = true;
+            bool enableEventLogging = RevampCoreSettings.EnableEventLogging;
 
             try
             {
-                if (ConfigurationManager.AppSettings["EnableEventLogging"] != null)
-                {
-                    bool.TryParse(ConfigurationManager.AppSettings["EnableEventLogging"].ToString(), out enableEventLogging);
-                }
 
                 if (!enableEventLogging)
                 {
@@ -824,17 +825,17 @@ namespace Revamp.IO.Foundation
             return json;
         }
 
-        public static string GetPathLocation(string SQLFilePath, string appSettingName = "sqlFileTarget")
-        {
+        //public static string GetPathLocation(string SQLFilePath, string appSettingName = "sqlFileTarget")
+        //{
            
-            bool sqlFileTarget = ConfigurationManager.AppSettings.Get(appSettingName) != null ? Convert.ToBoolean(ConfigurationManager.AppSettings.Get(appSettingName)) : false;
+        //    bool sqlFileTarget = ConfigurationManager.AppSettings.Get(appSettingName) != null ? Convert.ToBoolean(ConfigurationManager.AppSettings.Get(appSettingName)) : false;
 
-            string RootPath = sqlFileTarget ? "" : string.Join("\\", System.AppDomain.CurrentDomain.BaseDirectory.Split(new[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).Reverse().Skip(1).Reverse().ToArray()) + "\\";
+        //    string RootPath = sqlFileTarget ? "" : string.Join("\\", System.AppDomain.CurrentDomain.BaseDirectory.Split(new[] { '\\' }, StringSplitOptions.RemoveEmptyEntries).Reverse().Skip(1).Reverse().ToArray()) + "\\";
             
-            //TODO: Verify .Net Core Port
-            string ServerPath = sqlFileTarget ? System.IO.Directory.GetCurrentDirectory() + SQLFilePath : RootPath + SQLFilePath;
-            return ServerPath;
-        }
+        //    //TODO: Verify .Net Core Port
+        //    string ServerPath = sqlFileTarget ? System.IO.Directory.GetCurrentDirectory() + SQLFilePath : RootPath + SQLFilePath;
+        //    return ServerPath;
+        //}
 
         public static bool ConvertCheckBoxtoBool(string value)
         {

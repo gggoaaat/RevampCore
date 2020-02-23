@@ -871,16 +871,7 @@ namespace Revamp.IO.Helpers.Helpers
 
             return "";
         }
-
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerConfigPassword")
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerUseLocalDir")
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerConfigPickupDirectoryLocation")
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerConfigHost")
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerConfigPort")
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerConfigUseDefaultCredentials")
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerConfigEnableSsl")
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerConfigUsername")
-        //System.Configuration.ConfigurationManager.AppSettings.Get("SMTPServerConfigPassword")        
+      
         public SmtpClient SMTPConfigSettings(SmtpClient SmtpServerConfig, SMTPModel _configSettings)
         {
             string SmtpMethodLocal = "";
