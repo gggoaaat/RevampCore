@@ -1,0 +1,21 @@
+﻿{{#currentReportsForContainer}}
+<li data-portletcontainercustomreportid="{{portlet_container_custom_report_id}}">
+
+    <a href="javascript:void(0)"
+       class="reportLink"
+       title="{{base_report_name}}-{{custom_report_name}}-{{title}}"
+       data-basereportname="{{base_report_name}}"
+       data-customreportname="{{custom_report_name}}"
+       data-customreportid="{{custom_report_id}}"
+       data-basecustomreportid="{{base_custom_report_id}}"
+       data-prevcustomreportid="{{prev_custom_report_id}}"
+       data-rootreportid="{{root_report_id}}"
+       data-baserootreportid="{{base_root_report_id}}"
+       data-prevrootreportid="{{prev_root_report_id}}"
+       data-reporttitle="{{title_mod}}"
+       data-headertitle="{{title}}"
+       data-templatename="{{template_name}}">
+        <i class="fa fa-file-o"></i>{{title}}
+    </a>
+</li>
+{{/currentReportsForContainer}}

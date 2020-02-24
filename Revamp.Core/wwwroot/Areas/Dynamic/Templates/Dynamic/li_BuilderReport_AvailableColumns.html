@@ -1,0 +1,27 @@
+﻿<li class="NotSortable" style="">
+    <h3>Desried Column Alias</h3>
+</li>
+{{#baseReportColumns}}
+{{#ifCondition enabled " == 'Y'" }}
+<li class="AvailableColumnLi {{oddOrEven}}">
+    <span class="grippy"></span>
+    <label class="checkbox-container">
+        <input class="ShowColumn" checked id="col_report_chbx_{{original_column}}" type="checkbox" value="{{original_column}}" />
+        <span class="checkmark"></span>
+    </label>
+    <input class="form-control ColumnArea builderColumnArea" style="display: none;" data-original="{{original_column}}" name="COLUMN_{{original_column}}[]" value="{{original_column}}" />
+    <input class="form-control AliasArea builderColumnArea" style="" data-original="{{original_column}}" name="ALIAS_{{original_column}}[]" value="{{alias_area}}" />
+</li>
+{{/ifCondition}}
+{{#ifCondition enabled " != 'Y'" }}
+<li class="AvailableColumnLi {{oddOrEven}}">
+    <span class="grippy"></span>
+    <label class="checkbox-container">
+        <input class="ShowColumn" id="col_report_chbx_{{original_column}}" type="checkbox" value="{{original_column}}" />
+        <span class="checkmark"></span>
+    </label>
+    <input class="form-control ColumnArea builderColumnArea" disabled="disabled" style="display: none;" data-original="{{original_column}}" name="COLUMN_{{original_column}}[]" value="{{original_column}}" />
+    <input class="form-control AliasArea builderColumnArea" disabled="disabled" style="" data-original="{{original_column}}" name="ALIAS_{{original_column}}[]" value="{{alias_area}}" />
+</li>
+{{/ifCondition}}
+{{/baseReportColumns}}

@@ -1,0 +1,104 @@
+﻿@media print /*--This is for Print--*/
+{
+    * {
+        float: none !important;
+    }
+
+    table.all-print, table.all-print td, table.all-print tr, table.all-print th {
+        display: block;
+        text-align: left;
+        border: none !important;
+    }
+
+        table.all-print th, table td {
+            margin: 0;
+            padding-left: 25px;
+            border: inherit;
+        }
+
+        table.all-print tbody tr td:first-child {
+            font-weight: bold;
+            list-style: none;
+            margin: 0;
+            padding-left: 25px;
+            padding-top: 25px;
+        }
+
+        table.all-print td {
+            margin-left: 40px;
+            list-style: square;
+            display: list-item;
+            padding-left: 0;
+            word-wrap: break-word;
+            max-width: 670px;
+            /*float: left;*/
+            width: 100%;
+            border: inherit;
+        }
+
+        table.all-print thead {
+            display: none;
+        }
+
+    .modal-content, modal-header, .modal-footer {
+        border: none !important;
+    }
+
+    .modal-body {
+        overflow-y: visible !important;
+    }
+
+    .modal {
+        position: absolute !important;
+        overflow: visible !important;
+    }
+
+    .modal-footer button{
+        display:none;
+    }
+
+    .content-wrapper.main-content {
+        display: none;
+    }
+}
+
+/*--This is for Print Preview Screen--*/
+
+@media screen {
+
+    table.all-print, table.all-print td, table.all-print tr, table.all-print th {
+        display: block;
+        text-align: left;
+        border: none !important;
+    }
+
+        table.all-print th, table td {
+            margin: 0;
+            padding-left: 25px;
+            border: inherit;
+        }
+
+        table.all-print tbody tr td:first-child {
+            font-weight: bold;
+            list-style: none;
+            margin: 0;
+            padding-left: 25px;
+            padding-top: 25px;
+        }
+
+        table.all-print td {
+            margin-left: 40px;
+            list-style: square;
+            display: list-item;
+            padding-left: 0;
+            word-wrap: break-word;
+            max-width: 670px;
+            float: left;
+            width: 100%;
+            border: inherit;
+        }
+
+        table.all-print thead {
+            display: none;
+        }
+}

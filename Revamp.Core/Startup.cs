@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using BotDetect.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -78,6 +79,16 @@ namespace Revamp.Core
             services.AddTransient<AntiforgeryCookieResultFilter>();
             services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
             services.AddSession();
+            // configure your application pipeline to use Captcha middleware
+            // Important! UseCaptcha(...) must be called after the UseSession() call
+            // Add Session services.
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,15 +109,26 @@ namespace Revamp.Core
             app.UseCookiePolicy();
             
             app.UseSession();
+            // configure your application pipeline to use Captcha middleware
+            // Important! UseCaptcha(...) must be called after the UseSession() call
+            app.UseCaptcha(Configuration);
+
+
 
             app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                  name: "areas",
+                  template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                );
+
+                routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");                
             });
+
         }
     }
 }

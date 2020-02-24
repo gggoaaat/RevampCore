@@ -1,0 +1,120 @@
+var currentJsonData = {};
+
+var table = {};
+
+var mGlobal = {
+    application: {
+        appid: '10000',
+        appname: 'CSA'
+    },
+    system: {
+        mscSelected: ''
+    },
+    current: {
+
+    },
+    states: {
+        intervalID: 0
+    },
+    page: {
+        search: {
+            name: 'search',
+            schema: "core",
+            template: "core",
+            report: 'person locator',
+            datatableName: 'currentperson',
+            tableContainer: '#PERSON_CONTAINER',
+            columnOverrides: [
+
+            ],
+            hideBar : true,
+            pageLength: -1,
+            ordering: false,
+            ajaxAppend: function (d) {
+                d.P_SEARCH_COLUMN_INCLUDE = 'FULL_NM, LAST_NM, FIRST_NM, MIDDLE_NAME';
+                d.VERIFY = mGlobal.variable.search && $('[name="I_SEARCH_VALUE"]').val().trim().length > 0 ? 'T' : 'F';
+                d["P_SEARCH"]= $('[name="I_SEARCH_VALUE"]').val();
+                return d;
+            },
+            xhr : function(model)
+            {
+                public.locator.replace(model)           
+            },
+            drawCallBackActions : function ()
+            {
+                mGlobal.variable.search = false;
+            }
+        }
+    },
+    variable: {
+        search : false
+    },
+    ajaxData: function () {
+
+    },
+    tableColumns: function () {
+
+    },
+    drawCallBackActions: function () {
+
+    },
+    drawCallBackActionsWait: function () {
+
+    },
+    initCompleteActions: function () {
+
+    }
+}
+
+$('#SearchPersonnelData').on('click', function () {
+    mGlobal.variable.search = true;
+    table.search.ajax.reload();
+});
+
+
+$('#PersonnelSearchClause [name="I_SEARCH_VALUE"]').keyup(function (e) {
+    if (e.which == 13) { //enter
+        if ($(this).val().trim().length > 0) {
+            mGlobal.variable.search = true;
+            table.search.ajax.reload();
+        }
+    }
+
+    if (e.which == 27) { //esc
+        $(this).val('')
+    }
+});
+
+var public = {
+    locator: (function () {
+
+        var self = this;
+
+        return {
+            init: function (model) {
+
+                var thisTemplate = Handlebars.compile($('#tiles').html())
+
+                var thisHTML = thisTemplate();
+
+                $('#koContainer').html(thisHTML);
+
+                self.people = ko.observableArray([]);
+            },
+            replace: function (model) {
+
+                self.people(model);
+            },
+            get: function () {
+                return self.people();
+            }
+        }
+    })()
+};
+
+ko.applyBindings(new public.locator.init({}));
+
+$(document).ready(function () {
+    callGenerateStandAloneDT({ page: 'search', selector: mGlobal.page.search.tableContainer, loadAvailableFilters: true, callEvent: 'Stand Alone' });
+    
+});

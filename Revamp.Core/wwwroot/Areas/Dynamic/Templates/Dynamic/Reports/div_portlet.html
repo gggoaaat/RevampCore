@@ -1,0 +1,21 @@
+﻿<div class="portlet box grey-cararra grey-cararra-border sectionRow {{vieworEdit}}" {{{baseID}}} {{{portletID}}} {{{prevPortletID}}}>
+    <div class="portlet-title" style="background-color:#e4e4e4;">
+        <div class="caption">
+            <i class="fa fa-cube"></i><span name="portletTitle">{{isThereAPortletTitle}}</span>
+        </div>
+        {{#if canEdit}}
+        <div class="tools">
+            <a href="#portlet-privileges" data-toggle="modal" class="portletPriv" title="Set Privileges">
+                <i class="fa fa-users"></i>
+            </a>
+            <a href="javascript:;" id="collapsePortlet" class="collapse" data-original-title="" title=""></a>
+            <a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title=""></a>
+        </div>
+        {{/if}}
+    </div>
+    <div class="portlet-body">
+        <div class="scroller" style="position: relative; overflow: hidden; width: auto;">
+        </div>
+    </div>
+</div>
+

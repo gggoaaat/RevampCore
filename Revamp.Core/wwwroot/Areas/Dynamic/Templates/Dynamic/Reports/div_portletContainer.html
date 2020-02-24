@@ -1,0 +1,27 @@
+﻿<div class="portletContainer col-md-{{{size}}}"
+     data-containerID="{{container_id}}"
+     data-basecontainerID="{{base_container_id}}"
+     data-prevcontainerID="{{prev_container_id}}"
+     data-portletID="{{portlet_id}}"
+     data-baseportletID="{{base_portlet_id}}"
+     data-prevportletID="{{prev_portlet_id}}"
+     data-portletName="{{title}}"
+     data-size="{{size}}">
+    <div class="portlet box grey-cararra grey-cararra-border sectionContainer" style="">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-file-text-o"></i>{{title}}
+            </div>
+            {{#if canEdit}}
+            <div class="tools">
+                <a href="#container-config" data-toggle="modal" class="config" data-original-title="" title=""></a>
+            </div>
+            {{/if}}
+            <div class="actions">
+            </div>
+        </div>
+        <div class="portlet-body">
+            <ul class="reports_ul"></ul>
+        </div>
+    </div>
+</div>

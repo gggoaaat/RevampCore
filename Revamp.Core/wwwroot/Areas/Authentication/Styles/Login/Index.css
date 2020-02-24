@@ -1,0 +1,32 @@
+﻿body {
+}
+/*Change the size here*/
+.tooltip {
+    width: 350px !important;
+}
+
+.valid {
+    color: #000 !important;
+}
+
+.loginshow {
+    display: none;
+}      
+
+.page-content {
+    background: linear-gradient(#1b7cc1, rgba(29, 190, 248, 0.79)), url(../../assets/frontend/img/videobg.jpg);
+    background-size: cover;
+}
+
+input[type=text], input[type=password], input[type=checkbox] {
+    background: #fff;
+    border: solid 1px #797979;
+}
+
+.whitelink a {
+    color: #fff;
+}
+
+.whitelink a:hover {
+    color: #eee;
+}

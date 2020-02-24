@@ -1,0 +1,21 @@
+﻿<tr data-containerid="{{container_id}}"
+    data-basecontainerid="{{base_container_id}}"
+    data-prevcontainerid="{{prev_container_id}}"
+    data-containersize="{{size}}"
+    data-containername="{{title}}">
+    <td style="width: 25px;">
+        <a name="removeContainer" href="javascript:;">
+            <i class="fa fa-minus"></i>
+        </a>
+    </td>
+    <td style="width: 250px;">
+        <input type="text" class="form-control trackChange" name="containerName[]" placeholder="Title" value="{{title}}" />
+    </td>
+    <td style="width: 100px;">
+        <select class="form-control trackChange" name="containersSelectList[]">
+            {{#options}}
+            <option data-col="{{value}}" value="{{value}}" {{#if selected}} selected {{/if}}>{{value}}/12</option>
+            {{/options}}
+        </select>
+    </td>
+</tr>

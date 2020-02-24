@@ -1,0 +1,125 @@
+﻿<div class="row">
+    <div class="sign-in-wrap" style="padding: 20px 20px 20px 20px;">
+        <header class="register-header">
+            <div style="text-align:center">
+                <img src="{{logo.path}}" alt="logo" class="logo-default" style="width: 200px; margin:10px 0px 0px 0px;" />
+            </div>
+            <h3 class="little-big-header" style="text-align:center">Sign In</h3>
+            <p style="text-align:center">To continue to system <span id="screen-progress">please enter your username.</span></p>
+        </header>
+        <div class="register-form-wrap">
+            <div class="row">
+                <div style="clear:both"></div>
+                <div class="col-md-12">
+                    {{#isNotEmpty message}}
+                    <div class="error">
+                        <div class="alert alert-danger">
+                            {{message}}
+                        </div>
+                    </div>
+                    {{/isNotEmpty}}
+                    <div class="col-md-12">
+
+                        <form class="form-horizontal default" id="{{randomObject}}" name="login-form-action" action="/login/submit{{returnurl}}" method="post">
+                            {{{currentRequestVerificationToken}}}
+
+                           
+                            <div class="login-slider" >
+                                {{#objects}}
+                              
+                                {{#ifCondition property_name " == 'User Name'"}}
+                                <div class="object-step">
+                                    <input type="hidden" name="h_{{{whitespace property_name}}}" value="{{base_obj_prop_sets_uuid}}" />
+                                    <div class="form-group row part-1">
+                                        <div class="part-1">
+                                            <input class="form-control " data-bind="value: username" id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="{{property_value}}" type="text" value="{{@root.postedUsername}}" maxlength="50" required>
+                                            <a href="/ForgotUsername">Forgot Username?</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-6" style="margin:0;padding:0"><a href="/Register" class="" id="sign-up">Create account</a></div>
+                                                <div class="col-md-6 part-1" style="margin:0;padding:0;">
+                                                    <button type="button" class="btn blue" style="float:right; width: 150px;" id="pwd-next">Next</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/ifCondition}}
+                                {{#ifCondition object_prop_type " == 'Password'"}}
+                                <div class="object-step part-2">
+                                    <input type="hidden" name="h_{{{whitespace property_name}}}" value="{{base_obj_prop_sets_uuid}}" />
+                                    <div class="form-group row part-2">
+                                        <div class="part-2" style="display: none;">
+                                            <input class="form-control " data-bind="value: password" id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="Password" type="password" value="" maxlength="50" required>
+                                            <a href="/ForgotPassword">Forgot Password?</a><br>
+                                            <a href="/"><i class="fa fa-arrow-circle-left"></i>Start Over</a><br>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12 part-2" style="margin:0;padding:0;">
+                                                    <button type="button" class="btn blue" style="float:right; width: 150px;" id="captcha-next">Next</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/ifCondition}}
+                                {{/objects}}
+
+                                <div class="object-step  part-3" >
+                                    <div class="form-group part-3" id="captcha-wrap" style="display: none;">
+                                        <div class="col-md-12 captcha-style">
+                                            <div>Estimated time left before captcha window refreshes <span id="time"></span></div>
+                                            <div id="captchaIOWrap">{{{captcha}}}</div>
+                                            <p class="error">{{postedCaptcha}}</p>
+                                            <a href="/"><i class="fa fa-arrow-circle-left"></i>Start Over</a><br>
+                                        </div>                                        
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12 part-3" style="margin:0;padding:0;">
+
+                                                    <button type="submit" class="btn blue" style="float:right; width: 150px;" id="sign-in-btn">Sign In</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                    <!--<div class="col-md-6">
+                        <div class="module">
+                            <div id="need-an-account">
+
+                                <a href="/Register" class="btn green" id="sign-up">Create account</a>
+                            </div>
+
+                        </div>
+                        {{#if ic}}
+                        {{#if cacPresent}}
+                        <div class="module" style="text-align: center;">
+                            <h3 title="Login in with Common Access Card">Login with CAC</h3>
+                            <form id="CACLogin" method="post" action="/login/cac">
+                                {{{currentRequestVerificationToken2}}}
+                                <a href="javascript:void(0);" onclick="document.getElementById('CACLogin').submit();" title="Click to login in with Common Access Card">
+                                    <img style="width:200px;" src="/Areas/Authentication/Assets/images/CACCards_.png" />
+                                </a>
+                            </form>
+                        </div>
+                        {{/if}}
+                        {{/if}}
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@model Revamp.IO.Structs.Models.SessionObjects
+@{
+    ViewBag.Title = "Login";
+
+    var textDisclaimer = System.Configuration.ConfigurationManager.AppSettings["showDisclaimer"];
+
+    bool hasDisclaimer = @Model.appSettings.ShowDisclaimer;
+    var logoImg = @Model.appSettings.Logo.Path + "/logo.png";
+    var style = "width:" + @Model.appSettings.Logo.css.width + "; margin:" + @Model.appSettings.Logo.css.margin; ;
+}
+
+<div class="login-wrapper">
+    frgerg
+</div>
+
+@section currentpage_css
+{
+    <link href="~/Areas/Users/Styles/Profile/default.css" rel="stylesheet" />
+    <link href="~/assets/admin/layout/css/home.css" rel="stylesheet" />
+    <link href="~/Areas/Authentication/Styles/Shared/Index.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <style type="text/css">
+        .slick-list {
+            outline: none !important;
+        }
+
+        .slick-slide {
+            outline: none !important;
+        }
+    </style>
+}
+
+@section currentpage_js
+{
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>var showDisclaimer = @hasDisclaimer.ToString().ToLower();</script>
+    <script src="@Model.appSettings.AssetsUrl/js/wow.min.js" type="text/javascript"></script>
+    <script src="@Model.appSettings.AssetsUrl/global/plugins/magnific-popup/jquery.magnific-popup.min.js" type="text/javascript"></script>
+
+    <script>
+        var message = '@TempData["ErrMessage"]';
+        var returnurl = '@ViewBag.returnurl';
+        var logo = { path: '@logoImg', style: '@style' };
+
+    </script>
+    <script src="~/Areas/Authentication/Scripts/Login/Global.js"></script>
+    <script src="~/Areas/Authentication/Scripts/Login/Functions.js"></script>
+    <script src="~/Areas/Authentication/Scripts/Login/Binds.js"></script>
+    <script src="~/Areas/Authentication/Scripts/Login/Ready.js"></script>
+}

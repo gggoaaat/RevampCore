@@ -1,0 +1,12 @@
+﻿@*@using CaptchaMvc.HtmlHelpers;
+
+    @Html.Captcha("Try another", "Enter the text you see above:", 5)*@
+@section header {
+    <environment names="Development,Staging,Production">
+        <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+              rel="stylesheet" type="text/css" />
+        </environment>
+}
+
+<captcha id="ExampleCaptcha" user-input-id="CaptchaCode" />
+

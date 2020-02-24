@@ -16,7 +16,7 @@ namespace Revamp.IO.Structs.Models
         /// <summary>
         /// Memory Related Stuff
         /// </summary>        
-
+        public RevampCoreSettings appSettings { get; set; }
         public SessionObjects SOPricing { get; set; }
         public MemoryUsage ERMemory { get; set; }
 

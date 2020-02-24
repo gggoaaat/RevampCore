@@ -1,0 +1,47 @@
+﻿<h2>Reset Account Password</h2>
+
+{{#unless invalidVerification}}
+
+    <p>
+        Forgot your password? Please reset it using the form below:
+    </p>
+    <form id="{{formId}}" class="form-horizontal default" novalidate="novalidate" method="post">
+        {{{currentRequestVerificationToken}}}
+
+        <div class="col-md-5 default">
+
+            <!--<div class="col-md-4 control-label"><label class="control-label">New Password</label></div>-->
+            <div class="col-md-9">
+                <label class="control-label">New Password</label>
+                <input type="password" class="form-control small passwordstrength" id="newpassword" name="newpassword" placeholder="Enter New Password">
+                <div id='pswd_info'><h4>Your password must have:</h4><ul><li id='letter' class='invalid'>At least <strong>2 lowercase letters</strong></li><li id='capital' class='invalid'>At least <strong>2 uppercase letters</strong></li><li id='number' class='invalid'>At least <strong>2 numbers</strong></li><li id='special' class='invalid'>At least <strong>1 Special</strong></li><li id='length' class='invalid'>At least <strong>14 characters</strong></li><li id='pspaces' class='invalid'><strong>No Spaces</strong></li></ul></div>
+            </div>
+            <div style="clear:both;padding-top:10px"></div>
+            <!--<div class="col-md-4 control-label"><label class="control-label">Confirm Password</label></div>-->
+            <div class="col-md-9">
+                <label class="control-label">Confirm Password</label>
+                <input type="password" class="form-control small" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password"></div>
+            <div style="clear:both"></div>
+
+            <div class="col-md-9 captcha-container">
+                {{{captcha}}}
+                <p class="error">{{postedCaptcha}}</p>
+                <!--<p class="">{{successMessage}}</p>-->
+                <p id="result"></p>
+            </div>
+
+            <!--<div class="col-md-4 control-label"></div>-->
+
+            <div class="col-md-9"><button type="button" class="btn blue" onclick="authentication.resetPassword.fn.resetPasswordSubmit();">Reset Password</button></div>
+        </div>
+    </form>
+
+{{else}}
+
+    <h3>Invalid Verification</h3>
+    <p>
+        This link is either expired or not valid.
+        Please <a href="/ForgotPassword">click here</a> to regenerate link & follow the procedure.
+    </p>    
+
+{{/unless}}

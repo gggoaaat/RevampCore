@@ -6,6 +6,7 @@ namespace Revamp.IO.Structs.Models
 {
     public interface ISessionObjects
     {
+        RevampCoreSettings appSettings { get; set; }
         string actionname { get; set; }
         Activity ActivityList { get; set; }
         Activity AllActivity { get; set; }

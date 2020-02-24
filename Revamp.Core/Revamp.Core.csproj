@@ -7,14 +7,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Captcha" Version="4.4.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Authentication\Data\" />
+    <Folder Include="Areas\Authentication\Models\" />
+    <Folder Include="wwwroot\Areas\Authentication\Scripts\" />
+    <Folder Include="Areas\Authentication\Templates\" />
+    <Folder Include="Areas\Users\Controllers\" />
+    <Folder Include="Areas\Users\Data\" />
+    <Folder Include="Areas\Users\Models\" />
+    <Folder Include="Areas\Users\Views\" />
     <Folder Include="Data\" />
     <Folder Include="Extensions\" />
+    <Folder Include="wwwroot\Areas\Dynamic\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Areas\Authentication\Scripts\Login\Binds.js" />
+    <None Include="wwwroot\Areas\Authentication\Scripts\Login\Functions.js" />
+    <None Include="wwwroot\Areas\Authentication\Scripts\Login\Global.js" />
+    <None Include="wwwroot\Areas\Authentication\Scripts\Login\Ready.js" />
+    <None Include="wwwroot\Areas\Users\Styles\Profile\default.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +44,15 @@
     <ProjectReference Include="..\Revamp.IO.Structs\Revamp.IO.Structs.csproj" />
     <ProjectReference Include="..\Revamp.IO.Tools\Revamp.IO.Tools.csproj" />
     <ProjectReference Include="..\Revamp.IO.Web.Filters\Revamp.IO.Web.Filters.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Authentication\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Areas\Authentication\Views\_ViewStart.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
 </Project>

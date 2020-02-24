@@ -1,0 +1,12 @@
+﻿{{#baseReportColumns}}
+{{#ifCondition enabled " == 'Y'" }}
+<li class="AvailableReportColumnLi {{oddOrEven}}">
+    <span class="grippy"></span>
+    <label>
+        <input class="ShowColumn" {{isDisabled}} checked id="col_report_chbx_{{original_column}}" type="checkbox" value="{{original_column}}" />
+    </label>
+    <input class="form-control ColumnArea" {{isDisabled}} style="display: none; width: 40%; padding: 0px;" data-original="{{original_column}}" name="COLUMN_{{original_column}}[]" value="{{original_column}}" />
+    <input class="form-control AliasArea" {{isDisabled}} style="display: inline-block; width: 80%; padding: 0px;" data-original="{{original_column}}" name="ALIAS_{{original_column}}[]" value="{{original_column}}" />
+</li>
+{{/ifCondition}}
+{{/baseReportColumns}}

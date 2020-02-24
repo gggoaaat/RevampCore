@@ -1,0 +1,153 @@
+﻿/*FOR REPORTS BUILDER PAGE*/
+
+.actionLink.CustomReportClause span.badge {
+    margin-top: -30px;
+    margin-left: -5px;
+}
+
+.filter-box-display {
+    height: 40px;
+    color: #333333;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 5px;
+}
+
+    .filter-box-display label {
+        padding: 10px;
+    }
+
+    .filter-box-display i {
+        margin-left: 5px;
+    }
+
+.popover {
+    z-index: 20000;
+}
+
+/*.nav-tabs, .nav-pills {
+    margin-bottom: 0 !important;
+}*/
+
+.page-quick-sidebar-wrapper {
+    background: #fff !important;
+}
+
+    .page-quick-sidebar-wrapper .page-quick-sidebar {
+        background: #fff !important;
+    }
+
+.SideBarFiltersContainer .page-sidebar-menu .sub-menu li ul,
+.SideBarFiltersContainer .page-sidebar-menu .sub-menu li ul:hover {
+    background-color: #fff !important;
+}
+
+.NoBottomBorder {
+    border-bottom-style: none !important;
+}
+
+.dyno_filters {
+    padding-left: 3px;
+    padding-right: 3px;
+    color: #ccc;
+}
+
+@keyframes dots-1 {
+    from {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+}
+
+@keyframes dots-2 {
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes dots-3 {
+    from {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes dots-1 {
+    from {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes dots-2 {
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes dots-3 {
+    from {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 1;
+    }
+}
+
+
+.dots span {
+    animation: dots 1s infinite steps(1);
+    -webkit-animation: dots 1s infinite steps(1);
+}
+
+    .dots span:first-child + span {
+        animation-name: dots-2;
+        -webkit-animation-name: dots-2;
+    }
+
+        .dots span:first-child + span + span {
+            animation-name: dots-3;
+            -webkit-animation-name: dots-3;
+        }
+
+
+.filterTab {
+    font-size: smaller !important;
+}
+
+.FilterDiv .panel-group {
+    padding-right: 20px;
+}
+
+
+.HomeContainer {
+}
+
+    .HomeContainer.right {
+        border-left: solid #ccc;
+    }
+
+    .HomeContainer.left {
+        border-right: solid #ccc;
+    }
+
+    .HomeContainer.center {
+    }

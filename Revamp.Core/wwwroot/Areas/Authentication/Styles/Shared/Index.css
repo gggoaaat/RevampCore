@@ -1,0 +1,31 @@
+﻿.page-content {
+    /*background: linear-gradient(rgba(46, 46, 46, 0.69), rgba(0, 0, 0, 0.84)), url('../../assets/frontend/img/videobg.jpg');
+                        background-size: cover;*/
+    background: linear-gradient(#1b7cc1, rgba(29, 190, 248, 0.79)), url(/assets/frontend/img/videobg.jpg);
+    background-size: cover;
+}
+
+/*.cardfeilds {
+}*/
+
+@media (max-width: 550px) {
+    .page-content {
+        /*background: linear-gradient(rgba(0,0,0,0.81), rgba(0, 0, 0, 0.84));
+                            min-height: 100% !Important;*/
+        background: linear-gradient(#1b7cc1, rgba(29, 190, 248, 0.79)), url(/assets/frontend/img/videobg.jpg);
+        background-size: cover;
+    }
+
+    .form-actions {
+        padding-left: 0px !important;
+        float: right;
+    }
+
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+}
+
+#CaptchaImage {
+    width : 100%;
+}

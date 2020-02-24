@@ -1,0 +1,32 @@
+﻿
+.page-content {
+    background: linear-gradient(#1b7cc1, rgba(29, 190, 248, 0.79)), url(/assets/frontend/img/videobg.jpg);
+    background-size: cover;
+}
+
+.little-big-header, h2, label {
+    color: #FFFFFF;
+}
+
+@media (max-width: 550px) {
+    .page-content {
+        background: linear-gradient(rgba(0,0,0,0.81), rgba(0, 0, 0, 0.84));
+        min-height: 100% !Important;
+        /*background: linear-gradient(rgb(14, 190, 255), rgba(173, 173, 173, 0.61));
+                     background-size: cover;*/
+    }
+
+    .form-actions {
+        padding-left: 0px !important;
+        float: right;
+    }
+
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+}
+
+
+.captcha-style a {
+    color: #fff;
+}

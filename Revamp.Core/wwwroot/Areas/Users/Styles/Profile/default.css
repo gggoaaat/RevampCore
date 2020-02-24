@@ -1,0 +1,51 @@
+﻿input {
+    color: #000000 !important; /* black */
+}
+
+.val-error-class, label .error {
+    color: #FF0000 !important; /* red */
+}
+
+.classic-menu-dropdown {
+    display: none !important;
+}
+
+.feeds {
+    font-size: 25pt;
+}
+
+    .feeds a:hover {
+        color: dodgerblue;
+    }
+
+    .feeds a i {
+        font-size: 25pt;
+        color: dodgerblue;
+    }
+
+
+.tooltip {
+    position: fixed;
+}
+
+.popover {
+    position: fixed;
+}
+
+.popover {
+    width: 1005px;
+    height: 540px;
+    max-width: 1005px;
+}
+
+.popover-content {
+    height: 500px;
+    width: 1000px;
+    overflow: auto;
+}
+
+.popover-content .form-group {
+     display: block; 
+     padding-bottom: 30px; 
+     vertical-align: middle; 
+}

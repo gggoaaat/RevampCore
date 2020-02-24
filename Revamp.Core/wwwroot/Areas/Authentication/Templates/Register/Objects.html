@@ -1,0 +1,71 @@
+﻿<div class="row">
+
+    <div class="sign-in-wrap">
+        <header class="register-header">
+            <h1 class="little-big-header">Sign Up</h1>
+        </header>
+        <h2>Create a new account.</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-horizontal default" id="{{randomObject}}" action="/register/submit" method="post">
+                    {{{currentRequestVerificationToken}}}
+
+                    <div class="form-body">
+                        {{#objects}}
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label loginshow">
+                                {{#ifCondition property_name " == 'Middle Name'"}}
+                                    {{property_name}} <span class="error"></span>
+                                {{else}}
+                                    {{property_name}} <span class="error">*</span>
+                                {{/ifCondition}}
+                            </label>
+                            <div class="col-md-9">
+                                <input type="hidden" name="h_{{{whitespace property_name}}}" value="{{base_obj_prop_sets_uuid}}" />
+                                {{#ifCondition property_name " == 'First Name'"}}
+                                <input class="form-control " id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="{{property_value}}" type="text" maxlength="50" value="{{@root.postedFirstName}}">
+                                {{/ifCondition}}
+                                {{#ifCondition property_name " == 'Middle Name'"}}
+                                <input class="form-control " id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="{{property_value}}" type="text" maxlength="50" value="{{@root.postedMiddleName}}">
+                                {{/ifCondition}}
+                                {{#ifCondition property_name " == 'Last Name'"}}
+                                <input class="form-control " id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="{{property_value}}" type="text" maxlength="50" value="{{@root.postedLastName}}">
+                                {{/ifCondition}}
+                                {{#ifCondition property_name " == 'User Name'"}}
+                                <input class="form-control " id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="{{property_value}}" type="text" value="{{@root.postedUsername}}">
+                                {{/ifCondition}}
+                                {{#ifCondition property_name " == 'Email Address'"}}
+                                <input class="form-control " id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="{{property_value}}" type="text" value="{{@root.postedEmail}}">
+                                {{/ifCondition}}
+                                {{#ifCondition property_name " == 'Confirm Email Address'"}}
+                                <input class="form-control " id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="{{property_value}}" type="text" value="{{@root.postedEmail}}">
+                                {{/ifCondition}}
+                                {{#ifCondition object_prop_type " == 'Password'"}}
+                                <input class="form-control " id="{{base_obj_prop_sets_uuid}}" name="{{{whitespace property_name}}}" placeholder="{{property_value}}" type="password" value="" maxlength="50">
+
+                                {{/ifCondition}}
+                                <!--<label for="{{{whitespace property_name}}}" class="error"></label>-->
+                            </div>
+                        </div>
+                        {{/objects}}
+                        <div class="form-group" id="captcha-wrap">
+                            <label class="col-md-3 control-label">Enter CAPTCHA <span class="error">*</span></label>
+                            <div class="col-md-9 captcha-style">
+                                {{{captcha}}}
+                                <p class="error">{{postedCaptcha}}</p>
+                            </div>
+                        </div>
+                        <div class="form-actions fluid">
+                            <div class="col-md-offset-3 col-md-9">
+                                <!--input type="submit" name="command" class="btn blue" value="create" /-->
+                                <button type="submit" class="btn blue">Submit</button>
+                                <a href="/login" class="btn default cancel">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

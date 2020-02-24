@@ -1,0 +1,57 @@
+﻿<div class="public page-content" style="min-height:347px">
+    <div class="row">
+        <div class="sign-in-wrap">
+            <header class="register-header">
+                <h1>Recover Username</h1>
+                {{#if successMessage}}
+                <div class="alert alert-info">
+                    <strong>Notice: </strong><span id="alert-message">{{successMessage}}</span>
+                </div>
+                {{/if}}
+            </header>
+
+            <div class="forgotUsername-form-wrap">
+                <form id="{{formId}}" action="/forgotusername/submit" class="form-horizontal default" novalidate="novalidate" method="post">
+                    {{{currentRequestVerificationToken}}}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-body">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <h2 style="padding-left:15px;">
+                                    Enter your registered email:
+                                </h2>
+                                <!--<label class="col-md-3 control-label">Email <span class="error">*</span></label>-->
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control small" id="email-address" name="email-address" style="color:#000000" placeholder="Enter Email Address">
+                                </div>
+                                <!--<div style="clear:both"></div>
+                                <div class="col-md-3 control-label"></div>-->
+                                <!--<label class="col-md-3 control-label">Enter CAPTCHA <span class="error">*</span></label>-->
+                                <div class="col-md-9">
+                                    {{{captcha}}}
+                                    <p class="error">{{postedCaptcha}}</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <button type="submit" class="btn blue" id="recover-username-btn">Recover Username</button>
+                                    <a href="/login" class="btn default cancel" id="cancel-btn">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="module">
+                                <div style="text-align:center;line-height:60px;font-size:16px;color:#fff;" class="whitelink">
+                                    <h2>
+                                        Having account trouble?
+                                    </h2>
+                                    <a href="/contactus" class="btn grey" id="contact-us-btn">Contact Us</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

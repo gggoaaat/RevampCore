@@ -1,0 +1,15 @@
+﻿body {
+}
+
+.val-error-class {
+    color: #FF0000 !important; /* red */
+}
+
+label .error {
+    color: #FF0000 !important;
+}
+
+.ui-autocomplete {
+    z-index: 10510 !important;
+}
+
